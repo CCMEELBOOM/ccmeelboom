@@ -5,15 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Charlie Chavez Meelboom | Mechanical Engineering</title>
 
+  <!-- Geometric font similar to "archi" -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+
   <style>
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      font-family: Helvetica, Arial, sans-serif;
+      background: #000000;
+      color: #ffffff;
       line-height: 1.6;
     }
 
+    /* HEADER + NAV */
     header {
       padding: 32px 20px;
       max-width: 900px;
@@ -22,33 +26,38 @@
 
     h1 {
       margin: 0;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       font-weight: 700;
+      font-family: Helvetica, Arial, sans-serif;
     }
 
     nav {
       margin-top: 12px;
       display: flex;
-      gap: 16px;
+      gap: 22px;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: #38bdf8;
+      color: #ff7a00; /* orange like the reference image */
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 1.1rem;
+      font-family: 'Montserrat', sans-serif; /* geometric archi-like */
+      transition: transform 0.2s ease, color 0.2s ease;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      transform: scale(1.25);
+      color: #ffa64d;
     }
 
+    /* SECTIONS */
     section {
       max-width: 900px;
       margin: 40px auto;
       padding: 20px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: #00A2ED;
+      color: white;
       border-radius: 10px;
     }
 
@@ -56,8 +65,8 @@
       margin-top: 0;
       font-size: 1.4rem;
       letter-spacing: 0.5px;
-      color: #94a3b8;
       text-transform: uppercase;
+      font-family: Helvetica, Arial, sans-serif;
     }
 
     ul {
@@ -69,24 +78,24 @@
       margin-top: 10px;
       padding: 10px 16px;
       border-radius: 6px;
-      border: 1px solid #38bdf8;
-      color: #38bdf8;
+      border: 1px solid white;
+      color: white;
       text-decoration: none;
       font-size: 0.9rem;
     }
 
     .btn:hover {
-      background: rgba(56,189,248,0.15);
+      background: rgba(255,255,255,0.2);
     }
 
     footer {
       text-align: center;
       padding: 40px 0;
-      color: #64748b;
+      color: #888;
       font-size: 0.8rem;
     }
 
-    /* ⭐ PARTICLE BACKGROUND CSS ⭐ */
+    /* PARTICLE BACKGROUND */
     #particles-container {
       position: fixed;
       inset: 0;
@@ -98,7 +107,7 @@
 
 <body>
 
-  <!-- ⭐ PARTICLE BACKGROUND CONTAINER ⭐ -->
+  <!-- PARTICLE BACKGROUND -->
   <div id="particles-container"></div>
 
   <header>
@@ -161,14 +170,15 @@
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:cchavezmeelboo7852@sdsu.edu">cchavezmeelboo7852@sdsu.edu</a></p>
+    <p>Email: <a href="mailto:ccmeelboom@gmail.com">ccmeelboom@gmail.com</a></p>
+    <p>Phone: (949) 439‑4010</p>
   </section>
 
   <footer>
     © 2026 Charlie Chavez Meelboom
   </footer>
 
-  <!-- ⭐ PARTICLE BACKGROUND SCRIPT ⭐ -->
+  <!-- PARTICLE SCRIPT -->
   <script>
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
