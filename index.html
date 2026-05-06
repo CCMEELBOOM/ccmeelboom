@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Charlie Chavez Meelboom | Mechanical Engineering</title>
+  <title>CHARLIE CHAVEZ MEELBOOM</title>
 
-  <!-- Geometric font similar to "archi" -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Archi-style geometric font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@700&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -17,32 +17,35 @@
       line-height: 1.6;
     }
 
-    /* HEADER + NAV */
     header {
-      padding: 32px 20px;
+      padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      text-align: center;
     }
 
     h1 {
       margin: 0;
-      font-size: 2.4rem;
+      font-size: 3rem;
       font-weight: 700;
-      font-family: Helvetica, Arial, sans-serif;
+      font-family: 'Montserrat Alternates', sans-serif;
+      letter-spacing: 2px;
     }
 
     nav {
-      margin-top: 12px;
+      margin-top: 20px;
       display: flex;
-      gap: 22px;
+      justify-content: center;
+      gap: 30px;
       flex-wrap: wrap;
     }
 
     nav a {
-      color: #ff7a00; /* orange like the reference image */
+      color: #ff7a00;
       text-decoration: none;
-      font-size: 1.1rem;
-      font-family: 'Montserrat', sans-serif; /* geometric archi-like */
+      font-size: 1.2rem;
+      font-family: 'Montserrat Alternates', sans-serif;
+      font-weight: 700;
       transition: transform 0.2s ease, color 0.2s ease;
     }
 
@@ -51,12 +54,11 @@
       color: #ffa64d;
     }
 
-    /* SECTIONS */
     section {
       max-width: 900px;
       margin: 40px auto;
-      padding: 20px;
-      background: #00A2ED;
+      padding: 25px;
+      background: #0077b8; /* darker blue */
       color: white;
       border-radius: 10px;
     }
@@ -64,8 +66,8 @@
     h2 {
       margin-top: 0;
       font-size: 1.4rem;
-      letter-spacing: 0.5px;
       text-transform: uppercase;
+      letter-spacing: 1px;
       font-family: Helvetica, Arial, sans-serif;
     }
 
@@ -94,31 +96,20 @@
       color: #888;
       font-size: 0.8rem;
     }
-
-    /* PARTICLE BACKGROUND */
-    #particles-container {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      overflow: hidden;
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- PARTICLE BACKGROUND -->
-  <div id="particles-container"></div>
-
   <header>
-    <h1>Charlie Chavez Meelboom</h1>
-    <p>Mechanical Engineering @ SDSU • Electric Racing • Hardware–Software Integration</p>
+    <h1>CHARLIE CHAVEZ MEELBOOM</h1>
 
     <nav>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#projects">Projects</a>
       <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -168,6 +159,15 @@
     </ul>
   </section>
 
+  <section id="education">
+    <h2>Education</h2>
+    <ul>
+      <li><strong>San Diego State University</strong> — B.S. Mechanical Engineering (Expected 2028)</li>
+      <li>Relevant coursework: Controls, Fluid Mechanics, Mechanics of Materials, CAD/FEA</li>
+      <li>Clubs: Aztec Electric Racing (Business Lead), Engineering Student Organizations</li>
+    </ul>
+  </section>
+
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:ccmeelboom@gmail.com">ccmeelboom@gmail.com</a></p>
@@ -177,59 +177,6 @@
   <footer>
     © 2026 Charlie Chavez Meelboom
   </footer>
-
-  <!-- PARTICLE SCRIPT -->
-  <script>
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
-    const container = document.getElementById("particles-container");
-
-    container.appendChild(canvas);
-
-    function resize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener("resize", resize);
-    resize();
-
-    const particleCount = 200;
-    const particles = [];
-
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 1,
-        speedX: (Math.random() - 0.5) * 0.5,
-        speedY: (Math.random() - 0.5) * 0.5,
-      });
-    }
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      particles.forEach((p) => {
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-
-        ctx.fillStyle = "white";
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fill();
-      });
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
-  </script>
 
 </body>
 </html>
