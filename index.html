@@ -5,91 +5,435 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CHARLIE CHAVEZ MEELBOOM</title>
 
-  <!-- Archivo Black (for top name + menu) -->
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+  <!-- Bungee + Oxygen fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
 
   <style>
     body {
       margin: 0;
-      font-family: Helvetica, Arial, sans-serif;
       background: #000000;
       color: #ffffff;
+      font-family: 'Oxygen', sans-serif;
       line-height: 1.6;
     }
 
-    header {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
+    /* STICKY TOP NAV BAR */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: #000000;
+      padding: 15px 30px;
+      border-bottom: 2px solid #2B45C4;
 
-    /* TOP NAME */
-    h1 {
-      margin: 0;
-      font-size: 3rem;
-      font-weight: 700;
-      font-family: 'Archivo Black', sans-serif;
-      letter-spacing: 2px;
-    }
-
-    /* MENU */
-    nav {
-      margin-top: 20px;
       display: flex;
-      justify-content: center;
-      gap: 30px;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* NAME ON LEFT */
+    .topbar h1 {
+      font-family: 'Bungee', sans-serif;
+      font-size: 1.4rem;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    /* MENU CENTERED */
+    nav {
+      position: relative;
+      display: flex;
+      gap: 25px;
       flex-wrap: wrap;
+      justify-content: center;
+      flex: 1;
     }
 
     nav a {
-      color: #ff7a00;
+      position: relative;
+      z-index: 2;
+      font-family: 'Bungee', sans-serif;
+      color: #60666B;
       text-decoration: none;
-      font-size: 1.2rem;
-      font-family: 'Archivo Black', sans-serif;
+      font-size: 1rem;
+      padding: 7px 12px;
+      border-radius: 999px;
       transition: transform 0.2s ease, color 0.2s ease;
     }
 
     nav a:hover {
-      transform: scale(1.25);
-      color: #ffa64d;
+      transform: scale(1.15);
+      color: #ffffff;
     }
 
-    /* SECTIONS */
-    section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 25px;
-      background: #0228E3; /* NEW BLUE */
-      color: white;
-      border-radius: 10px;
+    nav a.active {
+      color: #ffffff;
     }
 
-    h2 {
-      margin-top: 0;
-      font-size: 1.4rem;
+    .nav-indicator {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 0;
+      height: 34px;
+      border: 2px solid #ffffff;
+      border-radius: 999px;
+      background: transparent;
+      opacity: 0;
+      transform: translateY(-50%) translateX(0);
+      transition:
+        transform 0.35s ease,
+        width 0.35s ease,
+        opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .content {
+      padding-top: 40px;
+    }
+
+    /* ABOUT SECTION — TWO COLUMNS */
+    .about-wrapper {
+      max-width: 1100px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+
+      display: flex;
+      gap: 40px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .about-left {
+      flex: 1 1 55%;
+      min-width: 280px;
+    }
+
+    .about-left h2 {
+      font-family: 'Bungee', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #ffffff;
       text-transform: uppercase;
       letter-spacing: 1px;
-      font-family: Helvetica, Arial, sans-serif;
     }
 
-    ul {
+    .about-left p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-btn {
+      padding: 10px 18px;
+      border: 1px solid #ffffff;
+      border-radius: 6px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s ease;
+    }
+
+    .hero-btn:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* RIGHT SIDE BOX */
+    .about-box {
+      flex: 1 1 35%;
+      min-width: 260px;
+      background: #2B45C4;
+      padding: 25px;
+      border-radius: 12px;
+      color: white;
+      transition: transform 0.25s ease;
+    }
+
+    .about-box:hover {
+      transform: scale(1.05);
+    }
+
+    .about-box h3 {
+      font-family: 'Bungee', sans-serif;
+      font-size: 1.2rem;
+      margin-top: 0;
+      margin-bottom: 10px;
+      color: #000;
+      text-transform: uppercase;
+    }
+
+    /* LEFT-ALIGNED SECTION TITLES */
+    .section-title-left {
+      font-family: 'Bungee', sans-serif;
+      font-size: 1.8rem;
+      color: #ffffff;
+      text-align: left;
+      margin: 60px auto 20px auto;
+      max-width: 1100px;
+      padding-left: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* EXPERIENCE — ONE BOX PER ROW */
+    .experience-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .experience-box {
+      background: #2B45C4;
+      padding: 25px;
+      border-radius: 12px;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      font-size: 1rem;
+      font-family: 'Oxygen', sans-serif;
+      color: #000000;
+      transition: transform 0.25s ease;
+    }
+
+    .experience-box:hover {
+      transform: scale(1.03);
+    }
+
+    .exp-top {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .exp-title {
+      font-family: 'Bungee', sans-serif;
+      font-size: 1.25rem;
+      color: #000000;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .exp-location {
+      font-size: 0.95rem;
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .exp-bullets {
+      margin: 0;
       padding-left: 20px;
     }
 
-    .btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 16px;
-      border-radius: 6px;
-      border: 1px solid white;
-      color: white;
-      text-decoration: none;
-      font-size: 0.9rem;
+    .exp-bullets li {
+      margin-bottom: 6px;
+      color: #000000;
+      font-size: 0.95rem;
     }
 
-    .btn:hover {
-      background: rgba(255,255,255,0.2);
+    .exp-skills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .chip {
+      background: #0F2F75;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    /* SKILLS — 3 SQUARES PER ROW */
+    .skills-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+    }
+
+    .skill-box {
+      background: #2B45C4;
+      padding: 30px;
+      border-radius: 12px;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 1rem;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    /* EDUCATION */
+    section {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #2B45C4;
+      border-radius: 12px;
+      color: white;
+    }
+
+    h2 {
+      font-family: 'Bungee', sans-serif;
+      font-size: 1.4rem;
+      margin-top: 0;
+      color: #000000;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* CONTACT SECTION */
+    .contact-section {
+      max-width: 1100px;
+      margin: 70px auto 40px auto;
+      padding: 0 20px;
+      background: transparent;
+      border-radius: 0;
+      color: #ffffff;
+
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: stretch;
+    }
+
+    .contact-label {
+      font-family: 'Bungee', sans-serif;
+      font-size: 0.8rem;
+      color: #ffffff;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .contact-left h2 {
+      font-family: 'Bungee', sans-serif;
+      font-size: 2rem;
+      color: #ffffff;
+      margin: 0 0 25px 0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .contact-left p {
+      font-size: 1.05rem;
+      margin-bottom: 25px;
+      color: #ffffff;
+    }
+
+    .contact-card {
+      background: #2B45C4;
+      padding: 18px 22px;
+      border-radius: 12px;
+      margin-bottom: 14px;
+      transition: transform 0.25s ease;
+    }
+
+    .contact-card:hover {
+      transform: scale(1.03);
+    }
+
+    .contact-card-label {
+      font-family: 'Bungee', sans-serif;
+      font-size: 0.75rem;
+      color: #000000;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .contact-card a,
+    .contact-card div {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .contact-card a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-form {
+      background: #2B45C4;
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      color: #000000;
+      font-weight: 700;
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: #000000;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      padding: 13px 15px;
+      color: #ffffff;
+      font-family: 'Oxygen', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #ffffff;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.15);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .send-btn {
+      width: 100%;
+      border: none;
+      background: #0F2F75;
+      color: #ffffff;
+      padding: 14px 20px;
+      border-radius: 999px;
+      font-family: 'Oxygen', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .send-btn:hover {
+      transform: scale(1.03);
+      background: #000000;
     }
 
     footer {
@@ -97,89 +441,305 @@
       padding: 40px 0;
       color: #888;
       font-size: 0.8rem;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    /* ANIMATIONS */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+      .topbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-section {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <header>
+  <!-- STICKY TOP BAR -->
+  <div class="topbar">
     <h1>CHARLIE CHAVEZ MEELBOOM</h1>
 
     <nav>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <span class="nav-indicator"></span>
+
+      <a class="nav-link active" href="#about">About</a>
+      <a class="nav-link" href="#experience">Experience</a>
+      <a class="nav-link" href="#skills">Skills</a>
+      <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#education">Education</a>
+      <a class="nav-link" href="#contact">Contact</a>
     </nav>
-  </header>
+  </div>
 
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I’m a Mechanical Engineering student at SDSU and Business Lead for Aztec Electric Racing.
-      I work across mechanical design, testing, and hardware–software integration, with a focus on
-      building reliable systems and contributing to mission‑driven engineering teams.
-    </p>
-    <a class="btn" href="Resume.pdf" target="_blank">Download Resume</a>
-  </section>
+  <div class="content">
 
-  <section id="experience">
-    <h2>Experience</h2>
+    <!-- ABOUT SECTION -->
+    <div id="about" class="about-wrapper fade-section">
 
-    <h3>Aztec Electric Racing — Business Lead</h3>
-    <ul>
-      <li>Coordinate sponsor outreach, fundraising, and team operations.</li>
-      <li>Support technical integration: sensors, ROS2 data routing, and subsystem testing.</li>
-    </ul>
+      <div class="about-left">
+        <h2>About</h2>
 
-    <h3>Engineering Projects & Coursework</h3>
-    <ul>
-      <li>Mechanics of Materials, Fluid Mechanics, Controls, CAD, and prototyping.</li>
-      <li>Hands‑on work with servos, hydrophones, and ROS2 topic integration.</li>
-    </ul>
-  </section>
+        <p>
+          I’m a Mechanical Engineering student at SDSU and Business Lead for Aztec Electric Racing.
+          I work across mechanical design, testing, and hardware–software integration, with a focus on
+          building reliable systems and contributing to mission-driven engineering teams.
+        </p>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>Electric race car subsystem integration (AER).</li>
-      <li>ROS2 sensor data pipeline for control applications.</li>
-      <li>Mechanical design + analysis coursework projects.</li>
-    </ul>
-  </section>
+        <div class="hero-buttons">
+          <a class="hero-btn" href="Resume.pdf" target="_blank">View Resume</a>
+          <a class="hero-btn" href="https://www.linkedin.com" target="_blank">LinkedIn Profile</a>
+        </div>
+      </div>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>CAD • SolidWorks • FEA basics</li>
-      <li>Python • ROS2 • Sensor integration</li>
-      <li>Mechanics of Materials • Fluid Mechanics</li>
-      <li>Project coordination • Technical communication</li>
-    </ul>
-  </section>
+      <div class="about-box">
+        <h3>Actively Exploring</h3>
 
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>San Diego State University</strong> — B.S. Mechanical Engineering (Expected 2028)</li>
-      <li>Relevant coursework: Controls, Fluid Mechanics, Mechanics of Materials, CAD/FEA</li>
-      <li>Clubs: Aztec Electric Racing (Business Lead)</li>
-    </ul>
-  </section>
+        <p><strong>Internships / Co-ops</strong></p>
+        <p><strong>Current role:</strong> Business Lead @ AER</p>
+        <p><strong>Domains:</strong> Mechanical design, testing, integration</p>
+        <p><strong>Years of experience:</strong> 2+</p>
+        <p><strong>Tech stack:</strong> SolidWorks, Python, ROS2, sensors</p>
+      </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:ccmeelboom@gmail.com">ccmeelboom@gmail.com</a></p>
-    <p>Phone: (949) 439‑4010</p>
-  </section>
+    </div>
 
-  <footer>
-    © 2026 Charlie Chavez Meelboom
-  </footer>
+    <!-- EXPERIENCE SECTION -->
+    <div id="experience" class="fade-section">
+
+      <div class="section-title-left">Experience</div>
+
+      <div class="experience-grid">
+
+        <div class="experience-box">
+          <div class="exp-top">
+            <div class="chip">May 2025 – Aug 2025</div>
+            <div class="chip">Mechanical Engineering Intern</div>
+          </div>
+
+          <div class="exp-title">Company Name</div>
+
+          <div class="exp-location">San Diego, CA</div>
+
+          <ul class="exp-bullets">
+            <li>Designed and tested mechanical components for high-performance systems.</li>
+            <li>Collaborated with cross-functional teams on integration and validation.</li>
+            <li>Improved system efficiency through iterative prototyping and testing.</li>
+          </ul>
+
+          <div class="exp-skills">
+            <div class="chip">SolidWorks</div>
+            <div class="chip">Testing</div>
+            <div class="chip">Python</div>
+          </div>
+        </div>
+
+        <div class="experience-box">
+          <div class="exp-top">
+            <div class="chip">Date Range</div>
+            <div class="chip">Role Title</div>
+          </div>
+
+          <div class="exp-title">Company Name</div>
+
+          <div class="exp-location">Location</div>
+
+          <ul class="exp-bullets">
+            <li>Bullet point here.</li>
+            <li>Bullet point here.</li>
+            <li>Bullet point here.</li>
+          </ul>
+
+          <div class="exp-skills">
+            <div class="chip">Skill</div>
+            <div class="chip">Skill</div>
+            <div class="chip">Skill</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- SKILLS SECTION -->
+    <div id="skills" class="fade-section">
+
+      <div class="section-title-left">Skills</div>
+
+      <div class="skills-grid">
+        <div class="skill-box">[text here]</div>
+        <div class="skill-box">[text here]</div>
+        <div class="skill-box">[text here]</div>
+        <div class="skill-box">[text here]</div>
+        <div class="skill-box">[text here]</div>
+        <div class="skill-box">[text here]</div>
+      </div>
+
+    </div>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="fade-section">
+      <h2>Projects</h2>
+      <p>[Project information here]</p>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="fade-section">
+      <h2>Education</h2>
+      <ul>
+        <li><strong>San Diego State University</strong> — B.S. Mechanical Engineering (Expected 2028)</li>
+        <li>Relevant coursework: Controls, Fluid Mechanics, Mechanics of Materials, CAD/FEA</li>
+        <li>Clubs: Aztec Electric Racing (Business Lead)</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section fade-section">
+
+      <div class="contact-left">
+        <div class="contact-label">Contact</div>
+
+        <h2>Let’s Talk.</h2>
+
+        <p>
+          I’m open to internships, co-ops, research positions, and collaborations around
+          mechanical design, EVs, testing, and technical leadership. Email is best, but feel
+          free to reach out on LinkedIn as well.
+        </p>
+
+        <div class="contact-card">
+          <div class="contact-card-label">Email</div>
+          <a href="mailto:ccmeelboom@gmail.com">ccmeelboom@gmail.com</a>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-label">Phone</div>
+          <div>(949) 439-4010</div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-card-label">LinkedIn</div>
+          <a href="https://www.linkedin.com" target="_blank">LinkedIn Profile</a>
+        </div>
+      </div>
+
+      <form class="contact-form" action="mailto:ccmeelboom@gmail.com" method="post" enctype="text/plain">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text">
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email">
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message"></textarea>
+        </div>
+
+        <button class="send-btn" type="submit">Send Message</button>
+      </form>
+
+    </section>
+
+    <footer>
+      © 2026 Charlie Chavez Meelboom
+    </footer>
+
+  </div>
+
+  <!-- ANIMATION + ACTIVE NAV SCRIPT -->
+  <script>
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".fade-section").forEach(section => {
+      observer.observe(section);
+    });
+
+    const nav = document.querySelector("nav");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const navIndicator = document.querySelector(".nav-indicator");
+    const sections = document.querySelectorAll("#about, #experience, #skills, #projects, #education, #contact");
+
+    function moveNavIndicator(activeLink) {
+      const navRect = nav.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+
+      navIndicator.style.width = `${linkRect.width}px`;
+      navIndicator.style.transform = `translateY(-50%) translateX(${linkRect.left - navRect.left}px)`;
+      navIndicator.style.opacity = "1";
+    }
+
+    function setActiveNav(sectionId) {
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === `#${sectionId}`) {
+          link.classList.add("active");
+          moveNavIndicator(link);
+        }
+      });
+    }
+
+    function updateActiveNavOnScroll() {
+      let currentSection = "about";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 160;
+
+        if (window.scrollY >= sectionTop) {
+          currentSection = section.getAttribute("id");
+        }
+      });
+
+      setActiveNav(currentSection);
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        setTimeout(updateActiveNavOnScroll, 150);
+      });
+    });
+
+    window.addEventListener("scroll", updateActiveNavOnScroll);
+    window.addEventListener("resize", updateActiveNavOnScroll);
+    window.addEventListener("load", updateActiveNavOnScroll);
+  </script>
 
 </body>
 </html>
-
