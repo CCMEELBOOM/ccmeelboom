@@ -265,6 +265,106 @@
       white-space: nowrap;
     }
 
+    /* PROJECTS */
+    .projects-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 25px;
+    }
+
+    .project-box {
+      background: #2B45C4;
+      padding: 25px;
+      border-radius: 12px;
+      color: #000000;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: center;
+
+      transition: transform 0.25s ease;
+    }
+
+    .project-box:hover {
+      transform: scale(1.03);
+    }
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .project-top {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 2px;
+    }
+
+    .project-title {
+      font-family: 'Bungee', sans-serif;
+      font-size: 1.2rem;
+      color: #000000;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    .project-description {
+      color: #000000;
+      font-size: 0.98rem;
+      margin: 0;
+    }
+
+    .project-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      width: fit-content;
+      background: #0F2F75;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .project-link:hover {
+      background: #000000;
+      transform: scale(1.04);
+    }
+
+    .project-image-wrap {
+      width: 100%;
+      height: 230px;
+      background: rgba(0, 0, 0, 0.22);
+      border-radius: 12px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-image-placeholder {
+      color: #ffffff;
+      font-weight: 700;
+      text-align: center;
+      padding: 20px;
+    }
+
     /* SKILLS — 3 SQUARES PER ROW */
     .skills-grid {
       max-width: 1100px;
@@ -289,73 +389,24 @@
       font-family: 'Oxygen', sans-serif;
     }
 
-    /* GENERAL SECTIONS */
-    section {
+    /* EDUCATION */
+    .education-box {
       max-width: 1100px;
-      margin: 40px auto;
+      margin: 0 auto 40px auto;
       padding: 30px;
       background: #2B45C4;
       border-radius: 12px;
       color: white;
+      box-sizing: border-box;
+      width: calc(100% - 40px);
     }
 
-    h2 {
-      font-family: 'Bungee', sans-serif;
-      font-size: 1.4rem;
-      margin-top: 0;
-      color: #000000;
-      letter-spacing: 1px;
-      text-transform: uppercase;
+    .education-box ul {
+      margin-bottom: 0;
     }
 
-    /* PROJECTS */
-    .projects-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      margin-top: 20px;
-    }
-
-    .project-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      background: rgba(0, 0, 0, 0.18);
-      padding: 18px 20px;
-      border-radius: 12px;
-      transition: transform 0.25s ease, background 0.25s ease;
-    }
-
-    .project-row:hover {
-      transform: scale(1.02);
-      background: rgba(0, 0, 0, 0.28);
-    }
-
-    .project-title {
-      color: #ffffff;
-      font-size: 1rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .project-title a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .project-title a:hover {
-      text-decoration: underline;
-    }
-
-    .project-date {
-      background: #0F2F75;
-      color: #ffffff;
-      padding: 6px 12px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      white-space: nowrap;
+    .education-box li {
+      margin-bottom: 8px;
     }
 
     /* CONTACT SECTION */
@@ -526,18 +577,20 @@
         gap: 15px;
       }
 
+      .project-box {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image-wrap {
+        height: 200px;
+      }
+
       .skills-grid {
         grid-template-columns: 1fr;
       }
 
       .contact-section {
         grid-template-columns: 1fr;
-      }
-
-      .project-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
       }
     }
   </style>
@@ -554,8 +607,8 @@
 
       <a class="nav-link active" href="#about">About</a>
       <a class="nav-link" href="#experience">Experience</a>
-      <a class="nav-link" href="#skills">Skills</a>
       <a class="nav-link" href="#projects">Projects</a>
+      <a class="nav-link" href="#skills">Skills</a>
       <a class="nav-link" href="#education">Education</a>
       <a class="nav-link" href="#contact">Contact</a>
     </nav>
@@ -754,6 +807,80 @@
 
     </div>
 
+    <!-- PROJECTS SECTION -->
+    <div id="projects" class="fade-section">
+
+      <div class="section-title-left">Projects</div>
+
+      <div class="projects-grid">
+
+        <div class="project-box">
+          <div class="project-info">
+            <div class="project-top">
+              <div class="chip">Date</div>
+            </div>
+
+            <h3 class="project-title">Project Title</h3>
+
+            <p class="project-description">
+              Write a 1–2 sentence description of the project here. Focus on what you built,
+              what problem it solved, and what tools or engineering skills were involved.
+            </p>
+
+            <a class="project-link" href="#" target="_blank">View Project</a>
+          </div>
+
+          <div class="project-image-wrap">
+            <div class="project-image-placeholder">Project Image</div>
+          </div>
+        </div>
+
+        <div class="project-box">
+          <div class="project-info">
+            <div class="project-top">
+              <div class="chip">Date</div>
+            </div>
+
+            <h3 class="project-title">Project Title</h3>
+
+            <p class="project-description">
+              Write a 1–2 sentence description of the project here. Focus on what you built,
+              what problem it solved, and what tools or engineering skills were involved.
+            </p>
+
+            <a class="project-link" href="#" target="_blank">View Project</a>
+          </div>
+
+          <div class="project-image-wrap">
+            <div class="project-image-placeholder">Project Image</div>
+          </div>
+        </div>
+
+        <div class="project-box">
+          <div class="project-info">
+            <div class="project-top">
+              <div class="chip">Date</div>
+            </div>
+
+            <h3 class="project-title">Project Title</h3>
+
+            <p class="project-description">
+              Write a 1–2 sentence description of the project here. Focus on what you built,
+              what problem it solved, and what tools or engineering skills were involved.
+            </p>
+
+            <a class="project-link" href="#" target="_blank">View Project</a>
+          </div>
+
+          <div class="project-image-wrap">
+            <div class="project-image-placeholder">Project Image</div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
     <!-- SKILLS SECTION -->
     <div id="skills" class="fade-section">
 
@@ -770,34 +897,20 @@
 
     </div>
 
-    <!-- PROJECTS -->
-    <section id="projects" class="fade-section">
-      <h2>Projects</h2>
+    <!-- EDUCATION SECTION -->
+    <div id="education" class="fade-section">
 
-      <div class="projects-list">
+      <div class="section-title-left">Education</div>
 
-        <div class="project-row">
-          <p class="project-title">Aztec Electric Racing Cooling System Design</p>
-          <span class="project-date">2026</span>
-        </div>
-
-        <div class="project-row">
-          <p class="project-title">Aztec Electric Racing Cooling</p>
-          <span class="project-date">2025</span>
-        </div>
-
+      <div class="education-box">
+        <ul>
+          <li><strong>San Diego State University</strong> — B.S. Mechanical Engineering (Expected 2028)</li>
+          <li>Relevant coursework: Controls, Fluid Mechanics, Mechanics of Materials, CAD/FEA</li>
+          <li>Clubs: Aztec Electric Racing (Business Lead)</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- EDUCATION -->
-    <section id="education" class="fade-section">
-      <h2>Education</h2>
-      <ul>
-        <li><strong>San Diego State University</strong> — B.S. Mechanical Engineering (Expected 2028)</li>
-        <li>Relevant coursework: Controls, Fluid Mechanics, Mechanics of Materials, CAD/FEA</li>
-        <li>Clubs: Aztec Electric Racing (Business Lead)</li>
-      </ul>
-    </section>
+    </div>
 
     <!-- CONTACT -->
     <section id="contact" class="contact-section fade-section">
@@ -876,7 +989,7 @@
     const nav = document.querySelector("nav");
     const navLinks = document.querySelectorAll(".nav-link");
     const navIndicator = document.querySelector(".nav-indicator");
-    const sections = document.querySelectorAll("#about, #experience, #skills, #projects, #education, #contact");
+    const sections = document.querySelectorAll("#about, #experience, #projects, #skills, #education, #contact");
 
     function moveNavIndicator(activeLink) {
       const navRect = nav.getBoundingClientRect();
