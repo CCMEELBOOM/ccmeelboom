@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Project Title | Charlie Chavez Meelboom</title>
+
+  <!-- Bungee + Oxygen fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #000000;
+      font-family: 'Oxygen', sans-serif;
+      line-height: 1.6;
+    }
+
+    /* STICKY TOP NAV BAR */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: #ffffff;
+      padding: 15px 30px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar h1 {
+      font-family: 'Bungee', sans-serif;
+      font-size: 1.4rem;
+      margin: 0;
+      letter-spacing: 1px;
+      color: #000000;
+    }
+
+    .topbar h1 a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar h1 a:hover {
+      color: #60666B;
+    }
+
+    nav {
+      position: relative;
+      display: flex;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+      flex: 1;
+    }
+
+    nav a {
+      position: relative;
+      z-index: 2;
+      font-family: 'Bungee', sans-serif;
+      color: #60666B;
+      text-decoration: none;
+      font-size: 1rem;
+      padding: 7px 12px;
+      border-radius: 999px;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    nav a:hover {
+      transform: scale(1.15);
+      color: #000000;
+    }
+
+    nav a.active {
+      color: #000000;
+    }
+
+    .nav-indicator {
+      position: absolute;
+      z-index: 1;
+      top: 50%;
+      left: 0;
+      height: 34px;
+      border: 2px solid #000000;
+      border-radius: 999px;
+      background: transparent;
+      opacity: 0;
+      transform: translateY(-50%) translateX(0);
+      transition:
+        transform 0.35s ease,
+        width 0.35s ease,
+        opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .content {
+      padding-top: 40px;
+    }
+
+    /* PAGE WRAPPER */
+    .project-page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* BACK LINK */
+    .back-link {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #000000;
+      text-decoration: none;
+      border: 1px solid #000000;
+      border-radius: 999px;
+      padding: 8px 14px;
+      font-size: 0.9rem;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .back-link:hover {
+      background: rgba(0,0,0,0.12);
+      transform: scale(1.04);
+    }
+
+    /* HERO */
+    .project-hero {
+      background: #2B45C4;
+      border-radius: 12px;
+      padding: 30px;
+      color: #ffffff;
+
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 35px;
+      align-items: center;
+      transition: transform 0.25s ease;
+    }
+
+    .project-hero:hover {
+      transform: scale(1.02);
+    }
+
+    .project-label {
+      font-family: 'Bungee', sans-serif;
+      font-size: 0.8rem;
+      color: #000000;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .project-hero h2 {
+      font-family: 'Bungee', sans-serif;
+      font-size: 2rem;
+      margin: 0 0 15px 0;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .project-summary {
+      color: #ffffff;
+      font-size: 1.05rem;
+      margin-bottom: 18px;
+    }
+
+    .project-chip-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .chip {
+      background: #0F2F75;
+      color: #ffffff;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .hero-image-wrap {
+      width: 100%;
+      height: 280px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 12px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .image-placeholder {
+      color: #000000;
+      font-weight: 700;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* SECTION TITLES */
+    .section-title-left {
+      font-family: 'Bungee', sans-serif;
+      font-size: 1.8rem;
+      color: #000000;
+      text-align: left;
+      margin: 60px auto 20px auto;
+      max-width: 1100px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* BLUE CONTENT BOXES */
+    .project-box {
+      background: #2B45C4;
+      padding: 25px;
+      border-radius: 12px;
+      color: #ffffff;
+      margin-bottom: 25px;
+      transition: transform 0.25s ease;
+    }
+
+    .project-box:hover {
+      transform: scale(1.02);
+    }
+
+    .project-box h3 {
+      font-family: 'Bungee', sans-serif;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+    }
+
+    .project-box p {
+      color: #ffffff;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .project-box ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .project-box li {
+      color: #ffffff;
+      margin-bottom: 8px;
+      font-size: 0.98rem;
+    }
+
+    /* PROCESS BOXES */
+    .process-box {
+      background: #2B45C4;
+      padding: 25px;
+      border-radius: 12px;
+      color: #ffffff;
+      margin-bottom: 25px;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      align-items: center;
+
+      transition: transform 0.25s ease;
+    }
+
+    .process-box:hover {
+      transform: scale(1.02);
+    }
+
+    .process-text h3 {
+      font-family: 'Bungee', sans-serif;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+    }
+
+    .process-text p {
+      color: #ffffff;
+      margin: 0 0 12px 0;
+      font-size: 1rem;
+    }
+
+    .process-text ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .process-text li {
+      color: #ffffff;
+      margin-bottom: 8px;
+      font-size: 0.98rem;
+    }
+
+    .process-image-wrap {
+      width: 100%;
+      height: 260px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 12px;
+      overflow: hidden;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .process-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* MEDIA GALLERY */
+    .media-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .media-card {
+      background: #2B45C4;
+      border-radius: 12px;
+      padding: 18px;
+      transition: transform 0.25s ease;
+    }
+
+    .media-card:hover {
+      transform: scale(1.03);
+    }
+
+    .media-card img,
+    .media-card video {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 10px;
+      display: block;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .media-caption {
+      color: #ffffff;
+      font-weight: 700;
+      margin-top: 10px;
+      font-size: 0.95rem;
+    }
+
+    /* DOWNLOAD / RESOURCE LINKS */
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .resource-card {
+      background: #2B45C4;
+      border-radius: 12px;
+      padding: 22px;
+      color: #ffffff;
+      text-decoration: none;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
+
+    .resource-card:hover {
+      transform: scale(1.04);
+      background: #0F2F75;
+    }
+
+    .resource-card h3 {
+      font-family: 'Bungee', sans-serif;
+      color: #ffffff;
+      margin: 0 0 8px 0;
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+
+    .resource-card p {
+      color: #ffffff;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 0;
+      color: #60666B;
+      font-size: 0.8rem;
+      font-family: 'Oxygen', sans-serif;
+    }
+
+    /* ANIMATIONS */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 850px) {
+      .topbar {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      .project-hero,
+      .process-box {
+        grid-template-columns: 1fr;
+      }
+
+      .media-grid,
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-image-wrap {
+        height: 220px;
+      }
+
+      .process-image-wrap {
+        height: 220px;
+      }
+
+      .media-card img,
+      .media-card video {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <h1>
+      <a href="../../index.html">CHARLIE CHAVEZ MEELBOOM</a>
+    </h1>
+
+    <nav>
+      <span class="nav-indicator"></span>
+
+      <a class="nav-link active" href="#overview">Overview</a>
+      <a class="nav-link" href="#process">Process</a>
+      <a class="nav-link" href="#media">Media</a>
+      <a class="nav-link" href="#resources">Resources</a>
+    </nav>
+  </div>
+
+  <div class="content">
+
+    <main class="project-page">
+
+      <a class="back-link" href="../../index.html#projects">← Back to Projects</a>
+
+      <!-- HERO -->
+      <section class="project-hero fade-section">
+        <div>
+          <div class="project-label">Project</div>
+
+          <h2>Project Title Here</h2>
+
+          <p class="project-summary">
+            Write a short overview of the project here. This should explain what the project is,
+            why it matters, and what your specific role was in 2–4 sentences.
+          </p>
+
+          <div class="project-chip-row">
+            <div class="chip">Date</div>
+            <div class="chip">SolidWorks</div>
+            <div class="chip">Testing</div>
+            <div class="chip">Analysis</div>
+          </div>
+        </div>
+
+        <div class="hero-image-wrap">
+          <!-- Replace placeholder with:
+          <img src="media/hero-image.jpg" alt="Project title image">
+          -->
+          <div class="image-placeholder">Hero Project Image</div>
+        </div>
+      </section>
+
+      <!-- OVERVIEW -->
+      <div id="overview" class="section-title-left">Overview</div>
+
+      <section class="project-box fade-section">
+        <h3>Problem</h3>
+        <p>
+          Describe the problem or challenge this project addressed. Explain the design requirement,
+          engineering constraint, competition need, or system-level issue.
+        </p>
+      </section>
+
+      <section class="project-box fade-section">
+        <h3>Solution</h3>
+        <p>
+          Describe the solution you developed. Mention your design approach, major decisions,
+          tools used, and how the project improved the system or met the design goal.
+        </p>
+      </section>
+
+      <!-- PROCESS -->
+      <div id="process" class="section-title-left">Process</div>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Step One / Design Direction</h3>
+          <p>
+            Use this area to explain one phase of the project process. This could include initial
+            research, requirements, concept development, sketches, CAD, analysis, or testing.
+          </p>
+
+          <ul>
+            <li>Key decision, constraint, or design requirement.</li>
+            <li>Tool, method, or analysis used during this step.</li>
+            <li>Outcome or learning from this part of the process.</li>
+          </ul>
+        </div>
+
+        <div class="process-image-wrap">
+          <!-- Replace placeholder with:
+          <img src="media/process-1.jpg" alt="Process step one image">
+          -->
+          <div class="image-placeholder">Process Image</div>
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Step Two / Prototyping</h3>
+          <p>
+            Use this section to describe how you iterated, prototyped, manufactured, simulated,
+            tested, or validated your design.
+          </p>
+
+          <ul>
+            <li>Prototype or test setup detail.</li>
+            <li>Iteration or redesign based on results.</li>
+            <li>What improved after this step.</li>
+          </ul>
+        </div>
+
+        <div class="process-image-wrap">
+          <!-- Replace placeholder with:
+          <img src="media/process-2.jpg" alt="Process step two image">
+          -->
+          <div class="image-placeholder">Process Image</div>
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Step Three / Final Integration</h3>
+          <p>
+            Use this final process section to explain final assembly, integration, testing,
+            competition readiness, or what the finished project demonstrated.
+          </p>
+
+          <ul>
+            <li>Final design or integration result.</li>
+            <li>Validation, testing, or performance takeaway.</li>
+            <li>What you would improve in the next iteration.</li>
+          </ul>
+        </div>
+
+        <div class="process-image-wrap">
+          <!-- Replace placeholder with:
+          <img src="media/process-3.jpg" alt="Process step three image">
+          -->
+          <div class="image-placeholder">Process Image</div>
+        </div>
+      </section>
+
+      <!-- MEDIA -->
+      <div id="media" class="section-title-left">Media</div>
+
+      <div class="media-grid fade-section">
+        <div class="media-card">
+          <!-- Replace with:
+          <img src="media/image-1.jpg" alt="Project image 1">
+          -->
+          <div class="hero-image-wrap">
+            <div class="image-placeholder">Image / CAD Render</div>
+          </div>
+          <div class="media-caption">Caption describing this image.</div>
+        </div>
+
+        <div class="media-card">
+          <!-- Replace with:
+          <video controls>
+            <source src="media/test-video.mp4" type="video/mp4">
+          </video>
+          -->
+          <div class="hero-image-wrap">
+            <div class="image-placeholder">Video / Test Clip</div>
+          </div>
+          <div class="media-caption">Caption describing this video or test.</div>
+        </div>
+      </div>
+
+      <!-- RESOURCES -->
+      <div id="resources" class="section-title-left">Resources</div>
+
+      <div class="resource-grid fade-section">
+        <a class="resource-card" href="cad/" target="_blank">
+          <h3>CAD Files</h3>
+          <p>Link to CAD folder or downloadable files.</p>
+        </a>
+
+        <a class="resource-card" href="code/" target="_blank">
+          <h3>Code</h3>
+          <p>Link to scripts, analysis files, or source code.</p>
+        </a>
+
+        <a class="resource-card" href="media/" target="_blank">
+          <h3>Media</h3>
+          <p>Link to images, videos, diagrams, or test footage.</p>
+        </a>
+      </div>
+
+    </main>
+
+    <footer>
+      © 2026 Charlie Chavez Meelboom
+    </footer>
+
+  </div>
+
+  <!-- ANIMATION + ACTIVE NAV SCRIPT -->
+  <script>
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document.querySelectorAll(".fade-section").forEach(section => {
+      observer.observe(section);
+    });
+
+    const nav = document.querySelector("nav");
+    const navLinks = document.querySelectorAll(".nav-link");
+    const navIndicator = document.querySelector(".nav-indicator");
+    const sections = document.querySelectorAll("#overview, #process, #media, #resources");
+
+    function moveNavIndicator(activeLink) {
+      const navRect = nav.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+
+      navIndicator.style.width = `${linkRect.width}px`;
+      navIndicator.style.transform = `translateY(-50%) translateX(${linkRect.left - navRect.left}px)`;
+      navIndicator.style.opacity = "1";
+    }
+
+    function setActiveNav(sectionId) {
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+
+        if (link.getAttribute("href") === `#${sectionId}`) {
+          link.classList.add("active");
+          moveNavIndicator(link);
+        }
+      });
+    }
+
+    function updateActiveNavOnScroll() {
+      let currentSection = "overview";
+
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 160;
+
+        if (window.scrollY >= sectionTop) {
+          currentSection = section.getAttribute("id");
+        }
+      });
+
+      setActiveNav(currentSection);
+    }
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        const href = link.getAttribute("href");
+
+        if (href.startsWith("#")) {
+          setTimeout(updateActiveNavOnScroll, 150);
+        }
+      });
+    });
+
+    window.addEventListener("scroll", updateActiveNavOnScroll);
+    window.addEventListener("resize", updateActiveNavOnScroll);
+    window.addEventListener("load", updateActiveNavOnScroll);
+  </script>
+
+</body>
+</html>
