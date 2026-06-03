@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Title | Charlie Chavez Meelboom</title>
+  <title>AER Radiator CAD Model | Charlie Chavez Meelboom</title>
 
   <!-- Bungee + Oxygen fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
@@ -176,7 +177,7 @@
 
     .chip {
       background: #0F2F75;
-      color: #ffffff;
+      color: #000000;
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.8rem;
@@ -485,11 +486,11 @@
         <div>
           <div class="project-label">Project</div>
 
-          <h2>Project Title Here</h2>
+          <h2>AER Radiator CAD Model</h2>
 
           <p class="project-summary">
             This project involved reverse engineering and building a CAD model of the Earl’s 16-row radiator/oil cooler used in our FSAE cooling system.
-            The manufacturer did not provide a CAD model, and the simplified model we had was not accurate enough to run a moderately accurate fluids and thermal simulation. 
+            The manufacturer did not provide a CAD model, and the simplified model we had was not accurate enough to run a moderately accurate fluids and thermal simulation.
             I went about doing the CAD through dimensions from manufacturer images, iteratively redesigning the CAD model, and finally validated the internal volume using Ansys Discovery.
           </p>
 
@@ -502,10 +503,7 @@
         </div>
 
         <div class="hero-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/hero-image.jpg" alt="Project title image">
-          -->
-          <img src="./ProjectCoverImages/AERRadiatorCADModel.png" alt="Final verison">
+          <img src="images/AERRadiatorCADModel.png" alt="Final radiator CAD model">
         </div>
       </section>
 
@@ -515,60 +513,50 @@
       <section class="project-box fade-section">
         <h3>Problem</h3>
         <p>
-          The main challenge was that our team needed an accurate radiator/oil cooler CAD model for cooling system analysis, but the manufacturer did not provide one. 
-          The simplified model we had was missing geometry, such as the fins, and its internal volume was .58 quarts compared to the actual volume of 0.3 quarts preventing reliable fluid or thermal simulations.
+          The main challenge was that our team needed an accurate radiator/oil cooler CAD model for cooling system analysis, but the manufacturer did not provide one.
+          The simplified model we had was missing geometry, such as the fins, and its internal volume was 0.58 quarts compared to the actual volume of 0.3 quarts, preventing reliable fluid or thermal simulations.
         </p>
       </section>
 
       <section class="project-box fade-section">
         <h3>Solution</h3>
         <p>
-          I developed a new CAD model by extracting dimensions from manufacturer images using a web plot digitizer, then scaling those measurements to the actual core dimensions. 
-          Through through multiple design iterations,the CAD model is became more modular so tube count, fin spacing, and core dimensions can be adjusted more easily in the future. 
-          I used Ansys Discovery to extract and compare internal volume across each version, reducing the modeled volume from the original simplified estimate and improving the model’s usefulness for future fluids and thermal analysis. 
-          The final model includes all key geometry such as luvered fins and a volume of 0.43 quarts, a volume ~26% more accurate then the original model.
-
+          I developed a new CAD model by extracting dimensions from manufacturer images using a web plot digitizer, then scaling those measurements to the actual core dimensions.
+          Through multiple design iterations, the CAD model became more modular so tube count, fin spacing, and core dimensions can be adjusted more easily in the future.
+          I used Ansys Discovery to extract and compare internal volume across each version, reducing the modeled volume from the original simplified estimate and improving the model’s usefulness for future fluids and thermal analysis.
+          The final model includes all key geometry such as louvered fins and a volume of 0.43 quarts, a volume approximately 26% more accurate than the original model.
         </p>
       </section>
 
       <!-- PROCESS -->
       <div id="process" class="section-title-left">Process</div>
 
-
       <section class="process-box fade-section">
         <div class="process-text">
           <h3>Step One / Getting Base Dimensions</h3>
           <p>
-            Since I did not have the radiator physicaly available to take measurements, I used a web plot digitizer to extract dimensions from manufacturer images.
-             I then scaled those dimensions to the actual core dimensions to create an initial CAD model.
+            Since I did not have the radiator physically available to take measurements, I used a web plot digitizer to extract dimensions from manufacturer images.
+            I then scaled those dimensions to the actual core dimensions to create an initial CAD model.
           </p>
-
         </div>
 
         <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-2.jpg" alt="Process step two image">
-          -->
-          <img src="./Projects/AERRadiatorCADModel/images/internals_v6.png" alt="Step two">
+          <img src="images/internals_v6.png" alt="Radiator internal CAD geometry">
         </div>
       </section>
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step Three / Iterations</h3>
+          <h3>Step Two / Iterations</h3>
           <p>
-            The first iteration was of a 19 row core which was incorrect as we were using a 16 row radiator. 
-            After six iterations, the model was refined to use cleaner and less process intensive CAD methods such as surface offset and interference for equal thickness along tube walls.
+            The first iteration was of a 19-row core, which was incorrect because we were using a 16-row radiator.
+            After six iterations, the model was refined to use cleaner and less process-intensive CAD methods, such as surface offset and interference for equal thickness along tube walls.
             The final model includes all key geometry such as louvered fins and a volume of 0.43 quarts.
           </p>
-
         </div>
 
         <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-3.jpg" alt="Process step three image">
-          -->
-          <img src="./Projects/AERRadiatorCADModel/images/internals_v6.png" alt="Step three">
+          <img src="images/internals_v6.png" alt="Final internal radiator model iteration">
         </div>
       </section>
 
@@ -577,17 +565,13 @@
           <h3>Step Three / Volume Extraction</h3>
           <p>
             The final step after each iteration was to extract the internal volume using Ansys Discovery.
-             The original simplified model had a volume of 0.58 quarts compared to the actual volume of 0.3 quarts, 
-             while the final model had a volume of 0.43 quarts, a ~26% improvement in volumetric accuracy.
+            The original simplified model had a volume of 0.58 quarts compared to the actual volume of 0.3 quarts,
+            while the final model had a volume of 0.43 quarts, a roughly 26% improvement in volumetric accuracy.
           </p>
-
         </div>
 
         <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-3.jpg" alt="Process step three image">
-          -->
-          <img src="./Projects/AERRadiatorCADModel/images/volume_extraction_v6.png" alt="Step three">
+          <img src="images/volume_extraction_v6.png" alt="Volume extraction in Ansys Discovery">
         </div>
       </section>
 
@@ -595,47 +579,36 @@
       <div id="media" class="section-title-left">Media</div>
 
       <div class="media-grid fade-section">
-        
+
         <div class="media-card">
-          <!-- Replace with:
-          <img src="media/image-1.jpg" alt="Project image 1">
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Image / CAD Render</div>
-          </div>
-          <div class="media-caption">Caption describing this image.</div>
+          <img src="images/AERRadiatorCADModel.png" alt="Final radiator CAD model render">
+          <div class="media-caption">Final radiator CAD model.</div>
         </div>
 
         <div class="media-card">
-          <!-- Replace with:
-          <video controls>
-            <source src="media/test-video.mp4" type="video/mp4">
-          </video>
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Video / Test Clip</div>
-          </div>
-          <div class="media-caption">Caption describing this video or test.</div>
+          <img src="images/volume_extraction_v6.png" alt="Ansys Discovery volume extraction">
+          <div class="media-caption">Internal volume extraction in Ansys Discovery.</div>
         </div>
+
       </div>
 
       <!-- RESOURCES -->
       <div id="resources" class="section-title-left">Resources</div>
 
       <div class="resource-grid fade-section">
-        <a class="resource-card" href="cad/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/AERRadiatorCADModel/cad" target="_blank">
           <h3>CAD Files</h3>
-          <p>Link to CAD folder or downloadable files.</p>
+          <p>View CAD files for this project on GitHub.</p>
         </a>
 
-        <a class="resource-card" href="code/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/AERRadiatorCADModel/code" target="_blank">
           <h3>Code</h3>
-          <p>Link to scripts, analysis files, or source code.</p>
+          <p>View scripts, analysis files, or related code on GitHub.</p>
         </a>
 
-        <a class="resource-card" href="media/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/AERRadiatorCADModel/images" target="_blank">
           <h3>Media</h3>
-          <p>Link to images, videos, diagrams, or test footage.</p>
+          <p>View images, diagrams, and project media on GitHub.</p>
         </a>
       </div>
 
@@ -720,3 +693,4 @@
 
 </body>
 </html>
+```
