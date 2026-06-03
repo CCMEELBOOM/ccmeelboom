@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -204,10 +203,11 @@
       justify-content: center;
     }
 
-    .hero-image-wrap iframe {
+    .hero-image-wrap img {
       width: 100%;
       height: 100%;
-      border: none;
+      object-fit: contain;
+      display: block;
       background: #ffffff;
     }
 
@@ -234,13 +234,7 @@
     .project-box:hover {
       transform: scale(1.02);
     }
-    .hero-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-      background: #ffffff;
-    }
+
     .project-box h3 {
       font-family: 'Bungee', sans-serif;
       color: #ffffff;
@@ -268,9 +262,13 @@
       font-size: 0.98rem;
     }
 
-    .project-box a {
+    .project-box a,
+    .blog-box a,
+    .sheet-box a,
+    .references-box a {
       color: #ffffff;
       font-weight: 700;
+      text-decoration: underline;
     }
 
     .equation-box {
@@ -280,6 +278,17 @@
       margin: 16px 0;
       color: #ffffff;
       overflow-x: auto;
+    }
+
+    .variable-list {
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .variable-list li {
+      color: #ffffff;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
     }
 
     .sheet-box {
@@ -300,6 +309,23 @@
       border: none;
       border-radius: 10px;
       background: #ffffff;
+    }
+
+    .sheet-link {
+      display: inline-block;
+      margin-top: 14px;
+      color: #ffffff;
+      text-decoration: underline;
+      font-weight: 700;
+      border: 1.5px solid #ffffff;
+      padding: 10px 18px;
+      border-radius: 999px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .sheet-link:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: scale(1.04);
     }
 
     .blog-box {
@@ -339,6 +365,7 @@
       border-radius: 12px;
       display: block;
       margin-top: 18px;
+      margin-bottom: 18px;
     }
 
     .blog-gallery {
@@ -363,6 +390,35 @@
       font-weight: 700;
       margin-top: 8px;
       font-size: 0.9rem;
+    }
+
+    .references-box {
+      background: #2B45C4;
+      padding: 25px;
+      border-radius: 12px;
+      color: #ffffff;
+      margin-bottom: 25px;
+      transition: transform 0.25s ease;
+    }
+
+    .references-box:hover {
+      transform: scale(1.02);
+    }
+
+    .references-box h3 {
+      font-family: 'Bungee', sans-serif;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.2rem;
+    }
+
+    .references-box li {
+      color: #ffffff;
+      margin-bottom: 10px;
+      font-size: 0.98rem;
     }
 
     .resource-grid {
@@ -467,6 +523,7 @@
       <a class="nav-link" href="#hydraulic">Hydraulic</a>
       <a class="nav-link" href="#thermal">Thermal</a>
       <a class="nav-link" href="#spreadsheet">Spreadsheet</a>
+      <a class="nav-link" href="#references">References</a>
       <a class="nav-link" href="#resources">Resources</a>
     </nav>
   </div>
@@ -544,6 +601,16 @@
           \]
         </div>
 
+        <ul class="variable-list">
+          <li>\(p_1, p_2\): pressure at points 1 and 2.</li>
+          <li>\(\rho\): fluid density.</li>
+          <li>\(g\): gravitational acceleration.</li>
+          <li>\(v_1, v_2\): fluid velocity at points 1 and 2.</li>
+          <li>\(z_1, z_2\): elevation at points 1 and 2.</li>
+          <li>\(h_p\): pump head rise added to the system.</li>
+          <li>\(h_L\): total head loss from tubing, fittings, and components.</li>
+        </ul>
+
         <p>
           Multiplying head by \( \rho g \) converts the result into pressure. This is useful because many component losses can be compared as pressure drops across the cooling loop.
         </p>
@@ -561,15 +628,27 @@
           \]
         </div>
 
+        <ul class="variable-list">
+          <li>\(h_f\): major head loss from pipe or tube friction.</li>
+          <li>\(f\): Darcy friction factor.</li>
+          <li>\(L\): tube or pipe length.</li>
+          <li>\(D\): tube or pipe diameter.</li>
+          <li>\(v\): average fluid velocity.</li>
+          <li>\(g\): gravitational acceleration.</li>
+        </ul>
+
         <div class="equation-box">
           \[
           h_m = K\frac{v^2}{2g}
           \]
         </div>
 
-        <p>
-          In these equations, \(f\) is the friction factor, \(L\) is tube length, \(D\) is tube diameter, \(v\) is fluid velocity, \(g\) is gravity, and \(K\) is the minor loss coefficient.
-        </p>
+        <ul class="variable-list">
+          <li>\(h_m\): minor head loss from fittings, bends, transitions, or components.</li>
+          <li>\(K\): minor loss coefficient.</li>
+          <li>\(v\): average fluid velocity through the section.</li>
+          <li>\(g\): gravitational acceleration.</li>
+        </ul>
       </section>
 
       <section class="blog-box fade-section">
@@ -584,6 +663,12 @@
           \]
         </div>
 
+        <ul class="variable-list">
+          <li>\(Q\): volumetric flow rate.</li>
+          <li>\(v\): average fluid velocity.</li>
+          <li>\(A\): cross-sectional flow area.</li>
+        </ul>
+
         <p>
           The Reynolds number is then calculated to determine whether the section is laminar or turbulent:
         </p>
@@ -593,6 +678,14 @@
           Re = \frac{\rho vD}{\mu}
           \]
         </div>
+
+        <ul class="variable-list">
+          <li>\(Re\): Reynolds number.</li>
+          <li>\(\rho\): fluid density.</li>
+          <li>\(v\): average fluid velocity.</li>
+          <li>\(D\): hydraulic diameter or tube diameter.</li>
+          <li>\(\mu\): dynamic viscosity.</li>
+        </ul>
 
         <p>
           The Moody diagram is commonly used to find the friction factor, but the Colebrook equation behind it is implicit because \(f\) appears on both sides:
@@ -610,6 +703,13 @@
           \right)
           \]
         </div>
+
+        <ul class="variable-list">
+          <li>\(f\): Darcy friction factor.</li>
+          <li>\(\varepsilon\): pipe or tube roughness.</li>
+          <li>\(D\): tube diameter.</li>
+          <li>\(Re\): Reynolds number.</li>
+        </ul>
 
         <p>
           Since that is not convenient for this Excel model, the sheet uses the Blasius equation for turbulent flow:
@@ -650,13 +750,13 @@
 
         <div class="blog-gallery">
           <div>
-            <img src="images/akron_study1.png" alt="University of Akron study pressure loss reference">
-            <div class="caption">University of Akron reference data used for motor and inverter pressure-loss coefficients.</div>
+            <img src="images/akron_study1.png" alt="University of Akron study MErax 228 pressure loss reference">
+            <div class="caption">University of Akron reference data for MErax 228 motor pressure losses.</div>
           </div>
 
           <div>
-            <img src="images/akron_study2.png" alt="University of Akron study loss coefficient reference">
-            <div class="caption">Additional Akron study data used to support component-loss calculations.</div>
+            <img src="images/akron_study2.png" alt="University of Akron study PM100DX pressure loss reference">
+            <div class="caption">University of Akron reference data for PM100DX inverter pressure losses.</div>
           </div>
         </div>
 
@@ -669,6 +769,12 @@
           h_{\text{component}} = K_{\text{component}}Q^2
           \]
         </div>
+
+        <ul class="variable-list">
+          <li>\(h_{\text{component}}\): component head loss.</li>
+          <li>\(K_{\text{component}}\): component loss coefficient after unit conversion.</li>
+          <li>\(Q\): volumetric flow rate.</li>
+        </ul>
 
         <p>
           The third major unknown is the radiator loss. That value will be measured using the
@@ -706,6 +812,14 @@
           \]
         </div>
 
+        <ul class="variable-list">
+          <li>\(\dot{q}\): heat transfer rate.</li>
+          <li>\(\dot{m}_h, \dot{m}_c\): hot-side and cold-side mass flow rates.</li>
+          <li>\(c_{p,h}, c_{p,c}\): hot-side and cold-side specific heat values.</li>
+          <li>\(T_{h,in}, T_{h,out}\): hot fluid inlet and outlet temperatures.</li>
+          <li>\(T_{c,in}, T_{c,out}\): cold fluid inlet and outlet temperatures.</li>
+        </ul>
+
         <p>
           This can also be rewritten using the heat capacity rate:
         </p>
@@ -721,6 +835,11 @@
           \dot{q} = C_h(T_{h,in}-T_{h,out}) = C_c(T_{c,out}-T_{c,in})
           \]
         </div>
+
+        <ul class="variable-list">
+          <li>\(C\): heat capacity rate.</li>
+          <li>\(C_h, C_c\): hot-side and cold-side heat capacity rates.</li>
+        </ul>
       </section>
 
       <section class="blog-box fade-section">
@@ -747,8 +866,36 @@
           \]
         </div>
 
+        <ul class="variable-list">
+          <li>\(R_{total}\): total thermal resistance of the heat exchanger path.</li>
+          <li>\(U\): overall heat transfer coefficient.</li>
+          <li>\(A\): heat transfer area.</li>
+          <li>\(\eta_{o,c}, \eta_{o,h}\): overall surface efficiencies on the cold and hot sides.</li>
+          <li>\(h_c, h_h\): convection heat transfer coefficients on the cold and hot sides.</li>
+          <li>\(A_c, A_h\): cold-side and hot-side surface areas.</li>
+          <li>\(R_{f,c}, R_{f,h}\): cold-side and hot-side fouling factors.</li>
+          <li>\(R_{wall}\): wall conduction resistance through the radiator material.</li>
+        </ul>
+
         <p>
-          Surface efficiency is important because the louvered fins do not transfer heat perfectly. Fin efficiency compares the actual fin heat transfer rate to the maximum possible fin heat transfer rate:
+          Surface efficiency is important because the louvered fins do not transfer heat perfectly. Overall surface efficiency accounts for how much of the total surface area is finned and how effective those fins are:
+        </p>
+
+        <div class="equation-box">
+          \[
+          \eta_o = 1 - \frac{A_f}{A}\left(1-\eta_f\right)
+          \]
+        </div>
+
+        <ul class="variable-list">
+          <li>\(\eta_o\): overall surface efficiency.</li>
+          <li>\(A_f\): fin surface area.</li>
+          <li>\(A\): total heat transfer surface area.</li>
+          <li>\(\eta_f\): fin efficiency.</li>
+        </ul>
+
+        <p>
+          Fin efficiency compares the actual fin heat transfer rate to the maximum possible fin heat transfer rate:
         </p>
 
         <div class="equation-box">
@@ -756,6 +903,12 @@
           \eta_f = \frac{\dot{q}_{fin,actual}}{\dot{q}_{fin,max}}
           \]
         </div>
+
+        <ul class="variable-list">
+          <li>\(\eta_f\): fin efficiency.</li>
+          <li>\(\dot{q}_{fin,actual}\): actual heat transfer rate through the fin.</li>
+          <li>\(\dot{q}_{fin,max}\): maximum possible fin heat transfer rate if the whole fin were at the ideal base temperature.</li>
+        </ul>
 
         <p>
           I plan to estimate these values using ANSYS Fluent by comparing actual radiator fin behavior to an idealized high-conductivity case. This makes the
@@ -776,6 +929,13 @@
           \]
         </div>
 
+        <ul class="variable-list">
+          <li>\(NTU\): number of transfer units.</li>
+          <li>\(U\): overall heat transfer coefficient.</li>
+          <li>\(A\): heat transfer area.</li>
+          <li>\(C_{min}\): smaller heat capacity rate between the hot and cold fluids.</li>
+        </ul>
+
         <p>
           The heat capacity rate ratio is:
         </p>
@@ -788,8 +948,28 @@
           \]
         </div>
 
+        <ul class="variable-list">
+          <li>\(C_r\): heat capacity rate ratio.</li>
+          <li>\(C_{min}\): smaller heat capacity rate.</li>
+          <li>\(C_{max}\): larger heat capacity rate.</li>
+          <li>\(\dot{m}\): mass flow rate.</li>
+          <li>\(c_p\): specific heat.</li>
+        </ul>
+
         <p>
-          Heat exchanger effectiveness is then found using the appropriate relationship or chart for the radiator flow configuration:
+          For the chosen radiator flow configuration, heat exchanger effectiveness is found from the appropriate table or relationship using \(NTU\) and \(C_r\). In other words, effectiveness is a function of both values:
+        </p>
+
+        <div class="equation-box">
+          \[
+          \varepsilon = f(NTU, C_r)
+          \]
+        </div>
+
+        <img class="blog-image-wide" src="images/table_11.3.png" alt="Heat exchanger effectiveness table">
+
+        <p>
+          After \(NTU\) and \(C_r\) are known, Table 11.3 is used to determine the heat exchanger effectiveness, \(\varepsilon\). Effectiveness compares the actual heat transfer rate to the maximum possible heat transfer rate:
         </p>
 
         <div class="equation-box">
@@ -802,11 +982,18 @@
           \]
         </div>
 
+        <ul class="variable-list">
+          <li>\(\varepsilon\): heat exchanger effectiveness.</li>
+          <li>\(\dot{q}\): actual heat transfer rate.</li>
+          <li>\(\dot{q}_{max}\): maximum possible heat transfer rate.</li>
+          <li>\(C_{min}\): smaller heat capacity rate.</li>
+          <li>\(T_{h,in}\): hot-side inlet temperature.</li>
+          <li>\(T_{c,in}\): cold-side inlet temperature.</li>
+        </ul>
+
         <p>
           From there, the goal is to solve for temperature change and heat transfer rate across varying car speeds and water flow rates. This should help the team identify an optimal pump speed based on the average speed of the car and could eventually support active pump-speed control as a future project.
         </p>
-
-        <img class="blog-image-wide" src="images/table_11.3.png" alt="Heat exchanger effectiveness table">
       </section>
 
       <section class="project-box fade-section">
@@ -824,6 +1011,30 @@
           src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_O0vtT23DSl8VvP_sobDpK-S6QE2maV4UcNuZ4pkrw_FauKQHAxidPU_4JS0Ciw/pubhtml?widget=true&amp;headers=false"
           class="google-sheet">
         </iframe>
+
+        <a
+          class="sheet-link"
+          href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_O0vtT23DSl8VvP_sobDpK-S6QE2maV4UcNuZ4pkrw_FauKQHAxidPU_4JS0Ciw/pubhtml"
+          target="_blank">
+          Open Spreadsheet in New Tab
+        </a>
+      </section>
+
+      <!-- REFERENCES -->
+      <div id="references" class="section-title-left">References</div>
+
+      <section class="references-box fade-section">
+        <h3>References Used</h3>
+
+        <ul>
+          <li>Munson, Bruce R., Donald F. Young, Theodore H. Okiishi, and Wade W. Huebsch. <em>Fundamentals of Fluid Mechanics</em>. 6th ed., John Wiley & Sons, 2009.</li>
+          <li>Bergman, Theodore L., Adrienne S. Lavine, Frank P. Incropera, and David P. DeWitt. <em>Fundamentals of Heat and Mass Transfer</em>. 7th ed., John Wiley & Sons, 2011.</li>
+          <li>University of Akron published research on MErax 228 motor and PM100DX inverter pressure losses.</li>
+          <li>Airside heat transfer coefficient reference: <a href="https://www.intechopen.com/chapters/53343" target="_blank">IntechOpen compact heat exchanger / louvered-fin heat transfer reference</a>.</li>
+          <li><a href="../CoolingTestBench/main.html">Cooling Test Bench project</a> for planned radiator pressure-loss testing.</li>
+          <li><a href="../AERRadiatorCADModel/main.html">AER Radiator CAD Model project</a> for radiator geometry used in future thermal analysis.</li>
+          <li>Published Google Sheet cooling calculation workbook embedded above.</li>
+        </ul>
       </section>
 
       <!-- RESOURCES -->
@@ -874,7 +1085,7 @@
     const nav = document.querySelector("nav");
     const navLinks = document.querySelectorAll(".nav-link");
     const navIndicator = document.querySelector(".nav-indicator");
-    const sections = document.querySelectorAll("#overview, #hydraulic, #thermal, #spreadsheet, #resources");
+    const sections = document.querySelectorAll("#overview, #hydraulic, #thermal, #spreadsheet, #references, #resources");
 
     function moveNavIndicator(activeLink) {
       const navRect = nav.getBoundingClientRect();
