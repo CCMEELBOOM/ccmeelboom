@@ -1,12 +1,24 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Title | Charlie Chavez Meelboom</title>
+  <title>Cooling Calculations | Charlie Chavez Meelboom</title>
 
   <!-- Bungee + Oxygen fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- MathJax for equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
     body {
@@ -17,7 +29,6 @@
       line-height: 1.6;
     }
 
-    /* STICKY TOP NAV BAR */
     .topbar {
       position: sticky;
       top: 0;
@@ -99,14 +110,12 @@
       padding-top: 40px;
     }
 
-    /* PAGE WRAPPER */
     .project-page {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* BACK LINK */
     .back-link {
       display: inline-block;
       margin-bottom: 25px;
@@ -124,7 +133,6 @@
       transform: scale(1.04);
     }
 
-    /* HERO */
     .project-hero {
       background: #2B45C4;
       border-radius: 12px;
@@ -176,7 +184,7 @@
 
     .chip {
       background: #0F2F75;
-      color: #ffffff;
+      color: #000000;
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.8rem;
@@ -196,21 +204,13 @@
       justify-content: center;
     }
 
-    .hero-image-wrap img {
+    .hero-image-wrap iframe {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
+      border: none;
+      background: #ffffff;
     }
 
-    .image-placeholder {
-      color: #000000;
-      font-weight: 700;
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* SECTION TITLES */
     .section-title-left {
       font-family: 'Bungee', sans-serif;
       font-size: 1.8rem;
@@ -222,7 +222,6 @@
       letter-spacing: 1px;
     }
 
-    /* BLUE CONTENT BOXES */
     .project-box {
       background: #2B45C4;
       padding: 25px;
@@ -263,108 +262,103 @@
       font-size: 0.98rem;
     }
 
-    /* PROCESS BOXES */
-    .process-box {
-      background: #2B45C4;
-      padding: 25px;
-      border-radius: 12px;
+    .project-box a {
       color: #ffffff;
+      font-weight: 700;
+    }
+
+    .equation-box {
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+      color: #ffffff;
+      overflow-x: auto;
+    }
+
+    .sheet-box {
+      background: #2B45C4;
+      padding: 18px;
+      border-radius: 12px;
       margin-bottom: 25px;
-
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-      align-items: center;
-
       transition: transform 0.25s ease;
     }
 
-    .process-box:hover {
+    .sheet-box:hover {
       transform: scale(1.02);
     }
 
-    .process-text h3 {
-      font-family: 'Bungee', sans-serif;
-      color: #ffffff;
-      margin-top: 0;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 1.2rem;
-    }
-
-    .process-text p {
-      color: #ffffff;
-      margin: 0 0 12px 0;
-      font-size: 1rem;
-    }
-
-    .process-text ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .process-text li {
-      color: #ffffff;
-      margin-bottom: 8px;
-      font-size: 0.98rem;
-    }
-
-    .process-image-wrap {
+    .google-sheet {
       width: 100%;
-      height: 260px;
-      background: rgba(255, 255, 255, 0.22);
-      border-radius: 12px;
-      overflow: hidden;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      height: 650px;
+      border: none;
+      border-radius: 10px;
+      background: #ffffff;
     }
 
-    .process-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    /* MEDIA GALLERY */
-    .media-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 25px;
-    }
-
-    .media-card {
+    .blog-box {
       background: #2B45C4;
+      padding: 28px;
       border-radius: 12px;
-      padding: 18px;
+      color: #ffffff;
+      margin-bottom: 25px;
       transition: transform 0.25s ease;
     }
 
-    .media-card:hover {
-      transform: scale(1.03);
+    .blog-box:hover {
+      transform: scale(1.02);
     }
 
-    .media-card img,
-    .media-card video {
+    .blog-box h3 {
+      font-family: 'Bungee', sans-serif;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.25rem;
+    }
+
+    .blog-box p {
+      color: #ffffff;
+      font-size: 1rem;
+      margin: 0 0 14px 0;
+    }
+
+    .blog-image-wide {
       width: 100%;
-      height: 230px;
-      object-fit: cover;
-      border-radius: 10px;
+      max-height: 480px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 12px;
       display: block;
-      background: rgba(255, 255, 255, 0.25);
+      margin-top: 18px;
     }
 
-    .media-caption {
+    .blog-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 18px;
+      margin-bottom: 18px;
+    }
+
+    .blog-gallery img {
+      width: 100%;
+      height: 280px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .caption {
       color: #ffffff;
       font-weight: 700;
-      margin-top: 10px;
-      font-size: 0.95rem;
+      margin-top: 8px;
+      font-size: 0.9rem;
     }
 
-    /* DOWNLOAD / RESOURCE LINKS */
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -407,7 +401,6 @@
       font-family: 'Oxygen', sans-serif;
     }
 
-    /* ANIMATIONS */
     .fade-section {
       opacity: 0;
       transform: translateY(30px);
@@ -419,7 +412,6 @@
       transform: translateY(0);
     }
 
-    /* RESPONSIVE */
     @media (max-width: 850px) {
       .topbar {
         flex-direction: column;
@@ -430,27 +422,25 @@
         gap: 15px;
       }
 
-      .project-hero,
-      .process-box {
+      .project-hero {
         grid-template-columns: 1fr;
       }
 
-      .media-grid,
-      .resource-grid {
+      .resource-grid,
+      .blog-gallery {
         grid-template-columns: 1fr;
       }
 
       .hero-image-wrap {
-        height: 220px;
+        height: 260px;
       }
 
-      .process-image-wrap {
-        height: 220px;
+      .google-sheet {
+        height: 500px;
       }
 
-      .media-card img,
-      .media-card video {
-        height: 200px;
+      .blog-gallery img {
+        height: 220px;
       }
     }
   </style>
@@ -468,8 +458,9 @@
       <span class="nav-indicator"></span>
 
       <a class="nav-link active" href="#overview">Overview</a>
-      <a class="nav-link" href="#process">Process</a>
-      <a class="nav-link" href="#media">Media</a>
+      <a class="nav-link" href="#hydraulic">Hydraulic</a>
+      <a class="nav-link" href="#thermal">Thermal</a>
+      <a class="nav-link" href="#spreadsheet">Spreadsheet</a>
       <a class="nav-link" href="#resources">Resources</a>
     </nav>
   </div>
@@ -483,28 +474,27 @@
       <!-- HERO -->
       <section class="project-hero fade-section">
         <div>
-          <div class="project-label">Project</div>
+          <div class="project-label">Aztec Electric Racing</div>
 
-          <h2>Project Title Here</h2>
+          <h2>Cooling Calculations</h2>
 
           <p class="project-summary">
-            Write a short overview of the project here. This should explain what the project is,
-            why it matters, and what your specific role was in 2–4 sentences.
+            This project rebuilds Aztec Electric Racing’s cooling-system calculations by analyzing the hydraulic and thermal sides of the loop together.
+            The goal is to move beyond previous simplified calculations and create a spreadsheet-based tool that can help the team estimate pressure losses, pump flow rate, radiator performance, and future cooling-system design decisions.
           </p>
 
           <div class="project-chip-row">
-            <div class="chip">Date</div>
-            <div class="chip">SolidWorks</div>
-            <div class="chip">Testing</div>
-            <div class="chip">Analysis</div>
+            <div class="chip">2026-Current</div>
+            <div class="chip">Fluid Mechanics</div>
+            <div class="chip">Heat Transfer</div>
+            <div class="chip">Excel</div>
+            <div class="chip">Radiator Analysis</div>
+            <div class="chip">Pump Selection</div>
           </div>
         </div>
 
         <div class="hero-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/hero-image.jpg" alt="Project title image">
-          -->
-          <div class="image-placeholder">Hero Project Image</div>
+          <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_O0vtT23DSl8VvP_sobDpK-S6QE2maV4UcNuZ4pkrw_FauKQHAxidPU_4JS0Ciw/pubhtml?widget=true&amp;headers=false"></iframe>
         </div>
       </section>
 
@@ -514,135 +504,339 @@
       <section class="project-box fade-section">
         <h3>Problem</h3>
         <p>
-          Describe the problem or challenge this project addressed. Explain the design requirement,
-          engineering constraint, competition need, or system-level issue.
+          Previous years’ cooling calculations used the Hazen-Williams loss coefficient, which is not recommended for small-pipe flow. The older calculation approach also focused mainly on the hydraulic side of the cooling system, without fully connecting the pressure-loss analysis to the thermal performance of the radiator.
+        </p>
+        <p>
+          For the upcoming year, the cooling system needs a more complete analysis method. Aztec Electric Racing’s cooling loop has heat-generating components, heat-rejecting components, pump head rise, tubing losses, fitting losses, and radiator losses that all influence the final flow rate and system performance.
         </p>
       </section>
 
       <section class="project-box fade-section">
-        <h3>Solution</h3>
+        <h3>System Overview</h3>
         <p>
-          Describe the solution you developed. Mention your design approach, major decisions,
-          tools used, and how the project improved the system or met the design goal.
+          The cooling system has both a hydraulic component and a thermal component. The motor and inverter generate heat through losses and must be cooled so they can continue operating reliably. The radiator acts as a compact heat exchanger, rejecting heat from the water as it moves through the loop.
+        </p>
+        <p>
+          On the fluids side, the pump provides head rise while the tubing, fittings, motor, inverter, and radiator create head losses. These two sides of the problem are connected: the system must pump enough fluid through the loop, but the water also needs enough time and radiator effectiveness to reject heat. This makes pump flow rate and radiator selection a coupled design problem.
         </p>
       </section>
 
-      <!-- PROCESS -->
-      <div id="process" class="section-title-left">Process</div>
+      <!-- HYDRAULIC -->
+      <div id="hydraulic" class="section-title-left">Hydraulic Theory</div>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step One / Design Direction</h3>
-          <p>
-            Use this area to explain one phase of the project process. This could include initial
-            research, requirements, concept development, sketches, CAD, analysis, or testing.
-          </p>
+      <section class="blog-box fade-section">
+        <h3>Mechanical Energy Equation</h3>
+        <p>
+          The hydraulic side starts with the mechanical energy equation. In a cooling loop, this equation tracks pressure head, velocity head, elevation head, pump head rise, and head losses from one point in the loop to another.
+        </p>
 
-          <ul>
-            <li>Key decision, constraint, or design requirement.</li>
-            <li>Tool, method, or analysis used during this step.</li>
-            <li>Outcome or learning from this part of the process.</li>
-          </ul>
+        <div class="equation-box">
+          \[
+          \frac{p_1}{\rho g} + \frac{v_1^2}{2g} + z_1 + h_p - h_L
+          =
+          \frac{p_2}{\rho g} + \frac{v_2^2}{2g} + z_2
+          \]
         </div>
 
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-1.jpg" alt="Process step one image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+        <p>
+          Multiplying head by \( \rho g \) converts the result into pressure. This is useful because many component losses can be compared as pressure drops across the cooling loop.
+        </p>
+      </section>
+
+      <section class="blog-box fade-section">
+        <h3>Major and Minor Losses</h3>
+        <p>
+          The spreadsheet separates losses into major and minor head losses. Major losses come from friction as fluid moves through tubing. Minor losses come from fittings, bends, transitions, and other inconsistencies in the loop.
+        </p>
+
+        <div class="equation-box">
+          \[
+          h_f = f\frac{L}{D}\frac{v^2}{2g}
+          \]
+        </div>
+
+        <div class="equation-box">
+          \[
+          h_m = K\frac{v^2}{2g}
+          \]
+        </div>
+
+        <p>
+          In these equations, \(f\) is the friction factor, \(L\) is tube length, \(D\) is tube diameter, \(v\) is fluid velocity, \(g\) is gravity, and \(K\) is the minor loss coefficient.
+        </p>
+      </section>
+
+      <section class="blog-box fade-section">
+        <h3>Friction Factor and Reynolds Number</h3>
+        <p>
+          Flow speed is found from the flow-rate relationship:
+        </p>
+
+        <div class="equation-box">
+          \[
+          Q = vA
+          \]
+        </div>
+
+        <p>
+          The Reynolds number is then calculated to determine whether the section is laminar or turbulent:
+        </p>
+
+        <div class="equation-box">
+          \[
+          Re = \frac{\rho vD}{\mu}
+          \]
+        </div>
+
+        <p>
+          The Moody diagram is commonly used to find the friction factor, but the Colebrook equation behind it is implicit because \(f\) appears on both sides:
+        </p>
+
+        <div class="equation-box">
+          \[
+          \frac{1}{\sqrt{f}}
+          =
+          -2\log_{10}
+          \left(
+          \frac{\varepsilon}{3.7D}
+          +
+          \frac{2.51}{Re\sqrt{f}}
+          \right)
+          \]
+        </div>
+
+        <p>
+          Since that is not convenient for this Excel model, the sheet uses the Blasius equation for turbulent flow:
+        </p>
+
+        <div class="equation-box">
+          \[
+          f = 0.3164Re^{-0.25}
+          \]
+        </div>
+
+        <p>
+          If the flow is not turbulent, the spreadsheet switches to the laminar friction-factor equation:
+        </p>
+
+        <div class="equation-box">
+          \[
+          f = \frac{64}{Re}
+          \]
         </div>
       </section>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step Two / Prototyping</h3>
-          <p>
-            Use this section to describe how you iterated, prototyped, manufactured, simulated,
-            tested, or validated your design.
-          </p>
-
-          <ul>
-            <li>Prototype or test setup detail.</li>
-            <li>Iteration or redesign based on results.</li>
-            <li>What improved after this step.</li>
-          </ul>
-        </div>
-
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-2.jpg" alt="Process step two image">
-          -->
-          <div class="image-placeholder">Process Image</div>
-        </div>
+      <section class="blog-box fade-section">
+        <h3>How the Spreadsheet Handles Hydraulic Losses</h3>
+        <p>
+          The Excel sheet is formatted so that the user inputs flow rate, diameter, length, and whether the section is hot, cold, or unknown. Since fluid properties depend on temperature, the calculations pull adjusted properties from the <strong>FLUIDS ASSUMED CONSTANTS</strong> tab.
+        </p>
+        <p>
+          Once the section properties are known, the spreadsheet calculates velocity, Reynolds number, friction factor, and head loss for each section. Minor loss coefficients are based on reference graphs from <em>Fundamentals of Fluid Mechanics</em> by Munson et al., then applied using the minor loss equation.
+        </p>
       </section>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step Three / Final Integration</h3>
-          <p>
-            Use this final process section to explain final assembly, integration, testing,
-            competition readiness, or what the finished project demonstrated.
-          </p>
+      <section class="blog-box fade-section">
+        <h3>Component Losses</h3>
+        <p>
+          In addition to tubing and fitting losses, the cooling loop includes losses across the motor, inverter, and radiator. For the motor and inverter, loss coefficients are based on University of Akron research into pressure losses across those components.
+        </p>
 
-          <ul>
-            <li>Final design or integration result.</li>
-            <li>Validation, testing, or performance takeaway.</li>
-            <li>What you would improve in the next iteration.</li>
-          </ul>
-        </div>
-
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-3.jpg" alt="Process step three image">
-          -->
-          <div class="image-placeholder">Process Image</div>
-        </div>
-      </section>
-
-      <!-- MEDIA -->
-      <div id="media" class="section-title-left">Media</div>
-
-      <div class="media-grid fade-section">
-        <div class="media-card">
-          <!-- Replace with:
-          <img src="media/image-1.jpg" alt="Project image 1">
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Image / CAD Render</div>
+        <div class="blog-gallery">
+          <div>
+            <img src="images/akron_study1.png" alt="University of Akron study pressure loss reference">
+            <div class="caption">University of Akron reference data used for motor and inverter pressure-loss coefficients.</div>
           </div>
-          <div class="media-caption">Caption describing this image.</div>
+
+          <div>
+            <img src="images/akron_study2.png" alt="University of Akron study loss coefficient reference">
+            <div class="caption">Additional Akron study data used to support component-loss calculations.</div>
+          </div>
         </div>
 
-        <div class="media-card">
-          <!-- Replace with:
-          <video controls>
-            <source src="media/test-video.mp4" type="video/mp4">
-          </video>
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Video / Test Clip</div>
-          </div>
-          <div class="media-caption">Caption describing this video or test.</div>
+        <p>
+          Those coefficients were given in units of \( \text{kPa}\cdot s^2/m^6 \), so they had to be converted by dividing by \( \rho g \), converting to imperial units, and multiplying by flow rate squared to find the corresponding head loss.
+        </p>
+
+        <div class="equation-box">
+          \[
+          h_{\text{component}} = K_{\text{component}}Q^2
+          \]
         </div>
-      </div>
+
+        <p>
+          The third major unknown is the radiator loss. That value will be measured using the
+          <a href="../CoolingTestBench/main.html">Cooling Test Bench</a>
+          currently being designed and built. This will provide more accurate pressure-loss data for the current radiator and any future radiator candidates.
+        </p>
+      </section>
+
+      <!-- THERMAL -->
+      <div id="thermal" class="section-title-left">Thermal Theory</div>
+
+      <section class="blog-box fade-section">
+        <h3>Learning the Heat Exchanger Model</h3>
+        <p>
+          By the end of the Spring 2026 semester, I had not yet taken thermodynamics or heat transfer, so most of my background came from Physics III and independent research. After looking through FSAE resources, I found that <em>Fundamentals of Heat and Mass Transfer</em> by Bergman et al. is widely used for this type of analysis.
+        </p>
+        <p>
+          I purchased a copy of the book and focused on the heat exchanger chapter to understand how the radiator could be modeled as a compact heat exchanger.
+        </p>
+      </section>
+
+      <section class="blog-box fade-section">
+        <h3>Energy Balance</h3>
+        <p>
+          The governing heat transfer relationship compares heat lost by the hot fluid to heat gained by the cold fluid:
+        </p>
+
+        <div class="equation-box">
+          \[
+          \dot{q}
+          =
+          \dot{m}_h c_{p,h}(T_{h,in}-T_{h,out})
+          =
+          \dot{m}_c c_{p,c}(T_{c,out}-T_{c,in})
+          \]
+        </div>
+
+        <p>
+          This can also be rewritten using the heat capacity rate:
+        </p>
+
+        <div class="equation-box">
+          \[
+          C = \dot{m}c_p
+          \]
+        </div>
+
+        <div class="equation-box">
+          \[
+          \dot{q} = C_h(T_{h,in}-T_{h,out}) = C_c(T_{c,out}-T_{c,in})
+          \]
+        </div>
+      </section>
+
+      <section class="blog-box fade-section">
+        <h3>Overall Heat Transfer Coefficient</h3>
+        <p>
+          A radiator is not just direct heat transfer between two fluids. Heat must move from the water to the tube wall, through the aluminum, into the fins, and finally into the air moving across the radiator. Because of this, the analysis uses the overall heat transfer coefficient, \(U\), which combines the main thermal resistances in the system.
+        </p>
+
+        <div class="equation-box">
+          \[
+          R_{total}
+          =
+          \frac{1}{UA}
+          =
+          \frac{1}{\eta_{o,c}h_cA_c}
+          +
+          \frac{R_{f,c}}{\eta_{o,c}A_c}
+          +
+          R_{wall}
+          +
+          \frac{1}{\eta_{o,h}h_hA_h}
+          +
+          \frac{R_{f,h}}{\eta_{o,h}A_h}
+          \]
+        </div>
+
+        <p>
+          Surface efficiency is important because the louvered fins do not transfer heat perfectly. Fin efficiency compares the actual fin heat transfer rate to the maximum possible fin heat transfer rate:
+        </p>
+
+        <div class="equation-box">
+          \[
+          \eta_f = \frac{\dot{q}_{fin,actual}}{\dot{q}_{fin,max}}
+          \]
+        </div>
+
+        <p>
+          I plan to estimate these values using ANSYS Fluent by comparing actual radiator fin behavior to an idealized high-conductivity case. This makes the
+          <a href="../AERRadiatorCADModel/main.html">Radiator CAD Model</a>
+          important because the accuracy of the geometry affects the thermal analysis.
+        </p>
+      </section>
+
+      <section class="blog-box fade-section">
+        <h3>NTU and Effectiveness</h3>
+        <p>
+          Once \(UA\) is found, the next step is the Number of Transfer Units method. NTU is defined as:
+        </p>
+
+        <div class="equation-box">
+          \[
+          NTU = \frac{UA}{C_{min}}
+          \]
+        </div>
+
+        <p>
+          The heat capacity rate ratio is:
+        </p>
+
+        <div class="equation-box">
+          \[
+          C_r = \frac{C_{min}}{C_{max}}
+          =
+          \frac{(\dot{m}c_p)_{min}}{(\dot{m}c_p)_{max}}
+          \]
+        </div>
+
+        <p>
+          Heat exchanger effectiveness is then found using the appropriate relationship or chart for the radiator flow configuration:
+        </p>
+
+        <div class="equation-box">
+          \[
+          \varepsilon
+          =
+          \frac{\dot{q}}{\dot{q}_{max}}
+          =
+          \frac{\dot{q}}{C_{min}(T_{h,in}-T_{c,in})}
+          \]
+        </div>
+
+        <p>
+          From there, the goal is to solve for temperature change and heat transfer rate across varying car speeds and water flow rates. This should help the team identify an optimal pump speed based on the average speed of the car and could eventually support active pump-speed control as a future project.
+        </p>
+
+        <img class="blog-image-wide" src="images/table_11.3.png" alt="Heat exchanger effectiveness table">
+      </section>
+
+      <section class="project-box fade-section">
+        <h3>Status</h3>
+        <p>
+          This project is currently in progress. The next major steps are to collect radiator pressure-loss values from the cooling test bench and regain access to an ANSYS license for the upcoming year. Updates will be added as the analysis develops.
+        </p>
+      </section>
+
+      <!-- SPREADSHEET -->
+      <div id="spreadsheet" class="section-title-left">Spreadsheet</div>
+
+      <section class="sheet-box fade-section">
+        <iframe
+          src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_O0vtT23DSl8VvP_sobDpK-S6QE2maV4UcNuZ4pkrw_FauKQHAxidPU_4JS0Ciw/pubhtml?widget=true&amp;headers=false"
+          class="google-sheet">
+        </iframe>
+      </section>
 
       <!-- RESOURCES -->
       <div id="resources" class="section-title-left">Resources</div>
 
       <div class="resource-grid fade-section">
-        <a class="resource-card" href="cad/" target="_blank">
-          <h3>CAD Files</h3>
-          <p>Link to CAD folder or downloadable files.</p>
+        <a class="resource-card" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vT_O0vtT23DSl8VvP_sobDpK-S6QE2maV4UcNuZ4pkrw_FauKQHAxidPU_4JS0Ciw/pubhtml?widget=true&amp;headers=false" target="_blank">
+          <h3>Spreadsheet</h3>
+          <p>Open the published cooling calculations spreadsheet.</p>
         </a>
 
-        <a class="resource-card" href="code/" target="_blank">
-          <h3>Code</h3>
-          <p>Link to scripts, analysis files, or source code.</p>
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/AERCoolingSystem/documents" target="_blank">
+          <h3>Documents</h3>
+          <p>View supporting documents, references, or notes on GitHub.</p>
         </a>
 
-        <a class="resource-card" href="media/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/AERCoolingSystem/images" target="_blank">
           <h3>Media</h3>
-          <p>Link to images, videos, diagrams, or test footage.</p>
+          <p>View diagrams, images, and project media on GitHub.</p>
         </a>
       </div>
 
@@ -664,7 +858,7 @@
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.01 }
     );
 
     document.querySelectorAll(".fade-section").forEach(section => {
@@ -674,7 +868,7 @@
     const nav = document.querySelector("nav");
     const navLinks = document.querySelectorAll(".nav-link");
     const navIndicator = document.querySelector(".nav-indicator");
-    const sections = document.querySelectorAll("#overview, #process, #media, #resources");
+    const sections = document.querySelectorAll("#overview, #hydraulic, #thermal, #spreadsheet, #resources");
 
     function moveNavIndicator(activeLink) {
       const navRect = nav.getBoundingClientRect();
@@ -727,3 +921,4 @@
 
 </body>
 </html>
+```
