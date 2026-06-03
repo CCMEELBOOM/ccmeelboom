@@ -1,3 +1,6 @@
+Here is the fully updated script with the **Projects section visibility bug fixed**. I changed the animation threshold from `0.2` to `0.01`, and I also added a safety check around the resume dropdown script.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1256,7 +1259,7 @@
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.01 }
     );
 
     document.querySelectorAll(".fade-section").forEach(section => {
@@ -1315,27 +1318,30 @@
     const resumeDropdown = document.querySelector(".resume-dropdown");
     const resumeToggle = document.querySelector(".resume-toggle");
 
-    resumeToggle.addEventListener("click", event => {
-      event.stopPropagation();
+    if (resumeDropdown && resumeToggle) {
+      resumeToggle.addEventListener("click", event => {
+        event.stopPropagation();
 
-      const isOpen = resumeDropdown.classList.toggle("open");
-      resumeToggle.setAttribute("aria-expanded", isOpen);
-    });
+        const isOpen = resumeDropdown.classList.toggle("open");
+        resumeToggle.setAttribute("aria-expanded", isOpen);
+      });
 
-    document.addEventListener("click", event => {
-      if (!resumeDropdown.contains(event.target)) {
-        resumeDropdown.classList.remove("open");
-        resumeToggle.setAttribute("aria-expanded", "false");
-      }
-    });
+      document.addEventListener("click", event => {
+        if (!resumeDropdown.contains(event.target)) {
+          resumeDropdown.classList.remove("open");
+          resumeToggle.setAttribute("aria-expanded", "false");
+        }
+      });
 
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") {
-        resumeDropdown.classList.remove("open");
-        resumeToggle.setAttribute("aria-expanded", "false");
-      }
-    });
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          resumeDropdown.classList.remove("open");
+          resumeToggle.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
   </script>
 
 </body>
 </html>
+```
