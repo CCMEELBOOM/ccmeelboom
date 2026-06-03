@@ -1,9 +1,29 @@
+Here is the updated **Cooling Test Bench project page**. This assumes the file is located at:
+
+```text
+Projects/CoolingTestBench/main.html
+```
+
+and your images are located at:
+
+```text
+Projects/CoolingTestBench/images/
+```
+
+So the image paths are written as:
+
+```html
+images/block_diagram_vf.png
+images/block_diagram_v1.png
+```
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Title | Charlie Chavez Meelboom</title>
+  <title>Cooling Test Bench | Charlie Chavez Meelboom</title>
 
   <!-- Bungee + Oxygen fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
@@ -17,7 +37,6 @@
       line-height: 1.6;
     }
 
-    /* STICKY TOP NAV BAR */
     .topbar {
       position: sticky;
       top: 0;
@@ -99,14 +118,12 @@
       padding-top: 40px;
     }
 
-    /* PAGE WRAPPER */
     .project-page {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* BACK LINK */
     .back-link {
       display: inline-block;
       margin-bottom: 25px;
@@ -124,7 +141,6 @@
       transform: scale(1.04);
     }
 
-    /* HERO */
     .project-hero {
       background: #2B45C4;
       border-radius: 12px;
@@ -176,7 +192,7 @@
 
     .chip {
       background: #0F2F75;
-      color: #ffffff;
+      color: #000000;
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.8rem;
@@ -199,8 +215,9 @@
     .hero-image-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #ffffff;
     }
 
     .image-placeholder {
@@ -210,7 +227,6 @@
       padding: 20px;
     }
 
-    /* SECTION TITLES */
     .section-title-left {
       font-family: 'Bungee', sans-serif;
       font-size: 1.8rem;
@@ -222,7 +238,6 @@
       letter-spacing: 1px;
     }
 
-    /* BLUE CONTENT BOXES */
     .project-box {
       background: #2B45C4;
       padding: 25px;
@@ -263,7 +278,6 @@
       font-size: 0.98rem;
     }
 
-    /* PROCESS BOXES */
     .process-box {
       background: #2B45C4;
       padding: 25px;
@@ -325,11 +339,11 @@
     .process-image-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #ffffff;
     }
 
-    /* MEDIA GALLERY */
     .media-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -351,10 +365,10 @@
     .media-card video {
       width: 100%;
       height: 230px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 10px;
       display: block;
-      background: rgba(255, 255, 255, 0.25);
+      background: #ffffff;
     }
 
     .media-caption {
@@ -364,7 +378,6 @@
       font-size: 0.95rem;
     }
 
-    /* DOWNLOAD / RESOURCE LINKS */
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -407,7 +420,6 @@
       font-family: 'Oxygen', sans-serif;
     }
 
-    /* ANIMATIONS */
     .fade-section {
       opacity: 0;
       transform: translateY(30px);
@@ -419,7 +431,6 @@
       transform: translateY(0);
     }
 
-    /* RESPONSIVE */
     @media (max-width: 850px) {
       .topbar {
         flex-direction: column;
@@ -485,26 +496,25 @@
         <div>
           <div class="project-label">Project</div>
 
-          <h2>Project Title Here</h2>
+          <h2>Cooling Test Bench</h2>
 
           <p class="project-summary">
-            Write a short overview of the project here. This should explain what the project is,
-            why it matters, and what your specific role was in 2–4 sentences.
+            This project is an in-progress test bench designed to characterize unknown cooling-system values for Aztec Electric Racing.
+            The primary goal is to measure pressure loss across the radiator at different flow rates so the radiator’s minor loss coefficient can be derived.
+            A secondary goal is to estimate pump efficiency by comparing ideal head rise at different input voltages against measured pressure sensor outputs.
           </p>
 
           <div class="project-chip-row">
-            <div class="chip">Date</div>
-            <div class="chip">SolidWorks</div>
-            <div class="chip">Testing</div>
-            <div class="chip">Analysis</div>
+            <div class="chip">May 2025 – Current</div>
+            <div class="chip">Fluid Systems</div>
+            <div class="chip">Pressure Sensors</div>
+            <div class="chip">Flow Testing</div>
+            <div class="chip">Arduino</div>
           </div>
         </div>
 
         <div class="hero-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/hero-image.jpg" alt="Project title image">
-          -->
-          <div class="image-placeholder">Hero Project Image</div>
+          <img src="images/block_diagram_vf.png" alt="Final cooling test bench block diagram">
         </div>
       </section>
 
@@ -514,16 +524,32 @@
       <section class="project-box fade-section">
         <h3>Problem</h3>
         <p>
-          Describe the problem or challenge this project addressed. Explain the design requirement,
-          engineering constraint, competition need, or system-level issue.
+          The radiator is currently an unknown value in the cooling calculations. Despite causing a notable pressure loss across the cooling loop,
+          this loss is not currently accounted for in the system model. Without testing the radiator directly, it is difficult to accurately predict
+          loop performance, pump behavior, or the pressure losses that the cooling system will experience at different flow rates.
         </p>
       </section>
 
       <section class="project-box fade-section">
         <h3>Solution</h3>
         <p>
-          Describe the solution you developed. Mention your design approach, major decisions,
-          tools used, and how the project improved the system or met the design goal.
+          The cooling test bench is designed to measure pressure loss across the radiator at different flow rates. By comparing flow rate against the
+          pressure difference between the sensors before and after the radiator, the minor loss coefficient can be derived from the slope of the curve.
+          The test bench will also help estimate pump efficiency by comparing ideal head rise at several input voltages to the actual head rise measured
+          from the pressure sensors.
+        </p>
+        <p>
+          A key design requirement is compactness. The tubing and sensors are planned to mount onto a 2x6 wood base that can be cut into separate
+          sections and connected with hinges. This allows the tubing and sensors to be dismounted, while the wood base can fold together for storage,
+          which is useful given the team’s limited shop space.
+        </p>
+      </section>
+
+      <section class="project-box fade-section">
+        <h3>Status</h3>
+        <p>
+          The project is currently in progress. The materials have been approved, but purchasing is paused until the new team president is sworn in
+          and purchases for the next year can begin.
         </p>
       </section>
 
@@ -532,70 +558,75 @@
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step One / Design Direction</h3>
+          <h3>Step One / Brainstorm</h3>
           <p>
-            Use this area to explain one phase of the project process. This could include initial
-            research, requirements, concept development, sketches, CAD, analysis, or testing.
+            The first stage was a rough materials brainstorm focused on identifying the major components needed to make the test bench practical,
+            low-cost, and easy to assemble. The early concept used a 5-gallon bucket as a reservoir, barbed hose fittings for simple tube connections,
+            clear vinyl tubing, four pressure sensors, a flow meter, splice couplers, and a compact wiring system.
           </p>
-
           <ul>
-            <li>Key decision, constraint, or design requirement.</li>
-            <li>Tool, method, or analysis used during this step.</li>
-            <li>Outcome or learning from this part of the process.</li>
+            <li>The bucket reservoir was selected because it is simple, cheap, and easy to connect to a bulkhead fitting.</li>
+            <li>Clear vinyl tubing was selected because it is pressure-rated above the expected test range and can handle the expected temperatures.</li>
+            <li>Pressure sensors and a flow meter were included to measure radiator loss and derive pump efficiency.</li>
           </ul>
         </div>
 
         <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-1.jpg" alt="Process step one image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+          <div class="image-placeholder">Brainstorm / Materials Reasoning</div>
         </div>
       </section>
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step Two / Prototyping</h3>
+          <h3>Step Two / Initial Block Diagram</h3>
           <p>
-            Use this section to describe how you iterated, prototyped, manufactured, simulated,
-            tested, or validated your design.
+            The second step was creating the first block diagram and identifying materials that would make the loop functional. This version established
+            the main system architecture: reservoir, pump, pressure sensors, radiator, flow meter, tubing, and an Arduino-based data collection setup.
           </p>
-
           <ul>
-            <li>Prototype or test setup detail.</li>
-            <li>Iteration or redesign based on results.</li>
-            <li>What improved after this step.</li>
+            <li>Pressure sensors are placed before and after key components to compare input and output pressure.</li>
+            <li>The flow meter captures flow rate for each pump PWM input.</li>
+            <li>The Arduino reads PWM inputs, sensor outputs, and flow feedback through the serial monitor.</li>
           </ul>
         </div>
 
         <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-2.jpg" alt="Process step two image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+          <img src="images/block_diagram_v1.png" alt="Initial cooling test bench block diagram">
         </div>
       </section>
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step Three / Final Integration</h3>
+          <h3>Step Three / Cost and Loss Reduction</h3>
           <p>
-            Use this final process section to explain final assembly, integration, testing,
-            competition readiness, or what the finished project demonstrated.
+            After reviewing the initial loop, the design was refined to reduce cost, simplify connections, and limit unnecessary pressure losses.
+            Tube sizing was kept constant at 3/4 inch throughout the test bench to reduce losses from reducers and increasers.
+            The layout was also revised to keep the system compact and easier to mount onto a foldable 2x6 base.
           </p>
-
           <ul>
-            <li>Final design or integration result.</li>
-            <li>Validation, testing, or performance takeaway.</li>
-            <li>What you would improve in the next iteration.</li>
+            <li>The final block diagram emphasizes a cleaner loop layout with fewer unnecessary restrictions.</li>
+            <li>Consistent tubing size reduces added losses from fittings and transitions.</li>
+            <li>The final design supports radiator loss testing and pump efficiency estimation in one compact setup.</li>
           </ul>
         </div>
 
         <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-3.jpg" alt="Process step three image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+          <img src="images/block_diagram_vf.png" alt="Final cooling test bench block diagram">
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Step Four / In Progress</h3>
+          <p>
+            The next step is purchasing materials, assembling the foldable base, mounting the tubing and sensors, and beginning test runs at different
+            pump input voltages. Once the bench is assembled, flow rate and pressure loss data will be collected to calculate radiator minor loss and
+            estimate pump efficiency.
+          </p>
+        </div>
+
+        <div class="process-image-wrap">
+          <div class="image-placeholder">In Progress</div>
         </div>
       </section>
 
@@ -603,46 +634,36 @@
       <div id="media" class="section-title-left">Media</div>
 
       <div class="media-grid fade-section">
+
         <div class="media-card">
-          <!-- Replace with:
-          <img src="media/image-1.jpg" alt="Project image 1">
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Image / CAD Render</div>
-          </div>
-          <div class="media-caption">Caption describing this image.</div>
+          <img src="images/block_diagram_v1.png" alt="Initial cooling test bench block diagram">
+          <div class="media-caption">Initial block diagram used to define the first test bench layout.</div>
         </div>
 
         <div class="media-card">
-          <!-- Replace with:
-          <video controls>
-            <source src="media/test-video.mp4" type="video/mp4">
-          </video>
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Video / Test Clip</div>
-          </div>
-          <div class="media-caption">Caption describing this video or test.</div>
+          <img src="images/block_diagram_vf.png" alt="Final cooling test bench block diagram">
+          <div class="media-caption">Final block diagram after reducing unnecessary cost and pressure losses.</div>
         </div>
+
       </div>
 
       <!-- RESOURCES -->
       <div id="resources" class="section-title-left">Resources</div>
 
       <div class="resource-grid fade-section">
-        <a class="resource-card" href="cad/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/CoolingTestBench/cad" target="_blank">
           <h3>CAD Files</h3>
-          <p>Link to CAD folder or downloadable files.</p>
+          <p>View CAD files for this project on GitHub.</p>
         </a>
 
-        <a class="resource-card" href="code/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/CoolingTestBench/code" target="_blank">
           <h3>Code</h3>
-          <p>Link to scripts, analysis files, or source code.</p>
+          <p>View scripts, Arduino files, or related code on GitHub.</p>
         </a>
 
-        <a class="resource-card" href="media/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/CoolingTestBench/images" target="_blank">
           <h3>Media</h3>
-          <p>Link to images, videos, diagrams, or test footage.</p>
+          <p>View diagrams, images, and project media on GitHub.</p>
         </a>
       </div>
 
@@ -727,3 +748,4 @@
 
 </body>
 </html>
+```
