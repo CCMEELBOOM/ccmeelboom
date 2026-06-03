@@ -488,15 +488,16 @@
           <h2>Project Title Here</h2>
 
           <p class="project-summary">
-            Write a short overview of the project here. This should explain what the project is,
-            why it matters, and what your specific role was in 2–4 sentences.
+            This project involved reverse engineering and building a CAD model of the Earl’s 16-row radiator/oil cooler used in our FSAE cooling system.
+            The manufacturer did not provide a CAD model, and the simplified model we had was not accurate enough to run a moderately accurate fluids and thermal simulation. 
+            I went about doing the CAD through dimensions from manufacturer images, iteratively redesigning the CAD model, and finally validated the internal volume using Ansys Discovery.
           </p>
 
           <div class="project-chip-row">
-            <div class="chip">Date</div>
+            <div class="chip">May 2026</div>
             <div class="chip">SolidWorks</div>
-            <div class="chip">Testing</div>
-            <div class="chip">Analysis</div>
+            <div class="chip">ANSYS</div>
+            <div class="chip">Plot Digitization</div>
           </div>
         </div>
 
@@ -504,7 +505,7 @@
           <!-- Replace placeholder with:
           <img src="media/hero-image.jpg" alt="Project title image">
           -->
-          <div class="image-placeholder">Hero Project Image</div>
+          <img src="ccmeelboom/ProjectCoverImages/AERRadiatorCADModel.png" alt="Final verison">
         </div>
       </section>
 
@@ -514,81 +515,72 @@
       <section class="project-box fade-section">
         <h3>Problem</h3>
         <p>
-          Describe the problem or challenge this project addressed. Explain the design requirement,
-          engineering constraint, competition need, or system-level issue.
+          The main challenge was that our team needed an accurate radiator/oil cooler CAD model for cooling system analysis, but the manufacturer did not provide one. 
+          The simplified model we had was missing geometry, such as the fins, and its internal volume was .58 quarts compared to the actual volume of 0.3 quarts preventing reliable fluid or thermal simulations.
         </p>
       </section>
 
       <section class="project-box fade-section">
         <h3>Solution</h3>
         <p>
-          Describe the solution you developed. Mention your design approach, major decisions,
-          tools used, and how the project improved the system or met the design goal.
+          I developed a new CAD model by extracting dimensions from manufacturer images using a web plot digitizer, then scaling those measurements to the actual core dimensions. 
+          Through through multiple design iterations,the CAD model is became more modular so tube count, fin spacing, and core dimensions can be adjusted more easily in the future. 
+          I used Ansys Discovery to extract and compare internal volume across each version, reducing the modeled volume from the original simplified estimate and improving the model’s usefulness for future fluids and thermal analysis. 
+          The final model includes all key geometry such as luvered fins and a volume of 0.43 quarts, a volume ~26% more accurate then the original model.
+
         </p>
       </section>
 
       <!-- PROCESS -->
       <div id="process" class="section-title-left">Process</div>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step One / Design Direction</h3>
-          <p>
-            Use this area to explain one phase of the project process. This could include initial
-            research, requirements, concept development, sketches, CAD, analysis, or testing.
-          </p>
-
-          <ul>
-            <li>Key decision, constraint, or design requirement.</li>
-            <li>Tool, method, or analysis used during this step.</li>
-            <li>Outcome or learning from this part of the process.</li>
-          </ul>
-        </div>
-
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-1.jpg" alt="Process step one image">
-          -->
-          <div class="image-placeholder">Process Image</div>
-        </div>
-      </section>
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step Two / Prototyping</h3>
+          <h3>Step One / Getting Base Dimensions</h3>
           <p>
-            Use this section to describe how you iterated, prototyped, manufactured, simulated,
-            tested, or validated your design.
+            Since I did not have the radiator physicaly available to take measurements, I used a web plot digitizer to extract dimensions from manufacturer images.
+             I then scaled those dimensions to the actual core dimensions to create an initial CAD model.
           </p>
 
-          <ul>
-            <li>Prototype or test setup detail.</li>
-            <li>Iteration or redesign based on results.</li>
-            <li>What improved after this step.</li>
-          </ul>
         </div>
 
         <div class="process-image-wrap">
           <!-- Replace placeholder with:
           <img src="media/process-2.jpg" alt="Process step two image">
           -->
+          <img src="ccmeelboom/Projects/AERRadiatorCADModel/Images/internals_v6.png" alt="Step two">
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Step Three / Iterations</h3>
+          <p>
+            The first iteration was of a 19 row core which was incorrect as we were using a 16 row radiator. 
+            After six iterations, the model was refined to use cleaner and less process intensive CAD methods such as surface offset and interference for equal thickness along tube walls.
+            The final model includes all key geometry such as louvered fins and a volume of 0.43 quarts.
+          </p>
+
+        </div>
+
+        <div class="process-image-wrap">
+          <!-- Replace placeholder with:
+          <img src="media/process-3.jpg" alt="Process step three image">
+          -->
           <div class="image-placeholder">Process Image</div>
         </div>
       </section>
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step Three / Final Integration</h3>
+          <h3>Step Three / Volume Extraction</h3>
           <p>
-            Use this final process section to explain final assembly, integration, testing,
-            competition readiness, or what the finished project demonstrated.
+            The final step after each iteration was to extract the internal volume using Ansys Discovery.
+             The original simplified model had a volume of 0.58 quarts compared to the actual volume of 0.3 quarts, 
+             while the final model had a volume of 0.43 quarts, a ~26% improvement in volumetric accuracy.
           </p>
 
-          <ul>
-            <li>Final design or integration result.</li>
-            <li>Validation, testing, or performance takeaway.</li>
-            <li>What you would improve in the next iteration.</li>
-          </ul>
         </div>
 
         <div class="process-image-wrap">
