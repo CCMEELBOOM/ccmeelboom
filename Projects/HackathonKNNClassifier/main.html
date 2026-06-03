@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Title | Charlie Chavez Meelboom</title>
+  <title>KNN Classifier | Charlie Chavez Meelboom</title>
 
   <!-- Bungee + Oxygen fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
@@ -176,7 +176,7 @@
 
     .chip {
       background: #0F2F75;
-      color: #ffffff;
+      color: #000000;
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.8rem;
@@ -199,8 +199,9 @@
     .hero-image-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #ffffff;
     }
 
     .image-placeholder {
@@ -263,70 +264,83 @@
       font-size: 0.98rem;
     }
 
-    /* PROCESS BOXES */
-    .process-box {
+    /* BLOG PROCESS SECTION */
+    .blog-box {
       background: #2B45C4;
-      padding: 25px;
+      padding: 28px;
       border-radius: 12px;
       color: #ffffff;
       margin-bottom: 25px;
+      transition: transform 0.25s ease;
+    }
 
+    .blog-box:hover {
+      transform: scale(1.02);
+    }
+
+    .blog-box h3 {
+      font-family: 'Bungee', sans-serif;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.25rem;
+    }
+
+    .blog-box p {
+      color: #ffffff;
+      font-size: 1rem;
+      margin: 0 0 14px 0;
+    }
+
+    .blog-image-wide {
+      width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 12px;
+      display: block;
+      margin-top: 18px;
+    }
+
+    .blog-two-column {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 25px;
       align-items: center;
-
-      transition: transform 0.25s ease;
     }
 
-    .process-box:hover {
-      transform: scale(1.02);
-    }
-
-    .process-text h3 {
-      font-family: 'Bungee', sans-serif;
-      color: #ffffff;
-      margin-top: 0;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 1.2rem;
-    }
-
-    .process-text p {
-      color: #ffffff;
-      margin: 0 0 12px 0;
-      font-size: 1rem;
-    }
-
-    .process-text ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .process-text li {
-      color: #ffffff;
-      margin-bottom: 8px;
-      font-size: 0.98rem;
-    }
-
-    .process-image-wrap {
+    .blog-two-column img {
       width: 100%;
-      height: 260px;
-      background: rgba(255, 255, 255, 0.22);
+      height: 300px;
+      object-fit: contain;
+      background: #ffffff;
       border-radius: 12px;
-      overflow: hidden;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
     }
 
-    .process-image-wrap img {
+    .blog-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+      margin-top: 18px;
+    }
+
+    .blog-gallery img {
       width: 100%;
-      height: 100%;
+      height: 280px;
       object-fit: cover;
+      background: #ffffff;
+      border-radius: 12px;
       display: block;
+    }
+
+    .caption {
+      color: #ffffff;
+      font-weight: 700;
+      margin-top: 8px;
+      font-size: 0.9rem;
     }
 
     /* MEDIA GALLERY */
@@ -431,12 +445,13 @@
       }
 
       .project-hero,
-      .process-box {
+      .blog-two-column {
         grid-template-columns: 1fr;
       }
 
       .media-grid,
-      .resource-grid {
+      .resource-grid,
+      .blog-gallery {
         grid-template-columns: 1fr;
       }
 
@@ -444,7 +459,8 @@
         height: 220px;
       }
 
-      .process-image-wrap {
+      .blog-two-column img,
+      .blog-gallery img {
         height: 220px;
       }
 
@@ -483,28 +499,27 @@
       <!-- HERO -->
       <section class="project-hero fade-section">
         <div>
-          <div class="project-label">Project</div>
+          <div class="project-label">Hack4SDSU / 3rd Place</div>
 
-          <h2>Project Title Here</h2>
+          <h2>KNN Classifier</h2>
 
           <p class="project-summary">
-            Write a short overview of the project here. This should explain what the project is,
-            why it matters, and what your specific role was in 2–4 sentences.
+            For Hack4SDSU, our team built a live waste-sorting prototype that used basic Arduino sensors and a KNN classifier to identify whether an item belonged in compost, landfill, or recycling.
+            I focused mainly on developing the KNN algorithm and creating the CAD design concept, while also helping the team prepare a working live demo under tight time constraints.
           </p>
 
           <div class="project-chip-row">
-            <div class="chip">Date</div>
-            <div class="chip">SolidWorks</div>
-            <div class="chip">Testing</div>
-            <div class="chip">Analysis</div>
+            <div class="chip">November 2025</div>
+            <div class="chip">Hack4SDSU</div>
+            <div class="chip">3rd Place</div>
+            <div class="chip">KNN</div>
+            <div class="chip">Arduino</div>
+            <div class="chip">CAD</div>
           </div>
         </div>
 
         <div class="hero-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/hero-image.jpg" alt="Project title image">
-          -->
-          <div class="image-placeholder">Hero Project Image</div>
+          <img src="images/knn_algo.png" alt="KNN classifier algorithm overview">
         </div>
       </section>
 
@@ -514,89 +529,107 @@
       <section class="project-box fade-section">
         <h3>Problem</h3>
         <p>
-          Describe the problem or challenge this project addressed. Explain the design requirement,
-          engineering constraint, competition need, or system-level issue.
+          The Hack4SDSU prompt was to innovate in a way that could transform the SDSU student experience. Our team chose the Sustainability & Community Impact challenge after noticing how often students throw non-recyclable items into recycling bins.
+        </p>
+        <p>
+          The problem we focused on was not just recycling behavior, but recycling knowledge. Many common items are confusing to sort correctly. For example, something like a chip bag may look like packaging that could be recycled, but it actually belongs in landfill.
         </p>
       </section>
 
       <section class="project-box fade-section">
         <h3>Solution</h3>
         <p>
-          Describe the solution you developed. Mention your design approach, major decisions,
-          tools used, and how the project improved the system or met the design goal.
+          We designed a self-sorting waste-bin concept that used simple sensor inputs and a KNN machine learning classifier to identify likely waste categories. The prototype used an infrared sensor, a light sensor, and an acoustic sensor to collect signals related to material type, transparency, and hardness.
+        </p>
+        <p>
+          Because the available hardware was limited to a basic Arduino starter kit, we generated sample data using Gemini AI, tested the classifier against that data, and reached 74% classification accuracy. For the live demo, we connected the sensors to a breadboard and Arduino Uno, gathered readings through the serial monitor, and displayed the predicted waste category on screen.
         </p>
       </section>
 
       <!-- PROCESS -->
       <div id="process" class="section-title-left">Process</div>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step One / Design Direction</h3>
-          <p>
-            Use this area to explain one phase of the project process. This could include initial
-            research, requirements, concept development, sketches, CAD, analysis, or testing.
-          </p>
+      <section class="blog-box fade-section">
+        <h3>Starting From Scratch</h3>
+        <p>
+          I came into the hackathon not knowing anyone and joined a team the day of the event. Our first idea was actually a scheduling tool for student clubs, but after talking with Professor Ben Shen, one of the mentors at the competition, we shifted toward a project that included hardware.
+        </p>
+        <p>
+          That advice pushed us toward a more hands-on solution. After researching sorting systems and different machine learning options, we landed on a KNN classifier because it was simple enough to implement quickly, but still strong enough to show how sensor data could be used to make sorting decisions.
+        </p>
+      </section>
 
-          <ul>
-            <li>Key decision, constraint, or design requirement.</li>
-            <li>Tool, method, or analysis used during this step.</li>
-            <li>Outcome or learning from this part of the process.</li>
-          </ul>
-        </div>
+      <section class="blog-box fade-section">
+        <div class="blog-two-column">
+          <div>
+            <h3>Building the Concept</h3>
+            <p>
+              One of the biggest constraints was the hardware. We only had access to a basic Arduino starter kit, so we had to get creative with the sensors available to us. We used an infrared sensor to help identify organic material, a light sensor to detect transparent materials, and an acoustic sensor to estimate physical hardness.
+            </p>
+            <p>
+              I focused on the KNN algorithm and the CAD design concept for the waste-bin prototype. The CAD helped communicate the larger vision: a bin that could sense the item, classify it, and sort it into the correct category.
+            </p>
+          </div>
 
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-1.jpg" alt="Process step one image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+          <div>
+            <img src="images/design_concept.png" alt="CAD design concept for the KNN waste sorting prototype">
+            <div class="caption">CAD design concept for the self-sorting waste-bin prototype.</div>
+          </div>
         </div>
       </section>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step Two / Prototyping</h3>
-          <p>
-            Use this section to describe how you iterated, prototyped, manufactured, simulated,
-            tested, or validated your design.
-          </p>
+      <section class="blog-box fade-section">
+        <h3>Testing the Classifier</h3>
+        <p>
+          Since we did not have time to collect a large real-world dataset, we generated sample data using Gemini AI and used that data to test the classifier. The algorithm classified waste into compost, landfill, and recycling categories based on the sensor patterns.
+        </p>
+        <p>
+          The final KNN model reached 74% accuracy on our test data. It was not perfect, but it was strong enough to support the concept and show that even a very simple sensor setup could produce useful classification behavior.
+        </p>
 
-          <ul>
-            <li>Prototype or test setup detail.</li>
-            <li>Iteration or redesign based on results.</li>
-            <li>What improved after this step.</li>
-          </ul>
-        </div>
+        <img class="blog-image-wide" src="images/knn_algo.png" alt="KNN classifier algorithm">
+      </section>
 
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-2.jpg" alt="Process step two image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+      <section class="blog-box fade-section">
+        <h3>The Live Demo</h3>
+        <p>
+          After the algorithm and concept were finished, we had to make the physical setup work for a live demonstration. We connected the sensors to a breadboard, wired everything to an Arduino Uno, and used the serial monitor to capture readings and display the predicted waste category.
+        </p>
+        <p>
+          For testing, we used a banana peel, a potato chip bag, and a recyclable plastic bag. The prototype was built quickly using limited hardware and materials, including parts we purchased at the dollar store to make the trash-can demo presentable.
+        </p>
+
+        <div class="blog-gallery">
+          <div>
+            <img src="images/presentation2.png" alt="Team presenting the KNN classifier project">
+            <div class="caption">Presenting the project concept and prototype.</div>
+          </div>
+
+          <div>
+            <img src="images/presentation3.png" alt="Team presenting the KNN classifier project demo">
+            <div class="caption">Explaining the live demo and sensor setup.</div>
+          </div>
+
+          <div>
+            <img src="images/presentation4.png" alt="Team presenting at Hack4SDSU">
+            <div class="caption">Final presentation at Hack4SDSU.</div>
+          </div>
+
+          <div>
+            <img src="images/award.png" alt="Hack4SDSU award photo">
+            <div class="caption">Hack4SDSU 3rd place recognition.</div>
+          </div>
         </div>
       </section>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step Three / Final Integration</h3>
-          <p>
-            Use this final process section to explain final assembly, integration, testing,
-            competition readiness, or what the finished project demonstrated.
-          </p>
-
-          <ul>
-            <li>Final design or integration result.</li>
-            <li>Validation, testing, or performance takeaway.</li>
-            <li>What you would improve in the next iteration.</li>
-          </ul>
-        </div>
-
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-3.jpg" alt="Process step three image">
-          -->
-          <div class="image-placeholder">Process Image</div>
-        </div>
+      <section class="blog-box fade-section">
+        <h3>What I Learned</h3>
+        <p>
+          This was one of the most fun projects I have worked on because everything had to move fast. We had to choose an idea, learn enough about sorting algorithms to build something real, deal with limited sensors, prepare a physical prototype, and present a complete solution in a short amount of time.
+        </p>
+        <p>
+          The biggest takeaway was learning how to make quick engineering decisions under pressure. The project was not about building a perfect product; it was about building a working proof of concept, explaining the reasoning clearly, and adapting every time the constraints changed.
+        </p>
       </section>
 
       <!-- MEDIA -->
@@ -604,25 +637,23 @@
 
       <div class="media-grid fade-section">
         <div class="media-card">
-          <!-- Replace with:
-          <img src="media/image-1.jpg" alt="Project image 1">
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Image / CAD Render</div>
-          </div>
-          <div class="media-caption">Caption describing this image.</div>
+          <img src="images/design_concept.png" alt="KNN classifier design concept">
+          <div class="media-caption">CAD design concept for the self-sorting waste-bin prototype.</div>
         </div>
 
         <div class="media-card">
-          <!-- Replace with:
-          <video controls>
-            <source src="media/test-video.mp4" type="video/mp4">
-          </video>
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Video / Test Clip</div>
-          </div>
-          <div class="media-caption">Caption describing this video or test.</div>
+          <img src="images/knn_algo.png" alt="KNN classifier algorithm">
+          <div class="media-caption">KNN classifier logic used to sort waste into compost, landfill, and recycling.</div>
+        </div>
+
+        <div class="media-card">
+          <img src="images/presentation2.png" alt="Hack4SDSU presentation image">
+          <div class="media-caption">Team presentation during Hack4SDSU.</div>
+        </div>
+
+        <div class="media-card">
+          <img src="images/award.png" alt="Hack4SDSU award image">
+          <div class="media-caption">3rd place award recognition at Hack4SDSU.</div>
         </div>
       </div>
 
@@ -630,19 +661,19 @@
       <div id="resources" class="section-title-left">Resources</div>
 
       <div class="resource-grid fade-section">
-        <a class="resource-card" href="cad/" target="_blank">
-          <h3>CAD Files</h3>
-          <p>Link to CAD folder or downloadable files.</p>
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/HackathonKNNClassifier/documents" target="_blank">
+          <h3>Documents</h3>
+          <p>View project documents, notes, or supporting files on GitHub.</p>
         </a>
 
-        <a class="resource-card" href="code/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/HackathonKNNClassifier/code" target="_blank">
           <h3>Code</h3>
-          <p>Link to scripts, analysis files, or source code.</p>
+          <p>View scripts, classifier code, or Arduino-related files on GitHub.</p>
         </a>
 
-        <a class="resource-card" href="media/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/HackathonKNNClassifier/images" target="_blank">
           <h3>Media</h3>
-          <p>Link to images, videos, diagrams, or test footage.</p>
+          <p>View diagrams, photos, and project images on GitHub.</p>
         </a>
       </div>
 
@@ -664,7 +695,7 @@
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.01 }
     );
 
     document.querySelectorAll(".fade-section").forEach(section => {
