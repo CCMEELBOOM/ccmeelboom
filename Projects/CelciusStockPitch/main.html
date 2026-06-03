@@ -1,9 +1,12 @@
+Here is the full updated **Celcius Stock Pitch project page** in the same blog-style format as the KNN page.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Title | Charlie Chavez Meelboom</title>
+  <title>Celcius Stock Pitch | Charlie Chavez Meelboom</title>
 
   <!-- Bungee + Oxygen fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
@@ -17,7 +20,6 @@
       line-height: 1.6;
     }
 
-    /* STICKY TOP NAV BAR */
     .topbar {
       position: sticky;
       top: 0;
@@ -99,14 +101,12 @@
       padding-top: 40px;
     }
 
-    /* PAGE WRAPPER */
     .project-page {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* BACK LINK */
     .back-link {
       display: inline-block;
       margin-bottom: 25px;
@@ -124,7 +124,6 @@
       transform: scale(1.04);
     }
 
-    /* HERO */
     .project-hero {
       background: #2B45C4;
       border-radius: 12px;
@@ -176,7 +175,7 @@
 
     .chip {
       background: #0F2F75;
-      color: #ffffff;
+      color: #000000;
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.8rem;
@@ -199,18 +198,11 @@
     .hero-image-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #ffffff;
     }
 
-    .image-placeholder {
-      color: #000000;
-      font-weight: 700;
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* SECTION TITLES */
     .section-title-left {
       font-family: 'Bungee', sans-serif;
       font-size: 1.8rem;
@@ -222,7 +214,6 @@
       letter-spacing: 1px;
     }
 
-    /* BLUE CONTENT BOXES */
     .project-box {
       background: #2B45C4;
       padding: 25px;
@@ -263,76 +254,88 @@
       font-size: 0.98rem;
     }
 
-    /* PROCESS BOXES */
-    .process-box {
+    /* BLOG PROCESS SECTION */
+    .blog-box {
       background: #2B45C4;
-      padding: 25px;
+      padding: 28px;
       border-radius: 12px;
       color: #ffffff;
       margin-bottom: 25px;
+      transition: transform 0.25s ease;
+    }
 
+    .blog-box:hover {
+      transform: scale(1.02);
+    }
+
+    .blog-box h3 {
+      font-family: 'Bungee', sans-serif;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.25rem;
+    }
+
+    .blog-box p {
+      color: #ffffff;
+      font-size: 1rem;
+      margin: 0 0 14px 0;
+    }
+
+    .blog-image-wide {
+      width: 100%;
+      max-height: 480px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 12px;
+      display: block;
+      margin-top: 18px;
+    }
+
+    .blog-two-column {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 25px;
       align-items: center;
-
-      transition: transform 0.25s ease;
     }
 
-    .process-box:hover {
-      transform: scale(1.02);
-    }
-
-    .process-text h3 {
-      font-family: 'Bungee', sans-serif;
-      color: #ffffff;
-      margin-top: 0;
-      margin-bottom: 12px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 1.2rem;
-    }
-
-    .process-text p {
-      color: #ffffff;
-      margin: 0 0 12px 0;
-      font-size: 1rem;
-    }
-
-    .process-text ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .process-text li {
-      color: #ffffff;
-      margin-bottom: 8px;
-      font-size: 0.98rem;
-    }
-
-    .process-image-wrap {
+    .blog-two-column img {
       width: 100%;
-      height: 260px;
-      background: rgba(255, 255, 255, 0.22);
+      height: 300px;
+      object-fit: contain;
+      background: #ffffff;
       border-radius: 12px;
-      overflow: hidden;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .process-image-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
       display: block;
     }
 
-    /* MEDIA GALLERY */
+    .blog-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin-top: 18px;
+    }
+
+    .blog-gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: contain;
+      background: #ffffff;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .caption {
+      color: #ffffff;
+      font-weight: 700;
+      margin-top: 8px;
+      font-size: 0.9rem;
+    }
+
     .media-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 25px;
     }
 
@@ -351,10 +354,10 @@
     .media-card video {
       width: 100%;
       height: 230px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 10px;
       display: block;
-      background: rgba(255, 255, 255, 0.25);
+      background: #ffffff;
     }
 
     .media-caption {
@@ -364,10 +367,9 @@
       font-size: 0.95rem;
     }
 
-    /* DOWNLOAD / RESOURCE LINKS */
     .resource-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
@@ -407,7 +409,6 @@
       font-family: 'Oxygen', sans-serif;
     }
 
-    /* ANIMATIONS */
     .fade-section {
       opacity: 0;
       transform: translateY(30px);
@@ -419,7 +420,6 @@
       transform: translateY(0);
     }
 
-    /* RESPONSIVE */
     @media (max-width: 850px) {
       .topbar {
         flex-direction: column;
@@ -431,12 +431,13 @@
       }
 
       .project-hero,
-      .process-box {
+      .blog-two-column {
         grid-template-columns: 1fr;
       }
 
       .media-grid,
-      .resource-grid {
+      .resource-grid,
+      .blog-gallery {
         grid-template-columns: 1fr;
       }
 
@@ -444,7 +445,8 @@
         height: 220px;
       }
 
-      .process-image-wrap {
+      .blog-two-column img,
+      .blog-gallery img {
         height: 220px;
       }
 
@@ -483,28 +485,27 @@
       <!-- HERO -->
       <section class="project-hero fade-section">
         <div>
-          <div class="project-label">Project</div>
+          <div class="project-label">Financial Markets Lab / 1st Place</div>
 
-          <h2>Project Title Here</h2>
+          <h2>Celcius Stock Pitch</h2>
 
           <p class="project-summary">
-            Write a short overview of the project here. This should explain what the project is,
-            why it matters, and what your specific role was in 2–4 sentences.
+            From January to April 2025, my team competed in the Financial Markets Lab Stock Pitch Competition and pitched Celsius Holdings.
+            My role focused on valuation, comparable-company analysis, and setting the final price target using SEC filings, Bloomberg Terminal research, and Excel-based valuation work.
           </p>
 
           <div class="project-chip-row">
-            <div class="chip">Date</div>
-            <div class="chip">SolidWorks</div>
-            <div class="chip">Testing</div>
-            <div class="chip">Analysis</div>
+            <div class="chip">Jan 2025 – Apr 2025</div>
+            <div class="chip">1st Place</div>
+            <div class="chip">Valuation</div>
+            <div class="chip">Excel</div>
+            <div class="chip">Bloomberg Terminal</div>
+            <div class="chip">SEC 10-K Analysis</div>
           </div>
         </div>
 
         <div class="hero-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/hero-image.jpg" alt="Project title image">
-          -->
-          <div class="image-placeholder">Hero Project Image</div>
+          <img src="images/price_target.png" alt="Celsius price target slide">
         </div>
       </section>
 
@@ -514,88 +515,110 @@
       <section class="project-box fade-section">
         <h3>Problem</h3>
         <p>
-          Describe the problem or challenge this project addressed. Explain the design requirement,
-          engineering constraint, competition need, or system-level issue.
+          The competition required each team to select one of the provided companies, perform diligence, and present a full investment pitch. Our team chose Celsius Holdings because the company had strong growth potential, but its valuation depended heavily on how it compared to larger public beverage companies.
+        </p>
+        <p>
+          My challenge was to determine a reasonable price target. That meant identifying true public comparables, analyzing revenue and earnings trends, and deciding whether a basic EV/Revenue or EV/Earnings approach fairly represented Celsius’s growth profile.
         </p>
       </section>
 
       <section class="project-box fade-section">
         <h3>Solution</h3>
         <p>
-          Describe the solution you developed. Mention your design approach, major decisions,
-          tools used, and how the project improved the system or met the design goal.
+          I started with Celsius’s 10-K report from SEC.gov and pulled current and historical revenue and earnings data from 2020 to 2025 into Excel. I then used the school’s Bloomberg Terminal to research public comparable companies and reviewed names such as PepsiCo, Coca-Cola, Campbell’s, and Monster Beverage.
+        </p>
+        <p>
+          After reviewing each company’s exposure to the energy drink market, I concluded that Monster was the strongest public comparable. Other companies owned or distributed energy drink brands, but their overall revenue mix was too broad for their valuation multiples to accurately represent a pure energy drink business.
         </p>
       </section>
 
       <!-- PROCESS -->
       <div id="process" class="section-title-left">Process</div>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step One / Design Direction</h3>
-          <p>
-            Use this area to explain one phase of the project process. This could include initial
-            research, requirements, concept development, sketches, CAD, analysis, or testing.
-          </p>
+      <section class="blog-box fade-section">
+        <h3>Starting With the 10-K</h3>
+        <p>
+          My first step was to go through Celsius’s 10-K report and extract the business overview, revenue, and earnings data needed for the valuation. I copied the values from 2020 through 2025 into an Excel spreadsheet where I built the comparable-company analysis.
+        </p>
+        <p>
+          This gave me a foundation for the pitch because I could compare Celsius’s growth and profitability against other beverage companies instead of relying only on narrative research.
+        </p>
+      </section>
 
-          <ul>
-            <li>Key decision, constraint, or design requirement.</li>
-            <li>Tool, method, or analysis used during this step.</li>
-            <li>Outcome or learning from this part of the process.</li>
-          </ul>
-        </div>
+      <section class="blog-box fade-section">
+        <div class="blog-two-column">
+          <div>
+            <h3>Finding the Right Comparable</h3>
+            <p>
+              The Bloomberg Terminal provided a starting list of public comparables, including companies like PepsiCo, Coca-Cola, Campbell’s, and Monster. At first, this looked like a useful peer set, but the more I researched each company, the more it became clear that most were not true energy drink comparables.
+            </p>
+            <p>
+              PepsiCo and Coca-Cola both had connections to energy drink brands, but their energy drink exposure was only a small part of their broader business. Because of that, their overall valuation multiples were not truly driven by energy drink performance. Monster Beverage was the only comparable that closely matched Celsius’s category exposure.
+            </p>
+          </div>
 
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-1.jpg" alt="Process step one image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+          <div>
+            <img src="images/comparable_companies.png" alt="Comparable companies valuation slide">
+            <div class="caption">Comparable-company research used to narrow the peer set.</div>
+          </div>
         </div>
       </section>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step Two / Prototyping</h3>
-          <p>
-            Use this section to describe how you iterated, prototyped, manufactured, simulated,
-            tested, or validated your design.
-          </p>
+      <section class="blog-box fade-section">
+        <h3>Building the Valuation</h3>
+        <p>
+          Once Monster was selected as the main comparable, I reviewed Monster’s 10-K reports and pulled revenue and earnings data for the same historical period. From there, I calculated EV/Revenue multiples across the years and used Monster’s current valuation multiple to estimate a Celsius price target.
+        </p>
+        <p>
+          The initial EV/Revenue valuation produced a 2025 price target of $55.17. One improvement I identified afterward would have been to analyze Monster’s multiples over a longer ten-year period, then use that trend to better estimate a future multiple for Celsius.
+        </p>
 
-          <ul>
-            <li>Prototype or test setup detail.</li>
-            <li>Iteration or redesign based on results.</li>
-            <li>What improved after this step.</li>
-          </ul>
-        </div>
+        <img class="blog-image-wide" src="images/price_target.png" alt="Celsius price target valuation slide">
+      </section>
 
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-2.jpg" alt="Process step two image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+      <section class="blog-box fade-section">
+        <div class="blog-two-column">
+          <div>
+            <h3>Adjusting for Growth</h3>
+            <p>
+              I was also curious about the difference between EV/Revenue and EV/Earnings valuation approaches. Monster’s raw EV/Revenue multiple reflected a more mature, slower-growing company, so applying it directly to Celsius risked undervaluing the company.
+            </p>
+            <p>
+              To account for that, the adjusted EV/Revenue column scaled Monster’s multiple upward to better reflect Celsius’s higher growth profile. The correction factor itself was not displayed on the slide, but the adjustment is captured in the difference between the raw Monster EV/Revenue multiple and the adjusted EV/Revenue multiple.
+            </p>
+          </div>
+
+          <div>
+            <img src="images/ev_rev_correction.png" alt="EV Revenue correction slide">
+            <div class="caption">EV/Revenue correction used to better reflect Celsius’s growth profile.</div>
+          </div>
         </div>
       </section>
 
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>Step Three / Final Integration</h3>
-          <p>
-            Use this final process section to explain final assembly, integration, testing,
-            competition readiness, or what the finished project demonstrated.
-          </p>
+      <section class="blog-box fade-section">
+        <h3>Final Pitch and Takeaways</h3>
+        <p>
+          The final pitch combined research, valuation, business analysis, and presentation work across the full team. My contribution centered on explaining why Monster was the most useful public comparable, how the price target was developed, and how the adjusted EV/Revenue method better reflected Celsius’s growth stage.
+        </p>
+        <p>
+          This project taught me how much judgment goes into valuation. The math matters, but so does the reasoning behind which companies should actually be compared. The team placed 1st in the competition, and the price target was later met within approximately three months.
+        </p>
 
-          <ul>
-            <li>Final design or integration result.</li>
-            <li>Validation, testing, or performance takeaway.</li>
-            <li>What you would improve in the next iteration.</li>
-          </ul>
-        </div>
+        <div class="blog-gallery">
+          <div>
+            <img src="images/comparable_companies.png" alt="Comparable companies slide">
+            <div class="caption">Comparable-company valuation slide.</div>
+          </div>
 
-        <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-3.jpg" alt="Process step three image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+          <div>
+            <img src="images/ev_rev_correction.png" alt="EV Revenue correction slide">
+            <div class="caption">Adjusted EV/Revenue valuation slide.</div>
+          </div>
+
+          <div>
+            <img src="images/price_target.png" alt="Price target slide">
+            <div class="caption">Final price target slide.</div>
+          </div>
         </div>
       </section>
 
@@ -604,25 +627,18 @@
 
       <div class="media-grid fade-section">
         <div class="media-card">
-          <!-- Replace with:
-          <img src="media/image-1.jpg" alt="Project image 1">
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Image / CAD Render</div>
-          </div>
-          <div class="media-caption">Caption describing this image.</div>
+          <img src="images/comparable_companies.png" alt="Comparable companies slide">
+          <div class="media-caption">Comparable-company analysis used to evaluate the public peer set.</div>
         </div>
 
         <div class="media-card">
-          <!-- Replace with:
-          <video controls>
-            <source src="media/test-video.mp4" type="video/mp4">
-          </video>
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Video / Test Clip</div>
-          </div>
-          <div class="media-caption">Caption describing this video or test.</div>
+          <img src="images/ev_rev_correction.png" alt="EV Revenue correction slide">
+          <div class="media-caption">Adjusted EV/Revenue correction used to better reflect Celsius’s growth profile.</div>
+        </div>
+
+        <div class="media-card">
+          <img src="images/price_target.png" alt="Price target slide">
+          <div class="media-caption">Final price target slide showing the estimated valuation outcome.</div>
         </div>
       </div>
 
@@ -630,19 +646,14 @@
       <div id="resources" class="section-title-left">Resources</div>
 
       <div class="resource-grid fade-section">
-        <a class="resource-card" href="cad/" target="_blank">
-          <h3>CAD Files</h3>
-          <p>Link to CAD folder or downloadable files.</p>
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/CelciusStockPitch/documents" target="_blank">
+          <h3>Documents</h3>
+          <p>View stock pitch documents, spreadsheets, and supporting files on GitHub.</p>
         </a>
 
-        <a class="resource-card" href="code/" target="_blank">
-          <h3>Code</h3>
-          <p>Link to scripts, analysis files, or source code.</p>
-        </a>
-
-        <a class="resource-card" href="media/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/CelciusStockPitch/images" target="_blank">
           <h3>Media</h3>
-          <p>Link to images, videos, diagrams, or test footage.</p>
+          <p>View pitch slides, valuation screenshots, and project images on GitHub.</p>
         </a>
       </div>
 
@@ -664,7 +675,7 @@
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.01 }
     );
 
     document.querySelectorAll(".fade-section").forEach(section => {
@@ -727,3 +738,4 @@
 
 </body>
 </html>
+```
