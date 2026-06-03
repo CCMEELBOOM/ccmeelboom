@@ -1,3 +1,8 @@
+Here is your updated full `index.html` code. The **View Resume** button now opens a dropdown with **Engineering**, **Finance**, and **Project Management** options.
+
+You will need to replace the `href` links with your actual resume file names once you add them to the repo.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -126,6 +131,7 @@
       display: flex;
       gap: 15px;
       flex-wrap: wrap;
+      align-items: flex-start;
     }
 
     .hero-btn {
@@ -136,10 +142,58 @@
       text-decoration: none;
       font-size: 0.95rem;
       transition: background 0.2s ease;
+      background: transparent;
+      font-family: 'Oxygen', sans-serif;
+      cursor: pointer;
     }
 
     .hero-btn:hover {
       background: rgba(255,255,255,0.2);
+    }
+
+    /* RESUME DROPDOWN */
+    .resume-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .resume-menu {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 230px;
+      background: #2B45C4;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 12px;
+      padding: 10px;
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-8px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+      z-index: 50;
+    }
+
+    .resume-dropdown.open .resume-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .resume-option {
+      display: block;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .resume-option:hover {
+      background: rgba(255, 255, 255, 0.18);
+      transform: translateX(4px);
     }
 
     /* RIGHT SIDE BOX */
@@ -631,8 +685,20 @@
         </p>
 
         <div class="hero-buttons">
-          <a class="hero-btn" href="Resume.pdf" target="_blank">View Resume</a>
-          <a class="hero-btn" href="https://www.linkedin.com" target="_blank">LinkedIn Profile</a>
+
+          <div class="resume-dropdown">
+            <button class="hero-btn resume-toggle" type="button" aria-expanded="false">
+              View Resume
+            </button>
+
+            <div class="resume-menu">
+              <a class="resume-option" href="EngineeringResume.pdf" target="_blank">Engineering</a>
+              <a class="resume-option" href="FinanceResume.pdf" target="_blank">Finance</a>
+              <a class="resume-option" href="ProjectManagementResume.pdf" target="_blank">Project Management</a>
+            </div>
+          </div>
+
+          <a class="hero-btn" href="https://www.linkedin.com/in/ccmeelboom/" target="_blank">LinkedIn Profile</a>
         </div>
       </div>
 
@@ -821,7 +887,7 @@
           <div class="project-info">
             <div class="project-top">
               <div class="chip">2026-Current</div>
-          </div>
+            </div>
 
             <h3 class="project-title">AER Cooling System</h3>
 
@@ -831,7 +897,6 @@
             </p>
 
             <a class="project-link" href="./Projects/AERCoolingSystem/main.html">View Project</a>
-
           </div>
 
           <div class="project-image-wrap">
@@ -859,7 +924,7 @@
             <div class="project-image-placeholder">Project Image</div>
           </div>
         </div>
-        
+
         <div class="project-box">
           <div class="project-info">
             <div class="project-top">
@@ -869,7 +934,7 @@
             <h3 class="project-title">AER Radiator CAD Model</h3>
 
             <p class="project-description">
-              Reverse engineered and built a modular CAD model of an Earl’s 16-row radiator/oil cooler after no accurate manufacturer model was available. 
+              Reverse engineered and built a modular CAD model of an Earl’s 16-row radiator/oil cooler after no accurate manufacturer model was available.
               The project involved image digitization, iterative CAD redesign, internal volume validation in Ansys Discovery.
             </p>
 
@@ -922,7 +987,6 @@
             <div class="project-image-placeholder">Project Image</div>
           </div>
         </div>
-
 
         <div class="project-box">
           <div class="project-info">
@@ -1008,28 +1072,6 @@
           </div>
         </div>
 
-        <!-- SAMPLE PROJECT BOX - DUPLICATE AND FILL IN FOR EACH PROJECT 
-        <div class="project-box">
-          <div class="project-info">
-            <div class="project-top">
-              <div class="chip">Date</div>
-            </div>
-
-            <h3 class="project-title">Project Title</h3>
-
-            <p class="project-description">
-              Write a 1–2 sentence description of the project here. Focus on what you built,
-              what problem it solved, and what tools or engineering skills were involved.
-            </p>
-
-            <a class="project-link" href="#" target="_blank">View Project</a>
-          </div>
-
-          <div class="project-image-wrap">
-            <div class="project-image-placeholder">Project Image</div>
-          </div>
-        </div>
-      -->
         <div class="project-box">
           <div class="project-info">
             <div class="project-top">
@@ -1070,7 +1112,7 @@
           </div>
 
           <div class="project-image-wrap">
-            <img src="./ProjectCoverImages/HackathonKNNClassifier.png" alt="AER Cooling System project image">
+            <img src="./ProjectCoverImages/HackathonKNNClassifier.png" alt="KNN Classifier project image">
           </div>
         </div>
 
@@ -1101,14 +1143,14 @@
 
       <div class="education-box">
         <div class="edu-entry">
-        <strong>San Diego State University</strong><br>
-        Major: B.S. Mechanical Engineering<br>
-        Minor: Mathematics<br>
-        Relevant Coursework: Fluid Mechanics, Mechanics of Materials, Physics III (Waves, Optics and Thermodynamics), MATLAB, Mechatronics
+          <strong>San Diego State University</strong><br>
+          Major: B.S. Mechanical Engineering<br>
+          Minor: Mathematics<br>
+          Relevant Coursework: Fluid Mechanics, Mechanics of Materials, Physics III (Waves, Optics and Thermodynamics), MATLAB, Mechatronics
+        </div>
       </div>
-    </div>
 
-</div>
+    </div>
 
     <!-- CONTACT -->
     <section id="contact" class="contact-section fade-section">
@@ -1136,7 +1178,7 @@
 
         <div class="contact-card">
           <div class="contact-card-label">LinkedIn</div>
-          <a href="https://www.linkedin.com" target="_blank">LinkedIn Profile</a>
+          <a href="https://www.linkedin.com/in/ccmeelboom/" target="_blank">LinkedIn Profile</a>
         </div>
       </div>
 
@@ -1232,7 +1274,32 @@
     window.addEventListener("scroll", updateActiveNavOnScroll);
     window.addEventListener("resize", updateActiveNavOnScroll);
     window.addEventListener("load", updateActiveNavOnScroll);
+
+    const resumeDropdown = document.querySelector(".resume-dropdown");
+    const resumeToggle = document.querySelector(".resume-toggle");
+
+    resumeToggle.addEventListener("click", event => {
+      event.stopPropagation();
+
+      const isOpen = resumeDropdown.classList.toggle("open");
+      resumeToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    document.addEventListener("click", event => {
+      if (!resumeDropdown.contains(event.target)) {
+        resumeDropdown.classList.remove("open");
+        resumeToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        resumeDropdown.classList.remove("open");
+        resumeToggle.setAttribute("aria-expanded", "false");
+      }
+    });
   </script>
 
 </body>
 </html>
+```
