@@ -3,10 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Project Title | Charlie Chavez Meelboom</title>
+  <title>ROS2 Nodes | Charlie Chavez Meelboom</title>
 
   <!-- Bungee + Oxygen fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- MathJax for equations -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   <style>
     body {
@@ -17,7 +28,6 @@
       line-height: 1.6;
     }
 
-    /* STICKY TOP NAV BAR */
     .topbar {
       position: sticky;
       top: 0;
@@ -99,14 +109,12 @@
       padding-top: 40px;
     }
 
-    /* PAGE WRAPPER */
     .project-page {
       max-width: 1100px;
       margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* BACK LINK */
     .back-link {
       display: inline-block;
       margin-bottom: 25px;
@@ -124,7 +132,6 @@
       transform: scale(1.04);
     }
 
-    /* HERO */
     .project-hero {
       background: #2B45C4;
       border-radius: 12px;
@@ -176,7 +183,7 @@
 
     .chip {
       background: #0F2F75;
-      color: #ffffff;
+      color: #000000;
       padding: 6px 12px;
       border-radius: 999px;
       font-size: 0.8rem;
@@ -199,18 +206,11 @@
     .hero-image-wrap img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #ffffff;
     }
 
-    .image-placeholder {
-      color: #000000;
-      font-weight: 700;
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* SECTION TITLES */
     .section-title-left {
       font-family: 'Bungee', sans-serif;
       font-size: 1.8rem;
@@ -222,7 +222,6 @@
       letter-spacing: 1px;
     }
 
-    /* BLUE CONTENT BOXES */
     .project-box {
       background: #2B45C4;
       padding: 25px;
@@ -263,7 +262,62 @@
       font-size: 0.98rem;
     }
 
-    /* PROCESS BOXES */
+    .project-box a,
+    .blog-box a {
+      color: #ffffff;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .equation-box {
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+      color: #ffffff;
+      overflow-x: auto;
+    }
+
+    .variable-list {
+      margin-top: 8px;
+      margin-bottom: 16px;
+    }
+
+    .variable-list li {
+      color: #ffffff;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+
+    .blog-box {
+      background: #2B45C4;
+      padding: 28px;
+      border-radius: 12px;
+      color: #ffffff;
+      margin-bottom: 25px;
+      transition: transform 0.25s ease;
+    }
+
+    .blog-box:hover {
+      transform: scale(1.02);
+    }
+
+    .blog-box h3 {
+      font-family: 'Bungee', sans-serif;
+      color: #ffffff;
+      margin-top: 0;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.25rem;
+    }
+
+    .blog-box p {
+      color: #ffffff;
+      font-size: 1rem;
+      margin: 0 0 14px 0;
+    }
+
     .process-box {
       background: #2B45C4;
       padding: 25px;
@@ -299,17 +353,6 @@
       font-size: 1rem;
     }
 
-    .process-text ul {
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .process-text li {
-      color: #ffffff;
-      margin-bottom: 8px;
-      font-size: 0.98rem;
-    }
-
     .process-image-wrap {
       width: 100%;
       height: 260px;
@@ -322,14 +365,15 @@
       justify-content: center;
     }
 
-    .process-image-wrap img {
+    .process-image-wrap img,
+    .process-image-wrap video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
+      background: #ffffff;
     }
 
-    /* MEDIA GALLERY */
     .media-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -350,11 +394,11 @@
     .media-card img,
     .media-card video {
       width: 100%;
-      height: 230px;
-      object-fit: cover;
+      height: 240px;
+      object-fit: contain;
       border-radius: 10px;
       display: block;
-      background: rgba(255, 255, 255, 0.25);
+      background: #ffffff;
     }
 
     .media-caption {
@@ -364,7 +408,6 @@
       font-size: 0.95rem;
     }
 
-    /* DOWNLOAD / RESOURCE LINKS */
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -407,7 +450,6 @@
       font-family: 'Oxygen', sans-serif;
     }
 
-    /* ANIMATIONS */
     .fade-section {
       opacity: 0;
       transform: translateY(30px);
@@ -419,7 +461,6 @@
       transform: translateY(0);
     }
 
-    /* RESPONSIVE */
     @media (max-width: 850px) {
       .topbar {
         flex-direction: column;
@@ -441,7 +482,7 @@
       }
 
       .hero-image-wrap {
-        height: 220px;
+        height: 240px;
       }
 
       .process-image-wrap {
@@ -450,7 +491,7 @@
 
       .media-card img,
       .media-card video {
-        height: 200px;
+        height: 210px;
       }
     }
   </style>
@@ -468,6 +509,7 @@
       <span class="nav-indicator"></span>
 
       <a class="nav-link active" href="#overview">Overview</a>
+      <a class="nav-link" href="#technical">Technical</a>
       <a class="nav-link" href="#process">Process</a>
       <a class="nav-link" href="#media">Media</a>
       <a class="nav-link" href="#resources">Resources</a>
@@ -483,28 +525,28 @@
       <!-- HERO -->
       <section class="project-hero fade-section">
         <div>
-          <div class="project-label">Project</div>
+          <div class="project-label">DSIM Lab / BlueROV2</div>
 
-          <h2>Project Title Here</h2>
+          <h2>ROS2 Nodes for Acoustic Localization</h2>
 
           <p class="project-summary">
-            Write a short overview of the project here. This should explain what the project is,
-            why it matters, and what your specific role was in 2–4 sentences.
+            I developed ROS2 publisher nodes and bridge scripts that convert BlueROV2 sensor data into usable real-time ROS2 topics for an acoustic-localization system.
+            The project connects Arduino servo-angle feedback, Raspberry Pi hardware scripts, DAC HAT hydrophone readings, and socket communication into a cleaner software pipeline for DSIM Lab testing.
           </p>
 
           <div class="project-chip-row">
-            <div class="chip">Date</div>
-            <div class="chip">SolidWorks</div>
-            <div class="chip">Testing</div>
-            <div class="chip">Analysis</div>
+            <div class="chip">January 2026 - May 2026</div>
+            <div class="chip">ROS2</div>
+            <div class="chip">Python</div>
+            <div class="chip">Arduino</div>
+            <div class="chip">Raspberry Pi</div>
+            <div class="chip">Hydrophones</div>
+            <div class="chip">Socket Communication</div>
           </div>
         </div>
 
         <div class="hero-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/hero-image.jpg" alt="Project title image">
-          -->
-          <div class="image-placeholder">Hero Project Image</div>
+          <img src="images/DSIMROS2Nodes.png" alt="ROS2 Nodes project cover image">
         </div>
       </section>
 
@@ -514,17 +556,138 @@
       <section class="project-box fade-section">
         <h3>Problem</h3>
         <p>
-          Describe the problem or challenge this project addressed. Explain the design requirement,
-          engineering constraint, competition need, or system-level issue.
+          The BlueROV2 acoustic-localization project needed real-time data streams that could be used by an extremum-seeking control algorithm. The raw data was split across multiple pieces of hardware: servo feedback from an Arduino, hydrophone voltage data from DAC HATs, Raspberry Pi scripts, and a PC running ROS2.
+        </p>
+        <p>
+          Without a clean software bridge, the sensor data could not be reliably converted, transferred, and published into ROS2 topics for testing and algorithm development.
         </p>
       </section>
 
       <section class="project-box fade-section">
         <h3>Solution</h3>
         <p>
-          Describe the solution you developed. Mention your design approach, major decisions,
-          tools used, and how the project improved the system or met the design goal.
+          I wrote the scripts for the ROS2 publisher nodes, the Raspberry Pi-to-PC bridge scripts, and the Arduino sketch used to publish servo angle data. The final pipeline takes hardware-side readings, sends them through socket communication, and publishes usable servo-angle and hydrophone sound data into ROS2.
         </p>
+        <p>
+          This page focuses on the software pipeline and ROS2 nodes. The wiring, physical mounting, and hydrophone housing work are covered in the separate Hydrophone Housing / Wiring project.
+        </p>
+      </section>
+
+      <!-- TECHNICAL -->
+      <div id="technical" class="section-title-left">Technical Details</div>
+
+      <section class="blog-box fade-section">
+        <h3>Servo Angle Data</h3>
+
+        <p>
+          The servo angle node converts feedback from the rotating hydrophone servo into a ROS2 topic. The Arduino reads the servo feedback signal, calculates the angle, and sends the data to the PC through a bridge script before the ROS2 node publishes it.
+        </p>
+
+        <div class="equation-box">
+          \[
+          \text{Duty Cycle} = \frac{t_{high}}{T}\times100
+          \]
+        </div>
+
+        <ul class="variable-list">
+          <li>\(t_{high}\): time that the servo feedback signal is high.</li>
+          <li>\(T\): full period of the servo feedback signal.</li>
+          <li>\(\text{Duty Cycle}\): percent of the period where the signal is high.</li>
+        </ul>
+
+        <p>
+          The duty cycle is then converted into a raw angular position:
+        </p>
+
+        <div class="equation-box">
+          \[
+          \theta_{raw} = \frac{(D - 2.9)\times360}{97.1 - 2.9 + 1.0}
+          \]
+        </div>
+
+        <ul class="variable-list">
+          <li>\(\theta_{raw}\): raw servo angle in degrees.</li>
+          <li>\(D\): measured duty cycle percentage.</li>
+          <li>2.9 and 97.1: calibration bounds used for the servo feedback range.</li>
+        </ul>
+
+        <p>
+          A zeroing offset is applied so the published angle is relative to the desired starting orientation:
+        </p>
+
+        <div class="equation-box">
+          \[
+          \theta_{shifted} = \theta_{raw} - \theta_{zero}
+          \]
+        </div>
+
+        <ul class="variable-list">
+          <li>\(\theta_{shifted}\): corrected servo angle published for use by the system.</li>
+          <li>\(\theta_{raw}\): raw measured servo angle.</li>
+          <li>\(\theta_{zero}\): zeroing offset from the homed servo position.</li>
+        </ul>
+      </section>
+
+      <section class="blog-box fade-section">
+        <h3>Hydrophone Sound Data</h3>
+
+        <p>
+          The hydrophone node converts voltage readings from the hydrophones into underwater sound pressure level data. The Raspberry Pi reads data through the DAC HAT setup, sends the values to the PC, and the ROS2 node publishes the processed sound data.
+        </p>
+
+        <div class="equation-box">
+          \[
+          S = \frac{V}{P}
+          \]
+        </div>
+
+        <ul class="variable-list">
+          <li>\(S\): hydrophone sensitivity.</li>
+          <li>\(V\): measured voltage.</li>
+          <li>\(P\): acoustic pressure.</li>
+        </ul>
+
+        <p>
+          Rearranging the sensitivity relationship gives pressure from voltage:
+        </p>
+
+        <div class="equation-box">
+          \[
+          P = \frac{V}{S}
+          \]
+        </div>
+
+        <p>
+          The pressure signal is then converted into RMS pressure:
+        </p>
+
+        <div class="equation-box">
+          \[
+          P_{RMS} = \sqrt{\frac{1}{N}\sum_{i=1}^{N}P_i^2}
+          \]
+        </div>
+
+        <ul class="variable-list">
+          <li>\(P_{RMS}\): root-mean-square pressure.</li>
+          <li>\(N\): number of pressure samples.</li>
+          <li>\(P_i\): individual pressure sample.</li>
+        </ul>
+
+        <p>
+          Finally, the RMS pressure is converted into underwater sound pressure level:
+        </p>
+
+        <div class="equation-box">
+          \[
+          dB = 20\log_{10}\left(\frac{P_{RMS}}{1\times10^{-6}}\right)
+          \]
+        </div>
+
+        <ul class="variable-list">
+          <li>\(dB\): underwater sound pressure level.</li>
+          <li>\(P_{RMS}\): RMS acoustic pressure.</li>
+          <li>\(1\times10^{-6}\): reference pressure used for underwater sound level calculations.</li>
+        </ul>
       </section>
 
       <!-- PROCESS -->
@@ -532,70 +695,89 @@
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step One / Design Direction</h3>
-          <p>
-            Use this area to explain one phase of the project process. This could include initial
-            research, requirements, concept development, sketches, CAD, analysis, or testing.
-          </p>
+          <h3>1 / Building the Servo Angle Node</h3>
 
-          <ul>
-            <li>Key decision, constraint, or design requirement.</li>
-            <li>Tool, method, or analysis used during this step.</li>
-            <li>Outcome or learning from this part of the process.</li>
-          </ul>
+          <p>
+            The first major piece was getting servo angle data into ROS2. I wrote the Arduino sketch that reads angle feedback from the servo and the scripts that bridge that data from the hardware side to the PC. From there, the ROS2 node publishes angle data so the localization algorithm can use the current hydrophone orientation.
+          </p>
         </div>
 
         <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-1.jpg" alt="Process step one image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+          <img src="images/angle_node.png" alt="Servo angle ROS2 node output">
         </div>
       </section>
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step Two / Prototyping</h3>
-          <p>
-            Use this section to describe how you iterated, prototyped, manufactured, simulated,
-            tested, or validated your design.
-          </p>
+          <h3>2 / Bridging Hardware to the PC</h3>
 
-          <ul>
-            <li>Prototype or test setup detail.</li>
-            <li>Iteration or redesign based on results.</li>
-            <li>What improved after this step.</li>
-          </ul>
+          <p>
+            The project required bridge scripts because the sensor data was not generated directly on the PC. I wrote scripts that move data from the Raspberry Pi and Arduino side to the PC using socket communication, allowing the ROS2 environment to receive clean data streams from the physical test setup.
+          </p>
         </div>
 
         <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-2.jpg" alt="Process step two image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+          <img src="images/connection_to_pc.png" alt="Hardware connection to PC for ROS2 data transfer">
         </div>
       </section>
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step Three / Final Integration</h3>
-          <p>
-            Use this final process section to explain final assembly, integration, testing,
-            competition readiness, or what the finished project demonstrated.
-          </p>
+          <h3>3 / Working Through Remote Access</h3>
 
-          <ul>
-            <li>Final design or integration result.</li>
-            <li>Validation, testing, or performance takeaway.</li>
-            <li>What you would improve in the next iteration.</li>
-          </ul>
+          <p>
+            Part of the workflow involved connecting into the Raspberry Pi environment and running scripts remotely. This made it possible to work with hardware-side data while still controlling and monitoring the ROS2 pipeline from the development machine.
+          </p>
         </div>
 
         <div class="process-image-wrap">
-          <!-- Replace placeholder with:
-          <img src="media/process-3.jpg" alt="Process step three image">
-          -->
-          <div class="image-placeholder">Process Image</div>
+          <img src="images/SSH_connection.png" alt="SSH connection to Raspberry Pi">
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>4 / Publishing Hydrophone Sound Data</h3>
+
+          <p>
+            After the angle node, I worked on the hydrophone sound-data pipeline. The node takes voltage-based hydrophone readings, converts them into pressure and sound pressure level data, and publishes the resulting values for localization and signal-processing work.
+          </p>
+        </div>
+
+        <div class="process-image-wrap">
+          <img src="images/sonud_node.png" alt="Hydrophone sound ROS2 node output">
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>5 / Running the ROS2 Nodes Together</h3>
+
+          <p>
+            Once the individual scripts were working, I tested the full node setup together. Running the nodes at the same time helped confirm that the servo-angle and sound-data streams could be monitored, echoed, and used as part of the larger acoustic-localization system.
+          </p>
+        </div>
+
+        <div class="process-image-wrap">
+          <video controls>
+            <source src="images/running_ros2_nodes.mp4" type="video/mp4">
+          </video>
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>6 / BlueROV2 Test Setup</h3>
+
+          <p>
+            The final goal was to support testing on the BlueROV2 platform. The ROS2 nodes provide the software layer needed to move from raw hardware signals toward usable localization data for future pool testing and extremum-seeking control experiments.
+          </p>
+        </div>
+
+        <div class="process-image-wrap">
+          <video controls>
+            <source src="images/moving_bluerov2.mp4" type="video/mp4">
+          </video>
         </div>
       </section>
 
@@ -603,46 +785,60 @@
       <div id="media" class="section-title-left">Media</div>
 
       <div class="media-grid fade-section">
+
         <div class="media-card">
-          <!-- Replace with:
-          <img src="media/image-1.jpg" alt="Project image 1">
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Image / CAD Render</div>
-          </div>
-          <div class="media-caption">Caption describing this image.</div>
+          <img src="images/angle_node.png" alt="Servo angle node terminal output">
+          <div class="media-caption">Servo angle node publishing angle data for the rotating hydrophone setup.</div>
         </div>
 
         <div class="media-card">
-          <!-- Replace with:
-          <video controls>
-            <source src="media/test-video.mp4" type="video/mp4">
-          </video>
-          -->
-          <div class="hero-image-wrap">
-            <div class="image-placeholder">Video / Test Clip</div>
-          </div>
-          <div class="media-caption">Caption describing this video or test.</div>
+          <img src="images/connection_to_pc.png" alt="Connection to PC">
+          <div class="media-caption">Hardware connection used to bridge Raspberry Pi and Arduino-side data to the PC.</div>
         </div>
+
+        <div class="media-card">
+          <img src="images/SSH_connection.png" alt="SSH connection">
+          <div class="media-caption">Remote Raspberry Pi access used during development and testing.</div>
+        </div>
+
+        <div class="media-card">
+          <img src="images/sonud_node.png" alt="Sound node terminal output">
+          <div class="media-caption">Hydrophone sound node publishing processed sound data into ROS2.</div>
+        </div>
+
+        <div class="media-card">
+          <video controls>
+            <source src="images/running_ros2_nodes.mp4" type="video/mp4">
+          </video>
+          <div class="media-caption">Running ROS2 nodes and verifying data output across the system.</div>
+        </div>
+
+        <div class="media-card">
+          <video controls>
+            <source src="images/moving_bluerov2.mp4" type="video/mp4">
+          </video>
+          <div class="media-caption">BlueROV2 test setup showing the platform used for acoustic-localization development.</div>
+        </div>
+
       </div>
 
       <!-- RESOURCES -->
       <div id="resources" class="section-title-left">Resources</div>
 
       <div class="resource-grid fade-section">
-        <a class="resource-card" href="cad/" target="_blank">
-          <h3>CAD Files</h3>
-          <p>Link to CAD folder or downloadable files.</p>
-        </a>
-
-        <a class="resource-card" href="code/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/DSIMROS2Nodes/code" target="_blank">
           <h3>Code</h3>
-          <p>Link to scripts, analysis files, or source code.</p>
+          <p>View ROS2 nodes, bridge scripts, and Arduino-related code on GitHub.</p>
         </a>
 
-        <a class="resource-card" href="media/" target="_blank">
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/DSIMROS2Nodes/images" target="_blank">
           <h3>Media</h3>
-          <p>Link to images, videos, diagrams, or test footage.</p>
+          <p>View project images, terminal screenshots, and videos on GitHub.</p>
+        </a>
+
+        <a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/DSIMROS2Nodes/documents" target="_blank">
+          <h3>Documents</h3>
+          <p>View README files, notes, and project documentation on GitHub.</p>
         </a>
       </div>
 
@@ -664,7 +860,7 @@
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.01 }
     );
 
     document.querySelectorAll(".fade-section").forEach(section => {
@@ -674,7 +870,7 @@
     const nav = document.querySelector("nav");
     const navLinks = document.querySelectorAll(".nav-link");
     const navIndicator = document.querySelector(".nav-indicator");
-    const sections = document.querySelectorAll("#overview, #process, #media, #resources");
+    const sections = document.querySelectorAll("#overview, #technical, #process, #media, #resources");
 
     function moveNavIndicator(activeLink) {
       const navRect = nav.getBoundingClientRect();
@@ -727,3 +923,4 @@
 
 </body>
 </html>
+
