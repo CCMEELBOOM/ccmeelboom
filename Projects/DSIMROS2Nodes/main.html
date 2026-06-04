@@ -365,11 +365,32 @@
       justify-content: center;
     }
 
-    .process-image-wrap img,
-    .process-image-wrap video {
+    .process-image-wrap img {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      display: block;
+      background: #ffffff;
+    }
+
+    .process-video-stack {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .process-video-wrap {
+      width: 100%;
+      height: 220px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .process-video-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
       display: block;
       background: #ffffff;
     }
@@ -391,11 +412,19 @@
       transform: scale(1.03);
     }
 
-    .media-card img,
-    .media-card video {
+    .media-card img {
       width: 100%;
       height: 240px;
       object-fit: contain;
+      border-radius: 10px;
+      display: block;
+      background: #ffffff;
+    }
+
+    .media-card iframe {
+      width: 100%;
+      height: 240px;
+      border: none;
       border-radius: 10px;
       display: block;
       background: #ffffff;
@@ -489,8 +518,12 @@
         height: 220px;
       }
 
+      .process-video-wrap {
+        height: 220px;
+      }
+
       .media-card img,
-      .media-card video {
+      .media-card iframe {
         height: 210px;
       }
     }
@@ -756,28 +789,28 @@
           <p>
             Once the individual scripts were working, I tested the full node setup together. Running the nodes at the same time helped confirm that the servo-angle and sound-data streams could be monitored, echoed, and used as part of the larger acoustic-localization system.
           </p>
-        </div>
-
-        <div class="process-image-wrap">
-          <video controls>
-            <source src="images/running_ros2_nodes.mp4" type="video/mp4">
-          </video>
-        </div>
-      </section>
-
-      <section class="process-box fade-section">
-        <div class="process-text">
-          <h3>6 / BlueROV2 Test Setup</h3>
 
           <p>
-            The final goal was to support testing on the BlueROV2 platform. The ROS2 nodes provide the software layer needed to move from raw hardware signals toward usable localization data for future pool testing and extremum-seeking control experiments.
+            The videos show the ROS2 nodes running and the BlueROV2 test setup used for acoustic-localization development.
           </p>
         </div>
 
-        <div class="process-image-wrap">
-          <video controls>
-            <source src="images/moving_bluerov2.mp4" type="video/mp4">
-          </video>
+        <div class="process-video-stack">
+          <div class="process-video-wrap">
+            <iframe
+              src="https://drive.google.com/file/d/1lYYk3ELQRIxD1gHG9RhSwwTwApVY1NF3/preview"
+              allow="autoplay"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <div class="process-video-wrap">
+            <iframe
+              src="https://drive.google.com/file/d/1iKV8NaiOGRCeju5XJlV9U1j33ZRbjxaJ/preview"
+              allow="autoplay"
+              allowfullscreen>
+            </iframe>
+          </div>
         </div>
       </section>
 
@@ -807,16 +840,20 @@
         </div>
 
         <div class="media-card">
-          <video controls>
-            <source src="images/running_ros2_nodes.mp4" type="video/mp4">
-          </video>
+          <iframe
+            src="https://drive.google.com/file/d/1lYYk3ELQRIxD1gHG9RhSwwTwApVY1NF3/preview"
+            allow="autoplay"
+            allowfullscreen>
+          </iframe>
           <div class="media-caption">Running ROS2 nodes and verifying data output across the system.</div>
         </div>
 
         <div class="media-card">
-          <video controls>
-            <source src="images/moving_bluerov2.mp4" type="video/mp4">
-          </video>
+          <iframe
+            src="https://drive.google.com/file/d/1iKV8NaiOGRCeju5XJlV9U1j33ZRbjxaJ/preview"
+            allow="autoplay"
+            allowfullscreen>
+          </iframe>
           <div class="media-caption">BlueROV2 test setup showing the platform used for acoustic-localization development.</div>
         </div>
 
