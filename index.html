@@ -17,6 +17,7 @@
       line-height: 1.6;
     }
 
+    /* STICKY TOP NAV BAR */
     .topbar {
       position: sticky;
       top: 0;
@@ -29,6 +30,7 @@
       align-items: center;
     }
 
+    /* NAME ON LEFT */
     .topbar h1 {
       font-family: 'Bungee', sans-serif;
       font-size: 1.4rem;
@@ -36,6 +38,7 @@
       letter-spacing: 1px;
     }
 
+    /* MENU CENTERED */
     nav {
       position: relative;
       display: flex;
@@ -88,6 +91,7 @@
       padding-top: 40px;
     }
 
+    /* ABOUT SECTION — TWO COLUMNS */
     .about-wrapper {
       max-width: 1100px;
       margin: 0 auto 60px auto;
@@ -149,51 +153,7 @@
       background: rgba(255,255,255,0.2);
     }
 
-    .resume-dropdown {
-      position: relative;
-      display: inline-block;
-      z-index: 2000;
-    }
-
-    .resume-menu {
-      position: absolute;
-      top: calc(100% + 10px);
-      left: 0;
-      min-width: 230px;
-      background: #2B45C4;
-      border: 1px solid rgba(255, 255, 255, 0.35);
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-8px);
-      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
-      z-index: 9999;
-    }
-
-    .resume-dropdown.open .resume-menu {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .resume-option {
-      display: block;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 10px 12px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 700;
-      transition: background 0.2s ease, transform 0.2s ease;
-    }
-
-    .resume-option:hover {
-      background: rgba(255, 255, 255, 0.18);
-      transform: translateX(4px);
-    }
-
+    /* RIGHT SIDE BOX */
     .about-box {
       flex: 1 1 35%;
       min-width: 260px;
@@ -234,6 +194,7 @@
       white-space: nowrap;
     }
 
+    /* LEFT-ALIGNED SECTION TITLES */
     .section-title-left {
       font-family: 'Bungee', sans-serif;
       font-size: 1.8rem;
@@ -251,6 +212,7 @@
       z-index: 1;
     }
 
+    /* EXPERIENCE — ONE BOX PER ROW */
     .experience-grid {
       max-width: 1100px;
       margin: 0 auto;
@@ -336,6 +298,7 @@
       white-space: nowrap;
     }
 
+    /* PROJECTS */
     .projects-grid {
       max-width: 1100px;
       margin: 0 auto;
@@ -430,6 +393,14 @@
       display: block;
     }
 
+    .project-image-placeholder {
+      color: #ffffff;
+      font-weight: 700;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* EDUCATION */
     .education-box {
       max-width: 1100px;
       margin: 0 auto 40px auto;
@@ -441,6 +412,15 @@
       width: calc(100% - 40px);
     }
 
+    .education-box ul {
+      margin-bottom: 0;
+    }
+
+    .education-box li {
+      margin-bottom: 8px;
+    }
+
+    /* CONTACT SECTION */
     .contact-section {
       max-width: 1100px;
       margin: 70px auto 40px auto;
@@ -585,6 +565,7 @@
       font-family: 'Oxygen', sans-serif;
     }
 
+    /* ANIMATIONS */
     .fade-section {
       opacity: 0;
       transform: translateY(30px);
@@ -596,6 +577,7 @@
       transform: translateY(0);
     }
 
+    /* RESPONSIVE */
     @media (max-width: 850px) {
       .topbar {
         flex-direction: column;
@@ -623,6 +605,7 @@
 
 <body>
 
+  <!-- STICKY TOP BAR -->
   <div class="topbar">
     <h1>CHARLIE CHAVEZ MEELBOOM</h1>
 
@@ -639,6 +622,7 @@
 
   <div class="content">
 
+    <!-- ABOUT SECTION -->
     <div id="about" class="about-wrapper fade-section">
 
       <div class="about-left">
@@ -652,18 +636,9 @@
         </p>
 
         <div class="hero-buttons">
-
-          <div class="resume-dropdown">
-            <button class="hero-btn resume-toggle" type="button" aria-expanded="false">
-              View Resume
-            </button>
-
-          <div class="resume-menu">
-            <a class="resume-option" href="https://ccmeelboom.github.io/ccmeelboom/Resumes/EngineeringResume.pdf" target="_blank" rel="noopener noreferrer">Engineering</a>
-            <a class="resume-option" href="https://ccmeelboom.github.io/ccmeelboom/Resumes/FinanceResume.pdf" target="_blank" rel="noopener noreferrer">Finance</a>
-            <a class="resume-option" href="https://ccmeelboom.github.io/ccmeelboom/Resumes/ProjectManagementResume.pdf" target="_blank" rel="noopener noreferrer">Project Management</a>
-          </div>
-          </div>
+          <a class="hero-btn" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Resumes" target="_blank" rel="noopener noreferrer">
+            View Resumes
+          </a>
 
           <a class="hero-btn" href="https://www.linkedin.com/in/ccmeelboom/" target="_blank">LinkedIn Profile</a>
         </div>
@@ -719,6 +694,7 @@
 
     </div>
 
+    <!-- EXPERIENCE SECTION -->
     <div id="experience" class="fade-section">
 
       <div class="section-title-left">Experience</div>
@@ -918,6 +894,7 @@
 
     </div>
 
+    <!-- PROJECTS SECTION -->
     <div id="projects" class="fade-section">
 
       <div class="section-title-left">Projects</div>
@@ -932,7 +909,9 @@
 
             <h3 class="project-title">Eccentric Differential Mounts</h3>
 
-            <p class="project-description">Coming soon.</p>
+            <p class="project-description">
+              Coming soon.
+            </p>
 
             <a class="project-link" href="./Projects/EccentricDifferentialMounts/main.html">View Project</a>
           </div>
@@ -1130,6 +1109,7 @@
 
     </div>
 
+    <!-- EDUCATION SECTION -->
     <div id="education" class="fade-section">
 
       <div class="section-title-left">Education</div>
@@ -1145,6 +1125,7 @@
 
     </div>
 
+    <!-- CONTACT -->
     <section id="contact" class="contact-section fade-section">
 
       <div class="contact-left">
@@ -1201,6 +1182,7 @@
 
   </div>
 
+  <!-- ANIMATION + ACTIVE NAV SCRIPT -->
   <script>
     const observer = new IntersectionObserver(
       entries => {
@@ -1265,32 +1247,6 @@
     window.addEventListener("scroll", updateActiveNavOnScroll);
     window.addEventListener("resize", updateActiveNavOnScroll);
     window.addEventListener("load", updateActiveNavOnScroll);
-
-    const resumeDropdown = document.querySelector(".resume-dropdown");
-    const resumeToggle = document.querySelector(".resume-toggle");
-
-    if (resumeDropdown && resumeToggle) {
-      resumeToggle.addEventListener("click", event => {
-        event.stopPropagation();
-
-        const isOpen = resumeDropdown.classList.toggle("open");
-        resumeToggle.setAttribute("aria-expanded", isOpen);
-      });
-
-      document.addEventListener("click", event => {
-        if (!resumeDropdown.contains(event.target)) {
-          resumeDropdown.classList.remove("open");
-          resumeToggle.setAttribute("aria-expanded", "false");
-        }
-      });
-
-      document.addEventListener("keydown", event => {
-        if (event.key === "Escape") {
-          resumeDropdown.classList.remove("open");
-          resumeToggle.setAttribute("aria-expanded", "false");
-        }
-      });
-    }
   </script>
 
 </body>
