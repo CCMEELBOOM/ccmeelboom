@@ -1,3 +1,6 @@
+Here’s the fully updated script with the resume dropdown fix included and the resume paths left as-is.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -717,9 +720,9 @@
             </button>
 
             <div class="resume-menu">
-              <a class="resume-option" href="./Resumes/EngineeringResume.pdf" target="_blank">Engineering</a>
-              <a class="resume-option" href="./Resumes/FinanceResume.pdf" target="_blank">Finance</a>
-              <a class="resume-option" href="./Resumes/ProjectManagementResume.pdf" target="_blank">Project Management</a>
+              <a class="resume-option" href="./Resumes/EngineeringResume.pdf" target="_blank" rel="noopener noreferrer">Engineering</a>
+              <a class="resume-option" href="./Resumes/FinanceResume.pdf" target="_blank" rel="noopener noreferrer">Finance</a>
+              <a class="resume-option" href="./Resumes/ProjectManagementResume.pdf" target="_blank" rel="noopener noreferrer">Project Management</a>
             </div>
           </div>
 
@@ -804,15 +807,15 @@
             <li>Built Aztec Electric Racing’s first business and operations department from the ground up, recruiting 20+ members through Fowler College of Business outreach, business club partnerships, and internal team expansion.</li>
             <li>Ran weekly execution meetings across business, operations, and technical subteams to improve accountability, task tracking, and cross-functional coordination.</li>
             <li>Helped secure over $120,000 in funding through alumni events, sponsorship outreach, and donor engagement.</li>
-            <li>Led the FSAE cost-report effort twice, coordinating GD&T drawing collection, revisions, and subteam inputs to deliver a 700+ page compliant report in under four months.</li>
+            <li>Led the FSAE cost-report effort twice, coordinating GD&amp;T drawing collection, revisions, and subteam inputs to deliver a 700+ page compliant report in under four months.</li>
             <li>Owned mechanical design of safety-critical housings including the RML and Fill Can in SolidWorks; iterated Bambu X1 Carbon prototypes to validate fit, assembly, sealing, and waterproofing.</li>
-            <li>Supported powertrain design through Reset Latch PCB documentation, GD&T component drawings, test-data collection, design validation, and tab-thickness structural analysis.</li>
+            <li>Supported powertrain design through Reset Latch PCB documentation, GD&amp;T component drawings, test-data collection, design validation, and tab-thickness structural analysis.</li>
             <li>Supported manufacturing through rear-wing wet layups, waterjet fabrication for tabs and rotors, and 3D printing of custom housings.</li>
           </ul>
 
           <div class="exp-skills">
             <div class="chip">SolidWorks</div>
-            <div class="chip">GD&T</div>
+            <div class="chip">GD&amp;T</div>
             <div class="chip">Fluids Analysis</div>
             <div class="chip">Waterjet Manufacturing</div>
             <div class="chip">3D Printing</div>
@@ -1333,6 +1336,7 @@
 
     const resumeDropdown = document.querySelector(".resume-dropdown");
     const resumeToggle = document.querySelector(".resume-toggle");
+    const resumeOptions = document.querySelectorAll(".resume-option");
 
     if (resumeDropdown && resumeToggle) {
       resumeToggle.addEventListener("click", event => {
@@ -1340,6 +1344,12 @@
 
         const isOpen = resumeDropdown.classList.toggle("open");
         resumeToggle.setAttribute("aria-expanded", isOpen);
+      });
+
+      resumeOptions.forEach(option => {
+        option.addEventListener("click", event => {
+          event.stopPropagation();
+        });
       });
 
       document.addEventListener("click", event => {
