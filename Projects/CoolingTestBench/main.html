@@ -602,13 +602,34 @@
               <ul>
             <li> Six 36in T Tracks</li>
             <li> 2x Sous Vide (to heat water evenly)</li>
-            <li> 2 3/4" NPT inline temperature sensors (to find delta across radiator)</li>
+            <li> 2 3/4" NPT inline temperature sensors (to find delta across the radiator)</li>
           </ul>
           </p>
         </div>
 
         <div class="process-image-wrap">
-          <div class="image-placeholder">In Progress</div>
+          <img src="images/CoolingTestBench.png" alt="Final cooling test bench CAD model">
+        </div>
+      </section>
+
+     <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Step Four / Wiring</h3>
+          <p>
+              The next step is lay out the wriring schematic for the data acquisition system. For this I was helped by a Powertrain member <a href="https://www.linkedin.com/in/arsalan-ghazialam/" target="_blank"> Arsalan </a>. 
+              Wiring for the dataq system was designed to meet the current load of 7 seperate sensors. Using what I learned from making the 6 DoF robot arm where I powered 6 servos with an external power source, similarly in this 
+              system, I am using an external 5V power source (through a jack barrel) to power the sensors and the Arduino. The sensors feedback wires will be connected to the Arduino analog pins to collect and record data using the Arduino's serial monitor.
+              The wiring for the bench consists of the following:
+          <ul>
+            <li> Six sensors + one Arduino Uno</li>
+            <li> External 5V power source (through a jack barrel)</li>
+            <li> Breadboard to connect the components</li>
+          </ul>
+          </p>
+        </div>
+
+        <div class="process-image-wrap">
+           <img src="images/wiring.png" alt="Wiring schematic for the data acquisition system">
         </div>
       </section>
 
