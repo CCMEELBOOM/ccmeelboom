@@ -91,24 +91,46 @@
       padding-top: 40px;
     }
 
-    /* ABOUT SECTION — TWO COLUMNS */
+    /* ABOUT SECTION */
     .about-wrapper {
       max-width: 1100px;
       margin: 0 auto 60px auto;
       padding: 0 20px;
 
-      display: flex;
+      display: grid;
+      grid-template-columns: 320px 1fr;
       gap: 40px;
-      align-items: flex-start;
-      flex-wrap: wrap;
+      align-items: center;
 
       position: relative;
       z-index: 100;
     }
 
+    .headshot-wrap {
+      width: 100%;
+      max-width: 320px;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #2B45C4;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+    }
+
+    .headshot-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .about-main {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
     .about-left {
-      flex: 1 1 55%;
-      min-width: 280px;
       position: relative;
       z-index: 120;
     }
@@ -155,8 +177,6 @@
 
     /* RIGHT SIDE BOX */
     .about-box {
-      flex: 1 1 35%;
-      min-width: 260px;
       background: #2B45C4;
       padding: 25px;
       border-radius: 12px;
@@ -165,7 +185,7 @@
     }
 
     .about-box:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
 
     .about-box h3 {
@@ -588,6 +608,19 @@
         gap: 15px;
       }
 
+      .about-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      .headshot-wrap {
+        max-width: 260px;
+        margin: 0 auto;
+      }
+
+      .about-left {
+        text-align: left;
+      }
+
       .project-box {
         grid-template-columns: 1fr;
       }
@@ -625,71 +658,79 @@
     <!-- ABOUT SECTION -->
     <div id="about" class="about-wrapper fade-section">
 
-      <div class="about-left">
-        <h2>About</h2>
-
-        <p>
-          I’m a Mechanical Engineering student at San Diego State University focused on mechanical design, testing, and systems integration. 
-          Through Aztec Electric Racing and intensive project-based work, I’ve developed a track record of building reliable hardware and leading cross-functional efforts under tight timelines. 
-          I build for performance and reliability, and I'm looking to bring this drive to a fast-paced team in the advanced tech and aerospace sectors. 
-          Explore my portfolio below to see my work from concept to execution.
-        </p>
-
-        <div class="hero-buttons">
-          <a class="hero-btn" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Resumes" target="_blank" rel="noopener noreferrer">
-            View Resumes
-          </a>
-
-          <a class="hero-btn" href="https://www.linkedin.com/in/ccmeelboom/" target="_blank">LinkedIn Profile</a>
-        </div>
+      <div class="headshot-wrap">
+        <img src="./HEADSHOT.png" alt="Headshot of Charlie Chavez Meelboom">
       </div>
 
-      <div class="about-box">
-        <h3>Actively Exploring</h3>
+      <div class="about-main">
 
-        <p><strong>Internships / Co-ops</strong></p>
-        <p><strong>Current role:</strong> FSAE Business Lead, FSAE Junior Powertrain Lead </p>
-        <p><strong>Years of experience:</strong> 2+</p>
-        <p><strong>Graduation:</strong> May 2028</p>
-        <p><strong>Technical Skills:</strong></p>
+        <div class="about-left">
+          <h2>About</h2>
 
-        <div class="about-skill-chips">
-          <div class="about-skill-chip">3D Printing</div>
-          <div class="about-skill-chip">SolidWorks</div>
-          <div class="about-skill-chip">GD&amp;T</div>
-          <div class="about-skill-chip">Fluids Analysis</div>
-          <div class="about-skill-chip">Waterjet Manufacturing</div>
-          <div class="about-skill-chip">Arduino IDE</div>
-          <div class="about-skill-chip">ROS2</div>
-          <div class="about-skill-chip">Python</div>
-          <div class="about-skill-chip">Linux</div>
-          <div class="about-skill-chip">Sensor Integration</div>
-          <div class="about-skill-chip">Hardware Troubleshooting</div>
-          <div class="about-skill-chip">Test Documentation</div>
-          <div class="about-skill-chip">Excel</div>
-          <div class="about-skill-chip">Financial Modeling</div>
-          <div class="about-skill-chip">Valuation</div>
-          <div class="about-skill-chip">10-K Analysis</div>
-          <div class="about-skill-chip">Due Diligence</div>
-          <div class="about-skill-chip">Equity Research</div>
-          <div class="about-skill-chip">Market Sizing</div>
-          <div class="about-skill-chip">Investment Memos</div>
-          <div class="about-skill-chip">Pitch Decks</div>
-          <div class="about-skill-chip">PowerPoint</div>
-          <div class="about-skill-chip">Budget Management</div>
-          <div class="about-skill-chip">Financial Tracking</div>
-          <div class="about-skill-chip">Process Improvement</div>
-          <div class="about-skill-chip">Fundraising</div>
-          <div class="about-skill-chip">Sponsorship Outreach</div>
-          <div class="about-skill-chip">Team Leadership</div>
-          <div class="about-skill-chip">Public Speaking</div>
-          <div class="about-skill-chip">HubSpot</div>
-          <div class="about-skill-chip">Account Coordination</div>
-          <div class="about-skill-chip">Client Communication</div>
-          <div class="about-skill-chip">Inventory Management</div>
-          <div class="about-skill-chip">Product Exports</div>
-          <div class="about-skill-chip">Warehouse Operations</div>
+          <p>
+            I’m a Mechanical Engineering student at San Diego State University focused on mechanical design, testing, and systems integration. 
+            Through Aztec Electric Racing and intensive project-based work, I’ve developed a track record of building reliable hardware and leading cross-functional efforts under tight timelines. 
+            I build for performance and reliability, and I'm looking to bring this drive to a fast-paced team in the advanced tech and aerospace sectors. 
+            Explore my portfolio below to see my work from concept to execution.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="hero-btn" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Resumes" target="_blank" rel="noopener noreferrer">
+              View Resumes
+            </a>
+
+            <a class="hero-btn" href="https://www.linkedin.com/in/ccmeelboom/" target="_blank">LinkedIn Profile</a>
+          </div>
         </div>
+
+        <div class="about-box">
+          <h3>Actively Exploring</h3>
+
+          <p><strong>Internships / Co-ops</strong></p>
+          <p><strong>Current role:</strong> FSAE Business Lead, FSAE Junior Powertrain Lead </p>
+          <p><strong>Years of experience:</strong> 2+</p>
+          <p><strong>Graduation:</strong> May 2028</p>
+          <p><strong>Technical Skills:</strong></p>
+
+          <div class="about-skill-chips">
+            <div class="about-skill-chip">3D Printing</div>
+            <div class="about-skill-chip">SolidWorks</div>
+            <div class="about-skill-chip">GD&amp;T</div>
+            <div class="about-skill-chip">Fluids Analysis</div>
+            <div class="about-skill-chip">Waterjet Manufacturing</div>
+            <div class="about-skill-chip">Arduino IDE</div>
+            <div class="about-skill-chip">ROS2</div>
+            <div class="about-skill-chip">Python</div>
+            <div class="about-skill-chip">Linux</div>
+            <div class="about-skill-chip">Sensor Integration</div>
+            <div class="about-skill-chip">Hardware Troubleshooting</div>
+            <div class="about-skill-chip">Test Documentation</div>
+            <div class="about-skill-chip">Excel</div>
+            <div class="about-skill-chip">Financial Modeling</div>
+            <div class="about-skill-chip">Valuation</div>
+            <div class="about-skill-chip">10-K Analysis</div>
+            <div class="about-skill-chip">Due Diligence</div>
+            <div class="about-skill-chip">Equity Research</div>
+            <div class="about-skill-chip">Market Sizing</div>
+            <div class="about-skill-chip">Investment Memos</div>
+            <div class="about-skill-chip">Pitch Decks</div>
+            <div class="about-skill-chip">PowerPoint</div>
+            <div class="about-skill-chip">Budget Management</div>
+            <div class="about-skill-chip">Financial Tracking</div>
+            <div class="about-skill-chip">Process Improvement</div>
+            <div class="about-skill-chip">Fundraising</div>
+            <div class="about-skill-chip">Sponsorship Outreach</div>
+            <div class="about-skill-chip">Team Leadership</div>
+            <div class="about-skill-chip">Public Speaking</div>
+            <div class="about-skill-chip">HubSpot</div>
+            <div class="about-skill-chip">Account Coordination</div>
+            <div class="about-skill-chip">Client Communication</div>
+            <div class="about-skill-chip">Inventory Management</div>
+            <div class="about-skill-chip">Product Exports</div>
+            <div class="about-skill-chip">Warehouse Operations</div>
+          </div>
+        </div>
+
       </div>
 
     </div>
