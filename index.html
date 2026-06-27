@@ -98,36 +98,12 @@
       padding: 0 20px;
 
       display: grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 1.15fr 0.85fr;
       gap: 40px;
-      align-items: center;
+      align-items: flex-start;
 
       position: relative;
       z-index: 100;
-    }
-
-    .headshot-wrap {
-      width: 100%;
-      max-width: 320px;
-      aspect-ratio: 1 / 1;
-      border-radius: 24px;
-      overflow: hidden;
-      background: #2B45C4;
-      border: 2px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-    }
-
-    .headshot-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .about-main {
-      display: flex;
-      flex-direction: column;
-      gap: 25px;
     }
 
     .about-left {
@@ -138,10 +114,30 @@
     .about-left h2 {
       font-family: 'Bungee', sans-serif;
       font-size: 2rem;
-      margin-bottom: 10px;
+      margin-top: 0;
+      margin-bottom: 18px;
       color: #ffffff;
       text-transform: uppercase;
       letter-spacing: 1px;
+    }
+
+    .headshot-wrap {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 1 / 1;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #2B45C4;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      margin-bottom: 22px;
+    }
+
+    .headshot-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .about-left p {
@@ -178,10 +174,11 @@
     /* RIGHT SIDE BOX */
     .about-box {
       background: #2B45C4;
-      padding: 25px;
+      padding: 20px;
       border-radius: 12px;
       color: white;
       transition: transform 0.25s ease;
+      align-self: start;
     }
 
     .about-box:hover {
@@ -190,18 +187,61 @@
 
     .about-box h3 {
       font-family: 'Bungee', sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       margin-top: 0;
       margin-bottom: 10px;
       color: #000;
       text-transform: uppercase;
     }
 
+    .about-box p {
+      margin: 8px 0;
+      font-size: 0.95rem;
+    }
+
+    .skills-toggle {
+      width: 100%;
+      margin-top: 12px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: #ffffff;
+      font-family: 'Oxygen', sans-serif;
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-align: left;
+    }
+
+    .skills-toggle-text {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .skills-arrow {
+      font-size: 1rem;
+      transition: transform 0.25s ease;
+    }
+
+    .about-box.skills-open .skills-arrow {
+      transform: rotate(180deg);
+    }
+
     .about-skill-chips {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
-      margin-top: 10px;
+      margin-top: 12px;
+      max-height: 38px;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+
+    .about-box.skills-open .about-skill-chips {
+      max-height: 700px;
     }
 
     .about-skill-chip {
@@ -209,7 +249,7 @@
       color: #ffffff;
       padding: 6px 11px;
       border-radius: 999px;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       white-space: nowrap;
     }
@@ -613,12 +653,7 @@
       }
 
       .headshot-wrap {
-        max-width: 260px;
-        margin: 0 auto;
-      }
-
-      .about-left {
-        text-align: left;
+        max-width: 280px;
       }
 
       .project-box {
@@ -658,79 +693,79 @@
     <!-- ABOUT SECTION -->
     <div id="about" class="about-wrapper fade-section">
 
-      <div class="headshot-wrap">
-        <img src="./HEADSHOT.png" alt="Headshot of Charlie Chavez Meelboom">
+      <div class="about-left">
+        <h2>About</h2>
+
+        <div class="headshot-wrap">
+          <img src="./HEADSHOT.png" alt="Headshot of Charlie Chavez Meelboom">
+        </div>
+
+        <p>
+          I’m a Mechanical Engineering student at San Diego State University focused on mechanical design, testing, and systems integration. 
+          Through Aztec Electric Racing and intensive project-based work, I’ve developed a track record of building reliable hardware and leading cross-functional efforts under tight timelines. 
+          I build for performance and reliability, and I'm looking to bring this drive to a fast-paced team in the advanced tech and aerospace sectors. 
+          Explore my portfolio below to see my work from concept to execution.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="hero-btn" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Resumes" target="_blank" rel="noopener noreferrer">
+            View Resumes
+          </a>
+
+          <a class="hero-btn" href="https://www.linkedin.com/in/ccmeelboom/" target="_blank">LinkedIn Profile</a>
+        </div>
       </div>
 
-      <div class="about-main">
+      <div class="about-box">
+        <h3>Actively Exploring</h3>
 
-        <div class="about-left">
-          <h2>About</h2>
+        <p><strong>Internships / Co-ops</strong></p>
+        <p><strong>Current role:</strong> FSAE Business Lead, FSAE Junior Powertrain Lead </p>
+        <p><strong>Years of experience:</strong> 2+</p>
+        <p><strong>Graduation:</strong> May 2028</p>
 
-          <p>
-            I’m a Mechanical Engineering student at San Diego State University focused on mechanical design, testing, and systems integration. 
-            Through Aztec Electric Racing and intensive project-based work, I’ve developed a track record of building reliable hardware and leading cross-functional efforts under tight timelines. 
-            I build for performance and reliability, and I'm looking to bring this drive to a fast-paced team in the advanced tech and aerospace sectors. 
-            Explore my portfolio below to see my work from concept to execution.
-          </p>
+        <button class="skills-toggle" type="button" aria-expanded="false">
+          <span class="skills-toggle-text">Technical Skills</span>
+          <span class="skills-arrow">▼</span>
+        </button>
 
-          <div class="hero-buttons">
-            <a class="hero-btn" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Resumes" target="_blank" rel="noopener noreferrer">
-              View Resumes
-            </a>
-
-            <a class="hero-btn" href="https://www.linkedin.com/in/ccmeelboom/" target="_blank">LinkedIn Profile</a>
-          </div>
+        <div class="about-skill-chips">
+          <div class="about-skill-chip">3D Printing</div>
+          <div class="about-skill-chip">SolidWorks</div>
+          <div class="about-skill-chip">GD&amp;T</div>
+          <div class="about-skill-chip">Fluids Analysis</div>
+          <div class="about-skill-chip">Waterjet Manufacturing</div>
+          <div class="about-skill-chip">Arduino IDE</div>
+          <div class="about-skill-chip">ROS2</div>
+          <div class="about-skill-chip">Python</div>
+          <div class="about-skill-chip">Linux</div>
+          <div class="about-skill-chip">Sensor Integration</div>
+          <div class="about-skill-chip">Hardware Troubleshooting</div>
+          <div class="about-skill-chip">Test Documentation</div>
+          <div class="about-skill-chip">Excel</div>
+          <div class="about-skill-chip">Financial Modeling</div>
+          <div class="about-skill-chip">Valuation</div>
+          <div class="about-skill-chip">10-K Analysis</div>
+          <div class="about-skill-chip">Due Diligence</div>
+          <div class="about-skill-chip">Equity Research</div>
+          <div class="about-skill-chip">Market Sizing</div>
+          <div class="about-skill-chip">Investment Memos</div>
+          <div class="about-skill-chip">Pitch Decks</div>
+          <div class="about-skill-chip">PowerPoint</div>
+          <div class="about-skill-chip">Budget Management</div>
+          <div class="about-skill-chip">Financial Tracking</div>
+          <div class="about-skill-chip">Process Improvement</div>
+          <div class="about-skill-chip">Fundraising</div>
+          <div class="about-skill-chip">Sponsorship Outreach</div>
+          <div class="about-skill-chip">Team Leadership</div>
+          <div class="about-skill-chip">Public Speaking</div>
+          <div class="about-skill-chip">HubSpot</div>
+          <div class="about-skill-chip">Account Coordination</div>
+          <div class="about-skill-chip">Client Communication</div>
+          <div class="about-skill-chip">Inventory Management</div>
+          <div class="about-skill-chip">Product Exports</div>
+          <div class="about-skill-chip">Warehouse Operations</div>
         </div>
-
-        <div class="about-box">
-          <h3>Actively Exploring</h3>
-
-          <p><strong>Internships / Co-ops</strong></p>
-          <p><strong>Current role:</strong> FSAE Business Lead, FSAE Junior Powertrain Lead </p>
-          <p><strong>Years of experience:</strong> 2+</p>
-          <p><strong>Graduation:</strong> May 2028</p>
-          <p><strong>Technical Skills:</strong></p>
-
-          <div class="about-skill-chips">
-            <div class="about-skill-chip">3D Printing</div>
-            <div class="about-skill-chip">SolidWorks</div>
-            <div class="about-skill-chip">GD&amp;T</div>
-            <div class="about-skill-chip">Fluids Analysis</div>
-            <div class="about-skill-chip">Waterjet Manufacturing</div>
-            <div class="about-skill-chip">Arduino IDE</div>
-            <div class="about-skill-chip">ROS2</div>
-            <div class="about-skill-chip">Python</div>
-            <div class="about-skill-chip">Linux</div>
-            <div class="about-skill-chip">Sensor Integration</div>
-            <div class="about-skill-chip">Hardware Troubleshooting</div>
-            <div class="about-skill-chip">Test Documentation</div>
-            <div class="about-skill-chip">Excel</div>
-            <div class="about-skill-chip">Financial Modeling</div>
-            <div class="about-skill-chip">Valuation</div>
-            <div class="about-skill-chip">10-K Analysis</div>
-            <div class="about-skill-chip">Due Diligence</div>
-            <div class="about-skill-chip">Equity Research</div>
-            <div class="about-skill-chip">Market Sizing</div>
-            <div class="about-skill-chip">Investment Memos</div>
-            <div class="about-skill-chip">Pitch Decks</div>
-            <div class="about-skill-chip">PowerPoint</div>
-            <div class="about-skill-chip">Budget Management</div>
-            <div class="about-skill-chip">Financial Tracking</div>
-            <div class="about-skill-chip">Process Improvement</div>
-            <div class="about-skill-chip">Fundraising</div>
-            <div class="about-skill-chip">Sponsorship Outreach</div>
-            <div class="about-skill-chip">Team Leadership</div>
-            <div class="about-skill-chip">Public Speaking</div>
-            <div class="about-skill-chip">HubSpot</div>
-            <div class="about-skill-chip">Account Coordination</div>
-            <div class="about-skill-chip">Client Communication</div>
-            <div class="about-skill-chip">Inventory Management</div>
-            <div class="about-skill-chip">Product Exports</div>
-            <div class="about-skill-chip">Warehouse Operations</div>
-          </div>
-        </div>
-
       </div>
 
     </div>
@@ -1291,6 +1326,16 @@
     window.addEventListener("scroll", updateActiveNavOnScroll);
     window.addEventListener("resize", updateActiveNavOnScroll);
     window.addEventListener("load", updateActiveNavOnScroll);
+
+    const skillsToggle = document.querySelector(".skills-toggle");
+    const aboutBox = document.querySelector(".about-box");
+
+    if (skillsToggle && aboutBox) {
+      skillsToggle.addEventListener("click", () => {
+        const isOpen = aboutBox.classList.toggle("skills-open");
+        skillsToggle.setAttribute("aria-expanded", isOpen);
+      });
+    }
   </script>
 
 </body>
