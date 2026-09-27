@@ -616,12 +616,11 @@
         <div class="process-text">
           <h3>Step Five / Wiring</h3>
           <p>
-              The next step is lay out the wriring schematic for the data acquisition system. For this I was helped by a Powertrain member <a href="https://www.linkedin.com/in/arsalan-ghazialam/" target="_blank"> Arsalan </a>. 
-              Wiring for the dataq system was designed to meet the current load of 7 seperate sensors. Using what I learned from making the 6 DoF robot arm where I powered 6 servos with an external power source, similarly in this 
-              system, I am using an external 5V power source (through a jack barrel) to power the sensors and the Arduino. The sensors feedback wires will be connected to the Arduino analog pins to collect and record data using the Arduino's serial monitor.
+              The next step was laying out the wiring schematic for the data-acquisition system. I was helped by Powertrain member <a href="https://www.linkedin.com/in/arsalan-ghazialam/" target="_blank">Arsalan</a>.
+              The system uses an external regulated 5 V supply through a barrel jack so the sensors and Arduino are not powered through an Arduino I/O pin. Each sensor's signal wire is routed to an Arduino analog input, allowing the readings to be recorded through the serial monitor.
               The wiring for the bench consists of the following:
           <ul>
-            <li> Six sensors + one Arduino Uno</li>
+            <li> Six sensors + one Arduino Nano on the prototyping board</li>
             <li> External 5V power source (through a jack barrel)</li>
             <li> Breadboard to connect the components</li>
           </ul>
@@ -635,19 +634,84 @@
 
       <section class="process-box fade-section">
         <div class="process-text">
-          <h3>Step Six / Integration (In Progress)</h3>
+          <h3>Pump Wiring / PWM Control</h3>
           <p>
-              The next step is to purchase the materials and integrate the components together. 
+            The pump diagram separates the pump's higher-current power path from the Arduino's low-current control signal. The external supply powers the pump, while the Arduino sends a PWM command to control pump speed. A shared ground gives the PWM signal a stable reference, and the pump's feedback line can be read by the controller when tachometer information is available.
+            This arrangement keeps motor current out of the Arduino and makes pump speed repeatable during pressure-loss testing.
+          </p>
+        </div>
+        <div class="process-image-wrap">
+          <img src="images/SCH_PUMP PWM WIRING DIAGRAM_1-WIRING DIAGRAM_2026-09-24.png" alt="Pump PWM wiring diagram">
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Thermistor Wiring / Temperature Measurement</h3>
+          <p>
+            The thermistor is wired as a voltage divider: the temperature-dependent resistance changes the divider voltage, which the Arduino reads on an analog input. The fixed resistor provides a known reference, while the shared 5 V supply and ground keep the measurement consistent. Two temperature sensors can be placed on opposite sides of the radiator so the temperature change across the radiator can be calculated.
+          </p>
+        </div>
+        <div class="process-image-wrap">
+          <img src="images/SCH_THERMISTOR WIRING DIAGRAM_1-WIRING DIAGRAM_2026-09-24.png" alt="Thermistor wiring diagram">
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Fan Wiring / PWM Output</h3>
+          <p>
+            The fan uses the same control principle as the pump: the external supply carries the fan current, while the Arduino provides the PWM command. The power and control grounds are tied together so the fan can interpret the duty cycle correctly. Keeping the fan on its own power path prevents its switching current from disturbing the sensor readings and allows airflow to be held at a repeatable test condition.
+          </p>
+        </div>
+        <div class="process-image-wrap">
+          <img src="images/SCH_FAN PWM WIRING DIAGRAM_1-P1_2026-09-24.png" alt="Fan PWM wiring diagram">
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Flow Meter and Pressure Transducers</h3>
+          <p>
+            The flow meter and pressure transducers share the regulated sensor supply and return their measurement signals to separate Arduino inputs. The flow-meter signal provides the independent flow-rate value used with the pressure readings, while the pressure transducers are installed before and after the radiator to calculate pressure drop. Separating the signals makes each channel easier to calibrate and troubleshoot.
+          </p>
+        </div>
+        <div class="process-image-wrap">
+          <img src="images/SCH_FLOWMETER WIRING DIAGRAM_1-WIRING DIAGRAM_2026-09-24.png" alt="Flow meter wiring diagram">
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Pressure Transducer Wiring</h3>
+          <p>
+            Each pressure transducer receives regulated power and ground, then sends an analog output proportional to pressure. Using one input per transducer preserves the pressure difference across the radiator instead of combining the signals. That differential measurement is the value needed to determine the radiator's loss coefficient as flow rate changes.
+          </p>
+        </div>
+        <div class="process-image-wrap">
+          <img src="images/SCH_PRESSURE TRANSDUCER WIRING DIAGRAM_1-WIRING DIAGRAM_2026-09-24.png" alt="Pressure transducer wiring diagram">
+        </div>
+      </section>
+
+      <section class="process-box fade-section">
+        <div class="process-text">
+          <h3>Step Six / Wiring Harness and Prototyping Board</h3>
+          <p>
+              The next step is to replace the temporary jumper-wire setup with a dedicated wiring harness for the sensors. Each sensor will have a defined connector and cable path, then terminate at a prototyping board with an Arduino Nano mounted on it.
+          </p>
           <ul>
-            <li> </li>
-            <li> </li>
-            <li> </li>
+            <li>Build and label the sensor wiring harness.</li>
+            <li>Connect the sensors to a single prototyping board.</li>
+            <li>Mount the Arduino Nano on the board for a repeatable test setup.</li>
+            <li>Verify sensor power, ground, signal routing, and strain relief before testing.</li>
           </ul>
+          <p>
+              This should reduce setup time between tests and make the data-acquisition system easier to troubleshoot. The streamlined platform will also support the upcoming active-cooling project, where repeatable sensor connections will be important for evaluating pump and fan control.
           </p>
         </div>
 
         <div class="process-image-wrap">
-           <img src="images/wiring.png" alt="Wiring schematic for the data acquisition system">
+           <img src="images/wiring.png" alt="Temporary wiring setup for the cooling test bench">
         </div>
       </section>
 

@@ -174,6 +174,42 @@
       margin-top: 15px;
     }
 
+    .metric-callout {
+      background: #000000;
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 22px 25px;
+      margin: 20px 0 25px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      align-items: center;
+      border: 4px solid #2B45C4;
+    }
+
+    .metric-callout h3 {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: #ffffff;
+      font-family: 'Bungee', sans-serif;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .metric-value {
+      font-family: 'Bungee', sans-serif;
+      color: #ffffff;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .metric-label {
+      color: #ffffff;
+      margin-top: 7px;
+      font-size: 0.88rem;
+    }
+
     .chip {
       background: #0F2F75;
       color: #000000;
@@ -436,7 +472,8 @@
       }
 
       .media-grid,
-      .resource-grid {
+      .resource-grid,
+      .metric-callout {
         grid-template-columns: 1fr;
       }
 
@@ -506,6 +543,22 @@
         </div>
       </section>
 
+      <section class="metric-callout fade-section" aria-label="Radiator CAD improvement metrics">
+        <h3>Measured improvement</h3>
+        <div>
+          <div class="metric-value">+25%</div>
+          <div class="metric-label">Revised CAD internal volume compared with the actual radiator</div>
+        </div>
+        <div>
+          <div class="metric-value">6+</div>
+          <div class="metric-label">CAD iterations used to refine the internal geometry</div>
+        </div>
+        <div>
+          <div class="metric-value">OPENED</div>
+          <div class="metric-label">Physical radiator cut open with a saw to inspect the internal geometry</div>
+        </div>
+      </section>
+
       <!-- OVERVIEW -->
       <div id="overview" class="section-title-left">Overview</div>
 
@@ -513,7 +566,7 @@
         <h3>Problem</h3>
         <p>
           The main challenge was that our team needed an accurate radiator/oil cooler CAD model for cooling system analysis, but the manufacturer did not provide one.
-          The simplified model we had was missing geometry, such as the fins, and its internal volume was 0.58 quarts compared to the actual volume of 0.3 quarts, preventing reliable fluid or thermal simulations.
+          The simplified model was missing important internal geometry, preventing reliable fluid or thermal simulations.
         </p>
       </section>
 
@@ -522,8 +575,9 @@
         <p>
           I developed a new CAD model by extracting dimensions from manufacturer images using a web plot digitizer, then scaling those measurements to the actual core dimensions.
           Through multiple design iterations, the CAD model became more modular so tube count, fin spacing, and core dimensions can be adjusted more easily in the future.
+          I then cut open the physical radiator with a saw so I could inspect the internal geometry directly and use those observations to update the CAD model.
           I used Ansys Discovery to extract and compare internal volume across each version, reducing the modeled volume from the original simplified estimate and improving the model’s usefulness for future fluids and thermal analysis.
-          The final model includes all key geometry such as louvered fins and a volume of 0.43 quarts, a volume approximately 26% more accurate than the original model.
+          The final model includes the key internal geometry needed for analysis. Its estimated internal volume is now 25% larger than the actual radiator volume, a significant improvement over the previous CAD iteration.
         </p>
       </section>
 
@@ -550,6 +604,7 @@
           <p>
             The first iteration was of a 19-row core, which was incorrect because we were using a 16-row radiator.
             After six iterations, the model was refined to use cleaner and less process-intensive CAD methods, such as surface offset and interference for equal thickness along tube walls.
+            I also cut open the physical radiator to inspect the internal geometry and use that information to update the CAD.
             The final model includes all key geometry such as louvered fins and a volume of 0.43 quarts.
           </p>
         </div>
@@ -564,8 +619,8 @@
           <h3>Step Three / Volume Extraction</h3>
           <p>
             The final step after each iteration was to extract the internal volume using Ansys Discovery.
-            The original simplified model had a volume of 0.58 quarts compared to the actual volume of 0.3 quarts,
-            while the final model had a volume of 0.43 quarts, a roughly 26% improvement in volumetric accuracy.
+            The volume extraction step was used to compare the revised CAD against the actual radiator volume.
+            The updated model is currently 25% larger than the actual internal volume, which is a significant improvement over the previous CAD iteration.
           </p>
         </div>
 

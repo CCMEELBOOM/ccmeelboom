@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>47T FSAE Sprocket | Charlie Chavez Meelboom</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Oxygen:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; background: #fff; color: #000; font-family: Oxygen, sans-serif; line-height: 1.6; }
+    .topbar { position: sticky; top: 0; z-index: 2; background: #fff; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+    .topbar h1, h2, h3, .section-title-left, .project-label, .nav-link { font-family: Bungee, sans-serif; }
+    .topbar h1 { font-size: 1.4rem; margin: 0; letter-spacing: 1px; }
+    .topbar h1 a { color: #000; text-decoration: none; }
+    nav { display: flex; gap: 25px; flex-wrap: wrap; justify-content: center; flex: 1; }
+    nav a { color: #60666B; text-decoration: none; font-size: 1rem; padding: 7px 12px; border-radius: 999px; }
+    nav a:hover, nav a.active { color: #000; }
+    .content { padding-top: 40px; }
+    .project-page { max-width: 1100px; margin: auto; padding: 0 20px; }
+    .back-link { display: inline-block; margin-bottom: 25px; color: #000; text-decoration: none; border: 1px solid #000; border-radius: 999px; padding: 8px 14px; font-size: .9rem; }
+    .project-hero, .project-box, .process-box, .resource-card { background: #2B45C4; border-radius: 12px; color: #fff; }
+    .project-hero { padding: 30px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 35px; align-items: center; }
+    .project-label { color: #000; font-size: .8rem; letter-spacing: 3px; text-transform: uppercase; }
+    h2 { font-size: 2rem; line-height: 1.2; margin: 10px 0 15px; }
+    .project-summary { font-size: 1.05rem; }
+    .chip-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .chip { background: #0F2F75; color: #fff; padding: 6px 12px; border-radius: 999px; font-size: .8rem; font-weight: 700; }
+    .hero-placeholder { height: 280px; border-radius: 12px; background: rgba(255,255,255,.2); display: grid; place-items: center; text-align: center; padding: 20px; box-sizing: border-box; color: #000; font-weight: 700; }
+    .hero-placeholder img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; background: #fff; }
+    .section-title-left { font-size: 1.8rem; margin: 60px auto 20px; text-transform: uppercase; letter-spacing: 1px; }
+    .project-box { padding: 25px; margin-bottom: 25px; }
+    .weight-callout { background: #000; border: 4px solid #2B45C4; border-radius: 12px; color: #fff; padding: 22px 25px; margin: 20px 0 25px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; align-items: center; }
+    .weight-callout h3 { grid-column: 1 / -1; margin: 0; }
+    .weight-value { font-family: Bungee, sans-serif; font-size: 2rem; line-height: 1; }
+    .weight-label { font-size: .88rem; margin-top: 7px; }
+    h3 { color: #fff; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 12px; }
+    .process-box { padding: 25px; margin-bottom: 25px; display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .process-box ul { margin: 0; padding-left: 20px; }
+    .process-box li { margin-bottom: 8px; }
+    .resource-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .resource-card { padding: 22px; color: #fff; text-decoration: none; }
+    .resource-card h3 { margin-bottom: 8px; }
+    .report-viewer { background: #2B45C4; border-radius: 12px; padding: 18px; }
+    .report-viewer iframe { width: 100%; height: 720px; border: 0; border-radius: 8px; background: #fff; display: block; }
+    .report-link { display: inline-block; margin-top: 14px; color: #fff; font-weight: 700; }
+    .comparison-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .comparison-card { background: #2B45C4; border-radius: 12px; padding: 18px; color: #fff; }
+    .comparison-card h3 { margin-bottom: 8px; }
+    .comparison-card img { width: 100%; height: 300px; object-fit: contain; background: #fff; border-radius: 8px; display: block; }
+    .comparison-card p { margin: 10px 0 0; font-size: .92rem; }
+    footer { text-align: center; padding: 40px; color: #60666B; font-size: .8rem; }
+    @media (max-width: 850px) { .topbar { flex-direction: column; gap: 15px; } .project-hero, .process-box, .resource-grid, .comparison-grid, .weight-callout { grid-template-columns: 1fr; } .hero-placeholder { height: 220px; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><h1><a href="../../index.html">CHARLIE CHAVEZ MEELBOOM</a></h1><nav><a class="active" href="#overview">Overview</a><a href="#process">Process</a><a href="#design">Design</a><a href="#simulation">Simulation</a><a href="#resources">Resources</a></nav></div>
+  <div class="content"><main class="project-page">
+    <a class="back-link" href="../../index.html#projects">← Back to Projects</a>
+    <section class="project-hero"><div><div class="project-label">New project / In progress</div><h2>47T FSAE Sprocket</h2><p class="project-summary">A design study for a 47-tooth FSAE sprocket focused on reducing weight while preserving the requirements needed for reliable drivetrain service.</p><div class="chip-row"><div class="chip">SolidWorks</div><div class="chip">Weight Reduction</div><div class="chip">FSAE</div></div></div><div class="hero-placeholder"><img src="images/47T_CAD_Isometric.png" alt="Isometric CAD view of the 47T FSAE sprocket and hub"></div></section>
+    <section class="weight-callout"><h3>Major weight reduction</h3><div><div class="weight-value">2,154 g</div><div class="weight-label">Previous design mass</div></div><div><div class="weight-value">927 g</div><div class="weight-label">Revised design mass</div></div><div><div class="weight-value">−57%</div><div class="weight-label">1,227 g saved</div></div></section>
+    <div id="overview" class="section-title-left">Overview</div>
+    <section class="project-box"><h3>Goal</h3><p>Reduce the sprocket weight by at least 10% while maintaining the functional, packaging, and manufacturing requirements of the FSAE drivetrain.</p></section>
+    <section class="project-box"><h3>Design requirements</h3><p>The sprocket must reduce weight by at least 10% while meeting the drivetrain interface requirements. It must use the existing 47-tooth layout, fit an ISO 606 428 motorcycle chain, and mate with the Drexler V3 160 mm differential used by the car.</p></section>
+    <section class="project-box"><h3>Current status</h3><p>The sprocket and hub have been CAD modeled and evaluated with hand calculations and an ANSYS static structural simulation. The design work is organized around the five-step process below.</p></section>
+    <div id="process" class="section-title-left">Process</div>
+    <section class="process-box"><div><h3>Step One / Determine requirements</h3><p>The first step was defining the interfaces and performance target for the sprocket:</p><ul><li>Reduce sprocket weight by at least 10%.</li><li>Use the required 47-tooth geometry.</li><li>Fit an ISO 606 428 motorcycle chain.</li><li>Fit the Drexler V3 160 mm differential hub.</li></ul></div><div><h3>Interface constraints</h3><p>The chain standard controls the tooth profile and pitch, while the differential determines the hub geometry, mounting pattern, and packaging constraints. Both interfaces had to be established before material could be removed from the sprocket.</p></div></section>
+    <section class="process-box"><div><h3>Step Two / Determine loading and restraints</h3><p>The primary load case starts with 107 N·m of torque from the motor. That torque was carried through the chain back-tension equation to determine the force applied at the teeth of the 47-tooth sprocket. The restraint condition represents the sprocket and hub being supported through their mounting interface to the Drexler differential.</p></div><div><h3>Load path</h3><p>The resulting tooth force is transferred through the sprocket web and hub into the differential mounting interface. Defining this load path established the inputs for both the hand calculations and the ANSYS static simulation.</p></div></section>
+    <section class="process-box"><div><h3>Step Three / Hand calculations</h3><p>Hand calculations were used to convert motor torque into chain tension and tooth loading before running finite-element analysis. These calculations provided a first check on the expected stresses and helped verify that the simulation setup was using a reasonable force.</p></div><div><h3>Calculation basis</h3><p>The calculation workbook documents the tooth-force calculation and served as an independent engineering check against the later ANSYS results rather than relying on the simulation alone.</p></div></section>
+    <section class="process-box"><div><h3>Step Four / CAD the sprocket and hub</h3><p>The sprocket and its hub were modeled in CAD around the 428 chain interface and Drexler differential mounting requirements. The geometry was developed so that weight-reduction features could be evaluated without changing the required chain or differential interfaces.</p></div><div><h3>CAD focus</h3><p>The CAD stage connected the tooth profile, sprocket web, and differential hub into one assembly-ready design for structural evaluation.</p></div></section>
+    <section class="process-box"><div><h3>Step Five / ANSYS static simulation</h3><p>The final step was setting up an ANSYS static structural simulation using the calculated tooth loading and hub restraints. The simulation was used to evaluate how the sprocket responds to the motor-torque load case and to check the lightweight design against the hand calculations.</p></div><div><h3>Validation</h3><p>The design was assessed by comparing the finite-element response with the analytical load path and the original weight-reduction target. The simulation report is available in the project resources below.</p></div></section>
+    <div id="design" class="section-title-left">Design and FEA Comparison</div>
+    <section class="project-box"><h3>Old versus revised sprocket</h3><p>The revised sprocket changes the web geometry and integrates the hub interface for the Drexler differential. The side-by-side FEA results show how each design responds to its documented static structural setup. The minimum factor of safety is below 1.0 in both results and is concentrated at the mounting bores, but the revised design shows higher factors of safety throughout much of the rest of the part. The previous year's sprocket operated without failure during vehicle use, and the revised design has a similar overall factor-of-safety response, supporting use of the simulated geometry as a design basis while the bore regions remain areas for attention.</p></section>
+    <div class="comparison-grid">
+      <div class="comparison-card"><h3>Factor of safety / old design</h3><img src="images/47T_FEA_FactorofSafety_Front_OLD.png" alt="Factor of safety result for the old 47T sprocket design"><p>Reported minimum factor of safety: 0.36473.</p></div>
+      <div class="comparison-card"><h3>Factor of safety / revised design</h3><img src="images/47T_FEA_FactorofSafety_Front.png" alt="Factor of safety result for the revised 47T sprocket design"><p>Reported minimum factor of safety: 0.5503 at a mounting-bore region. The revised design has higher safety factors across much of the remaining sprocket compared with the old design.</p></div>
+      <div class="comparison-card"><h3>Total deformation / old design</h3><img src="images/47T_FEA_TotalDeformation_Front_OLD.png" alt="Total deformation result for the old 47T sprocket design"><p>Reported maximum deformation: 0.00040371 m.</p></div>
+      <div class="comparison-card"><h3>Total deformation / revised design</h3><img src="images/47T_FEA_TotalDeformation_Front.png" alt="Total deformation result for the revised 47T sprocket design"><p>Reported maximum deformation: 0.00049765 m.</p></div>
+    </div>
+    <div class="section-title-left">CAD Media</div><div class="comparison-grid"><div class="comparison-card"><h3>Isometric CAD view</h3><img src="images/47T_CAD_Isometric.png" alt="Isometric CAD view of the 47T sprocket and hub"><p>Isometric view of the sprocket and integrated hub design.</p></div><div class="comparison-card"><h3>Mounting position</h3><img src="images/47T_CAD_MountingPostion.png" alt="47T sprocket mounted in the drivetrain CAD assembly"><p>Drivetrain packaging view showing the sprocket mounting position.</p></div></div>
+    <div id="simulation" class="section-title-left">ANSYS Simulation Results</div><section class="report-viewer"><iframe src="documents/ANSYS%20Sprocket%20Static%20Simulation%20Results.pdf" title="ANSYS sprocket static simulation results"></iframe><a class="report-link" href="documents/ANSYS%20Sprocket%20Static%20Simulation%20Results.pdf" target="_blank">Open the simulation report in a new tab</a></section>
+    <div id="resources" class="section-title-left">Resources</div><div class="resource-grid"><a class="resource-card" href="https://github.com/CCMEELBOOM/ccmeelboom/tree/main/Projects/47TFSAESprocket" target="_blank"><h3>Project files</h3><p>View the sprocket project files on GitHub.</p></a><a class="resource-card" href="documents/47T%20ISO%20606%20428%20Chain%20Sprocket%20V2.pdf" target="_blank"><h3>Design drawing</h3><p>Open the 47T ISO 606 428 chain sprocket drawing.</p></a><a class="resource-card" href="documents/AER%2027%20Sprocket%20Calculations.xlsx" target="_blank"><h3>Hand calculations</h3><p>Open the spreadsheet used for the tooth-force calculation.</p></a><a class="resource-card" href="documents/ANSYS%20Sprocket%20Static%20Simulation%20Results.pdf" target="_blank"><h3>ANSYS results</h3><p>Open the static structural simulation report.</p></a></div>
+  </main></div><footer>© 2026 Charlie Chavez Meelboom</footer>
+</body>
+</html>
